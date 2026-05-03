@@ -3,8 +3,81 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>祝儀袋 文字変換 | 毛筆風プレビュー</title>
-<meta name="description" content="ご祝儀袋に書く名前と金額を、毛筆風の文字でプレビューできます。漢数字（旧字体）への自動変換にも対応。">
+<title>祝儀袋 筆耕 | ご祝儀袋の文字を毛筆風に変換できる無料ツール</title>
+<meta name="description" content="字が下手で祝儀袋の記入が不安…そんな方のためのお手本ツール。名前と金額を入力するだけで、毛筆風の縦書きプレビューが表示されます。旧字体の漢数字も自動変換。完全無料。">
+<meta name="keywords" content="祝儀袋,ご祝儀袋,書き方,毛筆,筆ペン,旧字体,漢数字,結婚祝い,お手本,無料">
+<meta name="author" content="zmtk0325">
+
+<!-- canonical -->
+<link rel="canonical" href="https://zmtk0325.github.io/goshugi-fude-/">
+
+<!-- OGP (Open Graph Protocol) - Facebook, LINEなど -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zmtk0325.github.io/goshugi-fude-/">
+<meta property="og:title" content="祝儀袋 筆耕 | ご祝儀袋の文字を毛筆風に変換できる無料ツール">
+<meta property="og:description" content="字が下手で祝儀袋の記入が不安…そんな方のためのお手本ツール。名前と金額を入力するだけで、毛筆風の縦書きプレビューが表示されます。旧字体の漢数字も自動変換。完全無料。">
+<meta property="og:site_name" content="祝儀袋 筆耕">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://zmtk0325.github.io/goshugi-fude-/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="祝儀袋 筆耕 - ご祝儀袋の文字を毛筆風に変換">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="祝儀袋 筆耕 | ご祝儀袋の文字を毛筆風に変換できる無料ツール">
+<meta name="twitter:description" content="名前と金額を入力するだけで毛筆風の縦書きプレビュー。旧字体の漢数字も自動変換。字に自信がない方のお手本に。">
+<meta name="twitter:image" content="https://zmtk0325.github.io/goshugi-fude-/ogp.png">
+
+<!-- 構造化データ (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "祝儀袋 筆耕",
+  "alternateName": "ご祝儀袋 文字変換ツール",
+  "url": "https://zmtk0325.github.io/goshugi-fude-/",
+  "description": "ご祝儀袋に書く名前と金額を毛筆風にプレビューできる無料ツール。旧字体の漢数字（壱・弐・参・萬）への自動変換、縦書き表示に対応。",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires JavaScript",
+  "inLanguage": "ja",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "JPY"
+  },
+  "featureList": [
+    "名前の毛筆風縦書きプレビュー",
+    "旧字体の漢数字（壱・弐・参・萬）自動変換",
+    "表書き、内袋（表）、内袋（裏）の3種類対応",
+    "郵便番号・住所の漢数字変換",
+    "3種類のフォント切替"
+  ]
+}
+</script>
+
+<!-- パンくず構造化データ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "ホーム",
+      "item": "https://zmtk0325.github.io/goshugi-fude-/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "結婚祝い"
+    }
+  ]
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,10 +107,183 @@
     line-height: 1.6;
   }
 
+  /* サイトナビ（ハンバーガーメニュー） */
+  .site-nav {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0.8rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .site-logo {
+    font-family: 'Yuji Mai', serif;
+    font-size: 1.3rem;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+  }
+
+  /* ハンバーガーボタン */
+  .hamburger {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--ink);
+    transition: all 0.3s ease;
+  }
+
+  .hamburger.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* メニュー（初期非表示） */
+  .nav-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid var(--line);
+  }
+
+  .nav-menu.open {
+    max-height: 600px;
+    border-top: 1px solid var(--line);
+  }
+
+  .nav-menu ul {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    list-style: none;
+  }
+
+  .nav-menu li {
+    margin: 0;
+  }
+
+  .nav-menu a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0.5rem;
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 0.95rem;
+    border-bottom: 1px dashed rgba(201, 191, 168, 0.5);
+    transition: background 0.2s;
+  }
+
+  .nav-menu a:hover {
+    background: rgba(184, 134, 11, 0.05);
+  }
+
+  .nav-menu a.nav-current {
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .nav-menu a.nav-coming {
+    color: #8a7d6a;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .badge {
+    font-size: 0.7rem;
+    background: var(--gold);
+    color: white;
+    padding: 0.15rem 0.5rem;
+    border-radius: 10px;
+    letter-spacing: 0.05em;
+  }
+
+  .nav-divider {
+    height: 1px;
+    background: var(--line);
+    margin: 0.5rem 0;
+    list-style: none;
+  }
+
+  /* パンくず */
+  .breadcrumb {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0.8rem 1.5rem 0.4rem;
+    font-size: 0.8rem;
+    color: #8a7d6a;
+  }
+
+  .breadcrumb ol {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    align-items: center;
+  }
+
+  .breadcrumb li {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .breadcrumb li:not(:last-child)::after {
+    content: '›';
+    color: var(--gold);
+    margin-left: 0.4rem;
+  }
+
+  .breadcrumb a {
+    color: #5a4d3a;
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--gold);
+    text-decoration: underline;
+  }
+
+  .breadcrumb [aria-current="page"] {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
   /* ヘッダー */
   header {
     text-align: center;
-    padding: 3rem 1.5rem 2rem;
+    padding: 1.5rem 1.5rem 2rem;
     border-bottom: 1px solid var(--line);
     position: relative;
   }
@@ -176,6 +422,23 @@
     font-size: 0.75rem;
     color: #8a7d6a;
     margin-top: 0.4rem;
+  }
+
+  .postal-status {
+    margin-top: 0.3rem;
+    font-weight: 600;
+  }
+
+  .postal-status.success {
+    color: #2d7a3e;
+  }
+
+  .postal-status.error {
+    color: #b8401a;
+  }
+
+  .postal-status.loading {
+    color: #b8860b;
   }
 
   .controls {
@@ -482,6 +745,39 @@
 </head>
 <body>
 
+<!-- ハンバーガーメニュー -->
+<nav class="site-nav">
+  <div class="nav-container">
+    <a href="/" class="site-logo">祝儀袋 筆耕</a>
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <div class="nav-menu" id="navMenu">
+    <ul>
+      <li><a href="/" class="nav-current">💍 結婚祝い</a></li>
+      <li><a href="#" class="nav-coming">⚱️ 不祝儀（香典袋） <span class="badge">近日公開</span></a></li>
+      <li><a href="#" class="nav-coming">👶 出産・お宮参り <span class="badge">近日公開</span></a></li>
+      <li><a href="#" class="nav-coming">🎓 入学・卒業祝い <span class="badge">近日公開</span></a></li>
+      <li><a href="#" class="nav-coming">🎍 お年玉袋 <span class="badge">近日公開</span></a></li>
+      <li class="nav-divider"></li>
+      <li><a href="#" class="nav-coming">📚 マナーコラム <span class="badge">近日公開</span></a></li>
+      <li><a href="#" class="nav-coming">ℹ️ このサイトについて <span class="badge">近日公開</span></a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- パンくず -->
+<div class="breadcrumb">
+  <ol>
+    <li><a href="/">ホーム</a></li>
+    <li><span aria-current="page">結婚祝い</span></li>
+  </ol>
+</div>
+
 <header>
   <h1>祝儀袋 筆耕</h1>
   <p class="subtitle">ご 祝 儀 袋 の 文 字 変 換</p>
@@ -510,15 +806,15 @@
 
     <div class="field">
       <label for="name">お名前</label>
-      <input type="text" id="name" placeholder="山田 太郎" value="山田 太郎">
+      <input type="text" id="name" placeholder="山田 太郎">
       <p class="hint">苗字と名前の間にスペースを入れると、縦書きで少し間を空けて表示します（例: 山田 太郎）。連名は3つ以上のスペース区切りで（例: 山田太郎 山田花子）</p>
     </div>
 
     <div class="field">
       <label for="amount">金額（円）</label>
-      <input type="number" id="amount" placeholder="30000" value="30000" min="0" step="1000">
+      <input type="number" id="amount" placeholder="30000" min="0" step="1000">
       <div class="controls">
-        <button class="toggle active" data-amount="10000">1万円</button>
+        <button class="toggle" data-amount="10000">1万円</button>
         <button class="toggle" data-amount="30000">3万円</button>
         <button class="toggle" data-amount="50000">5万円</button>
         <button class="toggle" data-amount="100000">10万円</button>
@@ -528,13 +824,14 @@
 
     <div class="field">
       <label for="postal">郵便番号</label>
-      <input type="text" id="postal" placeholder="000-0000" value="100-0001" maxlength="8">
-      <p class="hint">数字で入力すると漢数字（〒一〇〇-〇〇〇一）に自動変換されます</p>
+      <input type="text" id="postal" placeholder="100-0001" maxlength="8">
+      <p class="hint">7桁入力すると住所が自動で入ります（番地は手入力してください）</p>
+      <p class="hint postal-status" id="postalStatus" style="display:none;"></p>
     </div>
 
     <div class="field">
       <label for="address">ご住所</label>
-      <input type="text" id="address" placeholder="東京都千代田区千代田一丁目一番地" value="東京都千代田区千代田1-1">
+      <input type="text" id="address" placeholder="東京都千代田区千代田1-1">
       <p class="hint">数字も漢数字に自動変換。1行で表示するので、なるべく簡潔に書くのがおすすめ</p>
     </div>
 
@@ -730,57 +1027,44 @@
     }
   }
 
+  // サンプルデータ（未入力時に表示される値）
+  const SAMPLE = {
+    name: '山田 太郎',
+    amount: '30000',
+    postal: '100-0001',
+    address: '東京都千代田区千代田1-1'
+  };
+
   // 更新処理
   function updatePreview() {
     const title = titleSelect.value;
-    const name = nameInput.value.trim();
-    const amount = amountInput.value;
-    const address = addressInput.value.trim();
+    const name = nameInput.value.trim() || SAMPLE.name;
+    const amount = amountInput.value || SAMPLE.amount;
+    const address = (addressInput.value.trim() || SAMPLE.address);
+    const postal = (postalInput.value.trim() || SAMPLE.postal);
 
     titleDisplay.textContent = title || '　';
     titleDisplay.classList.toggle('placeholder-faded', !title);
 
-    if (name) {
-      const nameHtml = buildNameHtml(name);
-      nameDisplay.innerHTML = nameHtml;
-      uraNameDisplay.innerHTML = nameHtml;
-      nameDisplay.classList.remove('placeholder-faded');
-      uraNameDisplay.classList.remove('placeholder-faded');
-    } else {
-      nameDisplay.textContent = 'お名前';
-      uraNameDisplay.textContent = 'お名前';
-      nameDisplay.classList.add('placeholder-faded');
-      uraNameDisplay.classList.add('placeholder-faded');
-    }
+    // 名前は常に値あり（未入力ならサンプル）→ placeholder-faded は不要
+    const nameHtml = buildNameHtml(name);
+    nameDisplay.innerHTML = nameHtml;
+    uraNameDisplay.innerHTML = nameHtml;
+    nameDisplay.classList.remove('placeholder-faded');
+    uraNameDisplay.classList.remove('placeholder-faded');
 
     const kyuji = toKyuji(amount);
-    if (kyuji) {
-      amountDisplay.textContent = kyuji;
-      amountDisplay.classList.remove('placeholder-faded');
-    } else {
-      amountDisplay.textContent = '金額';
-      amountDisplay.classList.add('placeholder-faded');
-    }
+    amountDisplay.textContent = kyuji || '金額';
+    amountDisplay.classList.toggle('placeholder-faded', !kyuji);
 
-    if (address) {
-      const formatted = formatAddress(address);
-      addressDisplay.textContent = formatted;
-      addressDisplay.classList.remove('placeholder-faded');
-    } else {
-      addressDisplay.textContent = 'ご住所';
-      addressDisplay.classList.add('placeholder-faded');
-    }
+    const formatted = formatAddress(address);
+    addressDisplay.textContent = formatted;
+    addressDisplay.classList.remove('placeholder-faded');
 
-    const postal = postalInput.value.trim();
-    if (postal) {
-      // 郵便番号を漢数字に変換（ハイフンはそのまま）
-      const kanjiPostal = postal.replace(/[0-9]/g, d => kanjiMap[d]);
-      postalDisplay.textContent = '〒' + kanjiPostal;
-      postalDisplay.classList.remove('placeholder-faded');
-    } else {
-      postalDisplay.textContent = '〒〇〇〇-〇〇〇〇';
-      postalDisplay.classList.add('placeholder-faded');
-    }
+    // 郵便番号を漢数字に変換
+    const kanjiPostal = postal.replace(/[0-9]/g, d => kanjiMap[d]);
+    postalDisplay.textContent = '〒' + kanjiPostal;
+    postalDisplay.classList.remove('placeholder-faded');
   }
 
   // イベント
@@ -789,6 +1073,57 @@
   amountInput.addEventListener('input', updatePreview);
   addressInput.addEventListener('input', updatePreview);
   postalInput.addEventListener('input', updatePreview);
+
+  // 郵便番号 → 住所自動入力（zipcloud API）
+  const postalStatus = document.getElementById('postalStatus');
+  let postalTimer = null;
+
+  postalInput.addEventListener('input', () => {
+    // 連続入力時は前回のタイマーをキャンセル（debounce）
+    if (postalTimer) clearTimeout(postalTimer);
+
+    const raw = postalInput.value.trim();
+    const zip = raw.replace(/[‐ー－—-]/g, '').replace(/[０-９]/g, s => String.fromCharCode(s.charCodeAt(0) - 0xFEE0));
+
+    // 7桁の半角数字でない場合は何もしない
+    if (!/^\d{7}$/.test(zip)) {
+      postalStatus.style.display = 'none';
+      return;
+    }
+
+    // 0.4秒待ってからAPI呼び出し（連続入力対策）
+    postalTimer = setTimeout(async () => {
+      postalStatus.style.display = 'block';
+      postalStatus.className = 'hint postal-status loading';
+      postalStatus.textContent = '⏳ 住所を検索中...';
+
+      try {
+        const res = await fetch(
+          `https://zipcloud.ibsnet.co.jp/api/search?zipcode=${zip}`
+        );
+        const data = await res.json();
+
+        if (data.status === 200 && data.results && data.results.length > 0) {
+          const r = data.results[0];
+          const fullAddress = r.address1 + r.address2 + r.address3;
+
+          // 住所欄に自動入力
+          addressInput.value = fullAddress;
+          updatePreview();
+
+          postalStatus.className = 'hint postal-status success';
+          postalStatus.textContent = `✓ ${fullAddress}（番地を追記してください）`;
+        } else {
+          postalStatus.className = 'hint postal-status error';
+          postalStatus.textContent = '⚠ 該当する住所が見つかりませんでした';
+        }
+      } catch (err) {
+        postalStatus.className = 'hint postal-status error';
+        postalStatus.textContent = '⚠ 検索に失敗しました（ネット接続を確認してください）';
+        console.error(err);
+      }
+    }, 400);
+  });
 
   // 金額クイック選択
   document.querySelectorAll('[data-amount]').forEach(btn => {
@@ -841,6 +1176,26 @@
 
   // 初期表示
   updatePreview();
+
+  // ハンバーガーメニュー開閉
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('navMenu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navMenu.classList.toggle('open');
+    hamburger.setAttribute('aria-label',
+      navMenu.classList.contains('open') ? 'メニューを閉じる' : 'メニューを開く'
+    );
+  });
+
+  // メニュー外をクリックで閉じる
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.site-nav') && navMenu.classList.contains('open')) {
+      hamburger.classList.remove('open');
+      navMenu.classList.remove('open');
+    }
+  });
 </script>
 
 </body>
