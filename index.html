@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>祝儀袋 文字変換 | 毛筆風プレビュー</title>
+<meta name="description" content="ご祝儀袋に書く名前と金額を、毛筆風の文字でプレビューできます。漢数字（旧字体）への自動変換にも対応。">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yuji+Mai&family=Shippori+Mincho:wght@400;600&family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #1a1410;
+    --paper: #f5f0e6;
+    --paper-warm: #ebe2d0;
+    --gold: #b8860b;
+    --gold-soft: #d4a82c;
+    --crimson: #8b1a1a;
+    --line: #c9bfa8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Shippori Mincho', serif;
+    background: var(--paper);
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(184, 134, 11, 0.04) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(139, 26, 26, 0.03) 0%, transparent 50%);
+    color: var(--ink);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* ヘッダー */
+  header {
+    text-align: center;
+    padding: 3rem 1.5rem 2rem;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+
+  header::before, header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    width: 40px;
+    height: 3px;
+    background: var(--gold);
+  }
+  header::before { left: 50%; margin-left: -50px; }
+  header::after { left: 50%; margin-left: 10px; }
+
+  h1 {
+    font-family: 'Yuji Mai', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--ink);
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+    color: #6b5d4a;
+    letter-spacing: 0.2em;
+  }
+
+  /* メインレイアウト */
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  @media (max-width: 768px) {
+    main { grid-template-columns: 1fr; gap: 2rem; }
+  }
+
+  /* 入力エリア */
+  .input-section {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 2rem;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+  }
+
+  .section-label {
+    font-family: 'Yuji Mai', serif;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+  }
+
+  .field {
+    margin-bottom: 1.5rem;
+  }
+
+  label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #5a4d3a;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.1em;
+  }
+
+  input[type="text"], input[type="number"], select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-family: 'Klee One', 'Shippori Mincho', serif;
+    font-size: 1rem;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    color: var(--ink);
+    transition: border-color 0.2s;
+  }
+
+  input:focus, select:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.1);
+  }
+
+  .hint {
+    font-size: 0.75rem;
+    color: #8a7d6a;
+    margin-top: 0.4rem;
+  }
+
+  .controls {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .toggle {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    background: transparent;
+    border: 1px solid var(--line);
+    color: #5a4d3a;
+    cursor: pointer;
+    font-family: 'Shippori Mincho', serif;
+    transition: all 0.2s;
+    border-radius: 2px;
+  }
+
+  .toggle.active {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+
+  /* プレビュー（ご祝儀袋） */
+  .preview-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .envelope {
+    width: 280px;
+    height: 460px;
+    background: linear-gradient(180deg, #faf6ec 0%, #f0e8d4 100%);
+    border: 1px solid var(--line);
+    box-shadow:
+      0 4px 12px rgba(60, 40, 20, 0.08),
+      0 1px 3px rgba(60, 40, 20, 0.05),
+      inset 0 0 60px rgba(184, 134, 11, 0.04);
+    position: relative;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* 水引の装飾 */
+  .mizuhiki {
+    position: absolute;
+    top: 32%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 30px;
+    pointer-events: none;
+  }
+
+  .mizuhiki svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* 縦書きエリア */
+  .vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-family: 'Yuji Mai', serif;
+    color: var(--ink);
+    text-align: center;
+  }
+
+  .title-area {
+    margin-bottom: auto;
+    font-size: 1.5rem;
+    letter-spacing: 0.3em;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .name-area {
+    margin-top: auto;
+    font-size: 1.8rem;
+    letter-spacing: 0.2em;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  /* 縦書き内での苗字と名前の配置 */
+  .surname {
+    display: inline-block;
+  }
+  .given-name {
+    display: inline-block;
+    margin-top: 0.6em; /* 縦書きなので苗字との間隔 */
+  }
+  .single-name {
+    display: inline-block;
+  }
+  .person {
+    display: inline-block;
+    margin-left: 0.8em; /* 縦書きで連名は横（左方向）に並ぶ */
+  }
+  .person:first-child {
+    margin-left: 0;
+  }
+
+  /* 内袋プレビュー */
+  .uchibukuro {
+    width: 200px;
+    height: 280px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    margin-top: 2rem;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.06);
+    position: relative;
+  }
+
+  .uchibukuro-label {
+    position: absolute;
+    top: -1.8rem;
+    font-size: 0.8rem;
+    color: #6b5d4a;
+    letter-spacing: 0.2em;
+  }
+
+  .amount-area {
+    writing-mode: vertical-rl;
+    font-family: 'Yuji Mai', serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.25em;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+
+  /* タブ */
+  .tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .tab {
+    padding: 0.6rem 1.2rem;
+    background: transparent;
+    border: none;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 0.9rem;
+    color: #8a7d6a;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: all 0.2s;
+  }
+
+  .tab.active {
+    color: var(--ink);
+    border-bottom-color: var(--gold);
+  }
+
+  /* フォント切替 */
+  .font-yuji .vertical-text,
+  .font-yuji .amount-area { font-family: 'Yuji Mai', serif; }
+
+  .font-klee .vertical-text,
+  .font-klee .amount-area { font-family: 'Klee One', serif; font-weight: 600; }
+
+  .font-shippori .vertical-text,
+  .font-shippori .amount-area { font-family: 'Shippori Mincho', serif; font-weight: 600; }
+
+  /* フッター */
+  footer {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    font-size: 0.8rem;
+    color: #8a7d6a;
+    border-top: 1px solid var(--line);
+    margin-top: 2rem;
+  }
+
+  .placeholder-faded {
+    opacity: 0.3;
+  }
+
+  .info-box {
+    background: rgba(184, 134, 11, 0.05);
+    border-left: 3px solid var(--gold);
+    padding: 0.75rem 1rem;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: #5a4d3a;
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>祝儀袋 筆耕</h1>
+  <p class="subtitle">ご 祝 儀 袋 の 文 字 変 換</p>
+</header>
+
+<main>
+  <!-- 入力エリア -->
+  <section class="input-section">
+    <div class="section-label">入力</div>
+
+    <div class="field">
+      <label for="title">表書き</label>
+      <select id="title">
+        <option value="寿">寿（結婚祝い）</option>
+        <option value="御祝">御祝</option>
+        <option value="御結婚御祝">御結婚御祝</option>
+        <option value="壽">壽（旧字）</option>
+        <option value="">（入力しない）</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="name">お名前</label>
+      <input type="text" id="name" placeholder="山田 太郎" value="山田 太郎">
+      <p class="hint">苗字と名前の間にスペースを入れると、縦書きで少し間を空けて表示します（例: 山田 太郎）。連名は3つ以上のスペース区切りで（例: 山田太郎 山田花子）</p>
+    </div>
+
+    <div class="field">
+      <label for="amount">金額（円）</label>
+      <input type="number" id="amount" placeholder="30000" value="30000" min="0" step="1000">
+      <div class="controls">
+        <button class="toggle active" data-amount="10000">1万円</button>
+        <button class="toggle" data-amount="30000">3万円</button>
+        <button class="toggle" data-amount="50000">5万円</button>
+        <button class="toggle" data-amount="100000">10万円</button>
+      </div>
+      <p class="hint">旧字体の漢数字（壱・弐・参・萬）に自動変換されます</p>
+    </div>
+
+    <div class="field">
+      <label>フォント</label>
+      <div class="controls">
+        <button class="toggle font-btn active" data-font="yuji">毛筆（雄字舞）</button>
+        <button class="toggle font-btn" data-font="klee">手書き風</button>
+        <button class="toggle font-btn" data-font="shippori">楷書</button>
+      </div>
+    </div>
+
+    <div class="info-box">
+      💡 表示された文字を見ながら、お手本として実際の祝儀袋に書き写すと、字が苦手な方でもバランスよく書けます。
+    </div>
+  </section>
+
+  <!-- プレビューエリア -->
+  <section class="preview-section">
+    <div class="tabs">
+      <button class="tab active" data-tab="omote">表書き</button>
+      <button class="tab" data-tab="ura">内袋</button>
+    </div>
+
+    <!-- 表書き -->
+    <div class="envelope font-yuji" id="envelope">
+      <div class="mizuhiki">
+        <svg viewBox="0 0 200 30" xmlns="http://www.w3.org/2000/svg">
+          <!-- 紅白の水引（簡易表現） -->
+          <path d="M10 15 Q 50 5, 100 15 T 190 15" stroke="#c93030" stroke-width="2" fill="none"/>
+          <path d="M10 18 Q 50 8, 100 18 T 190 18" stroke="#c93030" stroke-width="2" fill="none"/>
+          <path d="M10 21 Q 50 11, 100 21 T 190 21" stroke="#c93030" stroke-width="2" fill="none"/>
+          <path d="M10 24 Q 50 14, 100 24 T 190 24" stroke="#e8d8b0" stroke-width="2" fill="none"/>
+          <path d="M10 27 Q 50 17, 100 27 T 190 27" stroke="#e8d8b0" stroke-width="2" fill="none"/>
+          <!-- 中央の結び目 -->
+          <ellipse cx="100" cy="20" rx="12" ry="6" fill="#b8860b" opacity="0.3"/>
+        </svg>
+      </div>
+
+      <div class="vertical-text title-area" id="titleDisplay">寿</div>
+      <div class="vertical-text name-area" id="nameDisplay">山田 太郎</div>
+    </div>
+
+    <!-- 内袋（最初は非表示） -->
+    <div class="uchibukuro font-yuji" id="uchibukuro" style="display:none;">
+      <span class="uchibukuro-label">― 内袋（表）―</span>
+      <div class="amount-area" id="amountDisplay">金参萬円</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>※ あくまで参考表示です。実際は毛筆または筆ペンでお書きください。</p>
+</footer>
+
+<script>
+  // 旧字体の漢数字変換
+  const kyujiMap = {
+    '0': '〇', '1': '壱', '2': '弐', '3': '参',
+    '4': '四', '5': '伍', '6': '六', '7': '七',
+    '8': '八', '9': '九'
+  };
+
+  function toKyuji(num) {
+    if (!num || num <= 0) return '';
+
+    const n = parseInt(num);
+    if (isNaN(n)) return '';
+
+    // 一般的なご祝儀額に対応した変換
+    let result = '';
+
+    const oku = Math.floor(n / 100000000);
+    const man = Math.floor((n % 100000000) / 10000);
+    const sen = Math.floor((n % 10000) / 1000);
+    const remainder = n % 1000;
+
+    if (oku > 0) result += convertGroup(oku) + '億';
+    if (man > 0) result += convertGroup(man) + '萬';
+    if (sen > 0) {
+      // 千の位
+      if (sen === 1) result += '阡';
+      else result += kyujiMap[sen] + '阡';
+    }
+    if (remainder > 0) {
+      // 端数があるケースは稀なのでシンプルに
+      result += remainder;
+    }
+
+    return '金' + result + '円';
+  }
+
+  function convertGroup(num) {
+    // 1〜9999の範囲を旧字体に
+    let s = '';
+    const sen = Math.floor(num / 1000);
+    const hyaku = Math.floor((num % 1000) / 100);
+    const juu = Math.floor((num % 100) / 10);
+    const ichi = num % 10;
+
+    if (sen > 0) {
+      s += (sen === 1 ? '' : kyujiMap[sen]) + '阡';
+    }
+    if (hyaku > 0) {
+      s += (hyaku === 1 ? '' : kyujiMap[hyaku]) + '百';
+    }
+    if (juu > 0) {
+      s += (juu === 1 ? '' : kyujiMap[juu]) + '拾';
+    }
+    if (ichi > 0) {
+      s += kyujiMap[ichi];
+    }
+    return s;
+  }
+
+  // DOM要素
+  const titleSelect = document.getElementById('title');
+  const nameInput = document.getElementById('name');
+  const amountInput = document.getElementById('amount');
+  const titleDisplay = document.getElementById('titleDisplay');
+  const nameDisplay = document.getElementById('nameDisplay');
+  const amountDisplay = document.getElementById('amountDisplay');
+  const envelope = document.getElementById('envelope');
+  const uchibukuro = document.getElementById('uchibukuro');
+
+  // 更新処理
+  function updatePreview() {
+    const title = titleSelect.value;
+    const name = nameInput.value.trim();
+    const amount = amountInput.value;
+
+    titleDisplay.textContent = title || '　';
+    titleDisplay.classList.toggle('placeholder-faded', !title);
+
+    if (name) {
+      // スペース区切りで分割
+      // - 1グループ（例: "山田太郎"）→ そのまま縦表示
+      // - 2グループ（例: "山田 太郎"）→ 苗字と名前として少し間を空けて縦表示
+      // - 3グループ以上（例: "山田太郎 山田花子"）→ 連名として横並び
+      const parts = name.split(/[\s　]+/).filter(p => p);
+
+      if (parts.length === 2) {
+        // 苗字と名前
+        nameDisplay.innerHTML = `<span class="surname">${parts[0]}</span><span class="given-name">${parts[1]}</span>`;
+      } else if (parts.length >= 3) {
+        // 連名（3人以上、または苗字+名前を複数）
+        nameDisplay.innerHTML = parts.map(p => `<span class="person">${p}</span>`).join('');
+      } else {
+        // 単一
+        nameDisplay.innerHTML = `<span class="single-name">${parts[0]}</span>`;
+      }
+      nameDisplay.classList.remove('placeholder-faded');
+    } else {
+      nameDisplay.textContent = 'お名前';
+      nameDisplay.classList.add('placeholder-faded');
+    }
+
+    const kyuji = toKyuji(amount);
+    if (kyuji) {
+      amountDisplay.textContent = kyuji;
+      amountDisplay.classList.remove('placeholder-faded');
+    } else {
+      amountDisplay.textContent = '金額';
+      amountDisplay.classList.add('placeholder-faded');
+    }
+  }
+
+  // イベント
+  titleSelect.addEventListener('change', updatePreview);
+  nameInput.addEventListener('input', updatePreview);
+  amountInput.addEventListener('input', updatePreview);
+
+  // 金額クイック選択
+  document.querySelectorAll('[data-amount]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-amount]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      amountInput.value = btn.dataset.amount;
+      updatePreview();
+    });
+  });
+
+  // フォント切替
+  document.querySelectorAll('.font-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.font-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const font = btn.dataset.font;
+      ['font-yuji', 'font-klee', 'font-shippori'].forEach(c => {
+        envelope.classList.remove(c);
+        uchibukuro.classList.remove(c);
+      });
+      envelope.classList.add('font-' + font);
+      uchibukuro.classList.add('font-' + font);
+    });
+  });
+
+  // タブ切替
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const target = tab.dataset.tab;
+      if (target === 'omote') {
+        envelope.style.display = 'flex';
+        uchibukuro.style.display = 'none';
+      } else {
+        envelope.style.display = 'none';
+        uchibukuro.style.display = 'flex';
+      }
+    });
+  });
+
+  // 初期表示
+  updatePreview();
+</script>
+
+</body>
+</html>
