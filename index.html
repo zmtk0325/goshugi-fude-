@@ -67,6 +67,47 @@
     letter-spacing: 0.2em;
   }
 
+  /* 使い方案内 */
+  .usage-guide {
+    max-width: 600px;
+    margin: 1.5rem auto 0;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, rgba(184, 134, 11, 0.08) 0%, rgba(139, 26, 26, 0.05) 100%);
+    border: 1px solid var(--gold);
+    border-radius: 2px;
+    text-align: center;
+    position: relative;
+  }
+
+  .usage-guide::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+  }
+
+  .usage-text {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 0.95rem;
+    color: var(--ink);
+    line-height: 1.8;
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 600px) {
+    .usage-guide {
+      margin: 1rem 1rem 0;
+      padding: 0.8rem 1rem;
+    }
+    .usage-text {
+      font-size: 0.85rem;
+    }
+  }
+
   /* メインレイアウト */
   main {
     max-width: 1100px;
@@ -201,6 +242,22 @@
     height: 100%;
   }
 
+  /* のし飾り（右上に配置） */
+  .noshi {
+    position: absolute;
+    top: 5%;
+    right: 8%;
+    width: 38px;
+    height: 64px;
+    pointer-events: none;
+    filter: drop-shadow(0 1px 2px rgba(60, 40, 20, 0.1));
+  }
+
+  .noshi svg {
+    width: 100%;
+    height: 100%;
+  }
+
   /* 縦書きエリア */
   .vertical-text {
     writing-mode: vertical-rl;
@@ -212,37 +269,40 @@
 
   .title-area {
     margin-bottom: auto;
-    font-size: 1.5rem;
-    letter-spacing: 0.3em;
-    height: 80px;
+    margin-top: -1rem; /* 上に詰める */
+    font-size: 2.5rem;
+    letter-spacing: 0.15em;
+    height: 150px;
     display: flex;
     justify-content: center;
+    white-space: nowrap;
   }
 
   .name-area {
     margin-top: auto;
-    font-size: 1.8rem;
+    font-size: 2.6rem;
     letter-spacing: 0.2em;
     min-height: 200px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    white-space: nowrap; /* 必ず1列に */
   }
 
   /* 縦書き内での苗字と名前の配置 */
   .surname {
-    display: inline-block;
+    display: inline;
   }
   .given-name {
-    display: inline-block;
-    margin-top: 0.6em; /* 縦書きなので苗字との間隔 */
+    display: inline;
+    margin-top: 0.5em; /* 縦書きなので苗字との間隔（小さめ） */
   }
   .single-name {
-    display: inline-block;
+    display: inline;
   }
   .person {
     display: inline-block;
-    margin-left: 0.8em; /* 縦書きで連名は横（左方向）に並ぶ */
+    margin-left: 0.8em;
   }
   .person:first-child {
     margin-left: 0;
@@ -279,6 +339,85 @@
     color: var(--ink);
     line-height: 1.4;
   }
+
+  /* 内袋（裏）スタイル */
+  .uchibukuro-ura {
+    width: 240px;
+    height: 340px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    margin-top: 2rem;
+    padding: 0;
+    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.06);
+    position: relative;
+  }
+
+  /* 縦書きエリア：左半分・上から1/3スタート */
+  .ura-content {
+    position: absolute;
+    top: 33%;
+    left: 8px;
+    width: auto; /* 文字幅に合わせる */
+    height: 60%;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.5;
+  }
+
+  .postal-area {
+    font-family: 'Yuji Mai', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    color: var(--ink);
+    margin-bottom: 0.2em;
+    white-space: nowrap;
+  }
+
+  .address-area {
+    font-family: 'Yuji Mai', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    color: var(--ink);
+    line-height: 1.4;
+    margin-bottom: 1em;
+    white-space: nowrap;
+    padding-top: 1em; /* 1文字分下げる */
+  }
+
+  .ura-name-area {
+    font-family: 'Yuji Mai', serif;
+    font-size: 1.2rem; /* 1ポイント大きく（1.1 → 1.2） */
+    letter-spacing: 0.2em;
+    color: var(--ink);
+    align-self: flex-start;
+    padding-top: 2.4em;
+  }
+
+  .ura-name-area .surname {
+    display: inline;
+  }
+  .ura-name-area .given-name {
+    display: inline;
+  }
+  .ura-name-area .surname::after {
+    content: ' '; /* 半角スペース1つ分に */
+  }
+
+  /* フォント切替（裏面にも適用） */
+  .font-yuji .address-area,
+  .font-yuji .ura-name-area,
+  .font-yuji .postal-area { font-family: 'Yuji Mai', serif; }
+
+  .font-klee .address-area,
+  .font-klee .ura-name-area,
+  .font-klee .postal-area { font-family: 'Klee One', serif; font-weight: 600; }
+
+  .font-shippori .address-area,
+  .font-shippori .ura-name-area,
+  .font-shippori .postal-area { font-family: 'Shippori Mincho', serif; font-weight: 600; }
 
   /* タブ */
   .tabs {
@@ -348,6 +487,12 @@
   <p class="subtitle">ご 祝 儀 袋 の 文 字 変 換</p>
 </header>
 
+<div class="usage-guide">
+  <p class="usage-text">
+    📱 スマホの画面に表示させたまま、上からなぞって<br>お手本としてご利用ください
+  </p>
+</div>
+
 <main>
   <!-- 入力エリア -->
   <section class="input-section">
@@ -358,7 +503,6 @@
       <select id="title">
         <option value="寿">寿（結婚祝い）</option>
         <option value="御祝">御祝</option>
-        <option value="御結婚御祝">御結婚御祝</option>
         <option value="壽">壽（旧字）</option>
         <option value="">（入力しない）</option>
       </select>
@@ -383,6 +527,18 @@
     </div>
 
     <div class="field">
+      <label for="postal">郵便番号</label>
+      <input type="text" id="postal" placeholder="000-0000" value="100-0001" maxlength="8">
+      <p class="hint">数字で入力すると漢数字（〒一〇〇-〇〇〇一）に自動変換されます</p>
+    </div>
+
+    <div class="field">
+      <label for="address">ご住所</label>
+      <input type="text" id="address" placeholder="東京都千代田区千代田一丁目一番地" value="東京都千代田区千代田1-1">
+      <p class="hint">数字も漢数字に自動変換。1行で表示するので、なるべく簡潔に書くのがおすすめ</p>
+    </div>
+
+    <div class="field">
       <label>フォント</label>
       <div class="controls">
         <button class="toggle font-btn active" data-font="yuji">毛筆（雄字舞）</button>
@@ -400,11 +556,35 @@
   <section class="preview-section">
     <div class="tabs">
       <button class="tab active" data-tab="omote">表書き</button>
-      <button class="tab" data-tab="ura">内袋</button>
+      <button class="tab" data-tab="ura">内袋（表）</button>
+      <button class="tab" data-tab="uchi-ura">内袋（裏）</button>
     </div>
 
     <!-- 表書き -->
     <div class="envelope font-yuji" id="envelope">
+      <!-- のし飾り -->
+      <div class="noshi">
+        <svg viewBox="0 0 60 100" xmlns="http://www.w3.org/2000/svg">
+          <!-- のしの外枠（六角形ぽい縦長の飾り） -->
+          <polygon points="30,2 55,15 55,85 30,98 5,85 5,15"
+                   fill="#fdfaf2"
+                   stroke="#c93030"
+                   stroke-width="1.5"/>
+          <!-- 内側の枠線 -->
+          <polygon points="30,8 50,18 50,82 30,92 10,82 10,18"
+                   fill="none"
+                   stroke="#c93030"
+                   stroke-width="0.8"/>
+          <!-- 中央ののし（黄色い細長い帯） -->
+          <rect x="26" y="20" width="8" height="60"
+                fill="#e8a838"
+                stroke="#b8860b"
+                stroke-width="0.5"/>
+          <!-- 中央のあわび結びの簡略表現 -->
+          <ellipse cx="30" cy="50" rx="3" ry="6" fill="#fdfaf2" stroke="#b8860b" stroke-width="0.4"/>
+        </svg>
+      </div>
+
       <div class="mizuhiki">
         <svg viewBox="0 0 200 30" xmlns="http://www.w3.org/2000/svg">
           <!-- 紅白の水引（簡易表現） -->
@@ -422,10 +602,20 @@
       <div class="vertical-text name-area" id="nameDisplay">山田 太郎</div>
     </div>
 
-    <!-- 内袋（最初は非表示） -->
+    <!-- 内袋（表）：金額 -->
     <div class="uchibukuro font-yuji" id="uchibukuro" style="display:none;">
       <span class="uchibukuro-label">― 内袋（表）―</span>
       <div class="amount-area" id="amountDisplay">金参萬円</div>
+    </div>
+
+    <!-- 内袋（裏）：郵便番号・住所・名前 -->
+    <div class="uchibukuro-ura font-yuji" id="uchibukuroUra" style="display:none;">
+      <span class="uchibukuro-label">― 内袋（裏）―</span>
+      <div class="ura-content">
+        <div class="postal-area" id="postalDisplay">〒100-0001</div>
+        <div class="address-area" id="addressDisplay">東京都千代田区千代田一丁目一番地</div>
+        <div class="ura-name-area" id="uraNameDisplay">山田 太郎</div>
+      </div>
     </div>
   </section>
 </main>
@@ -441,6 +631,24 @@
     '4': '四', '5': '伍', '6': '六', '7': '七',
     '8': '八', '9': '九'
   };
+
+  // 通常の漢数字（住所・郵便番号用）
+  const kanjiMap = {
+    '0': '〇', '1': '一', '2': '二', '3': '三',
+    '4': '四', '5': '五', '6': '六', '7': '七',
+    '8': '八', '9': '九'
+  };
+
+  // 数字を漢数字に変換（郵便番号や住所用）
+  function numToKanji(str) {
+    return str.replace(/[0-9]/g, d => kanjiMap[d]);
+  }
+
+  // 住所を1行で表示（数字を漢数字に変換のみ）
+  function formatAddress(addr) {
+    if (!addr) return '';
+    return numToKanji(addr);
+  }
 
   function toKyuji(num) {
     if (!num || num <= 0) return '';
@@ -498,42 +706,51 @@
   const titleSelect = document.getElementById('title');
   const nameInput = document.getElementById('name');
   const amountInput = document.getElementById('amount');
+  const addressInput = document.getElementById('address');
+  const postalInput = document.getElementById('postal');
   const titleDisplay = document.getElementById('titleDisplay');
   const nameDisplay = document.getElementById('nameDisplay');
   const amountDisplay = document.getElementById('amountDisplay');
+  const addressDisplay = document.getElementById('addressDisplay');
+  const postalDisplay = document.getElementById('postalDisplay');
+  const uraNameDisplay = document.getElementById('uraNameDisplay');
   const envelope = document.getElementById('envelope');
   const uchibukuro = document.getElementById('uchibukuro');
+  const uchibukuroUra = document.getElementById('uchibukuroUra');
+
+  // 名前のHTML生成（表書き・内袋裏で共通利用）
+  function buildNameHtml(name) {
+    const parts = name.split(/[\s　]+/).filter(p => p);
+    if (parts.length === 2) {
+      return `<span class="surname">${parts[0]}</span><span class="given-name">${parts[1]}</span>`;
+    } else if (parts.length >= 3) {
+      return parts.map(p => `<span class="person">${p}</span>`).join('');
+    } else {
+      return `<span class="single-name">${parts[0]}</span>`;
+    }
+  }
 
   // 更新処理
   function updatePreview() {
     const title = titleSelect.value;
     const name = nameInput.value.trim();
     const amount = amountInput.value;
+    const address = addressInput.value.trim();
 
     titleDisplay.textContent = title || '　';
     titleDisplay.classList.toggle('placeholder-faded', !title);
 
     if (name) {
-      // スペース区切りで分割
-      // - 1グループ（例: "山田太郎"）→ そのまま縦表示
-      // - 2グループ（例: "山田 太郎"）→ 苗字と名前として少し間を空けて縦表示
-      // - 3グループ以上（例: "山田太郎 山田花子"）→ 連名として横並び
-      const parts = name.split(/[\s　]+/).filter(p => p);
-
-      if (parts.length === 2) {
-        // 苗字と名前
-        nameDisplay.innerHTML = `<span class="surname">${parts[0]}</span><span class="given-name">${parts[1]}</span>`;
-      } else if (parts.length >= 3) {
-        // 連名（3人以上、または苗字+名前を複数）
-        nameDisplay.innerHTML = parts.map(p => `<span class="person">${p}</span>`).join('');
-      } else {
-        // 単一
-        nameDisplay.innerHTML = `<span class="single-name">${parts[0]}</span>`;
-      }
+      const nameHtml = buildNameHtml(name);
+      nameDisplay.innerHTML = nameHtml;
+      uraNameDisplay.innerHTML = nameHtml;
       nameDisplay.classList.remove('placeholder-faded');
+      uraNameDisplay.classList.remove('placeholder-faded');
     } else {
       nameDisplay.textContent = 'お名前';
+      uraNameDisplay.textContent = 'お名前';
       nameDisplay.classList.add('placeholder-faded');
+      uraNameDisplay.classList.add('placeholder-faded');
     }
 
     const kyuji = toKyuji(amount);
@@ -544,12 +761,34 @@
       amountDisplay.textContent = '金額';
       amountDisplay.classList.add('placeholder-faded');
     }
+
+    if (address) {
+      const formatted = formatAddress(address);
+      addressDisplay.textContent = formatted;
+      addressDisplay.classList.remove('placeholder-faded');
+    } else {
+      addressDisplay.textContent = 'ご住所';
+      addressDisplay.classList.add('placeholder-faded');
+    }
+
+    const postal = postalInput.value.trim();
+    if (postal) {
+      // 郵便番号を漢数字に変換（ハイフンはそのまま）
+      const kanjiPostal = postal.replace(/[0-9]/g, d => kanjiMap[d]);
+      postalDisplay.textContent = '〒' + kanjiPostal;
+      postalDisplay.classList.remove('placeholder-faded');
+    } else {
+      postalDisplay.textContent = '〒〇〇〇-〇〇〇〇';
+      postalDisplay.classList.add('placeholder-faded');
+    }
   }
 
   // イベント
   titleSelect.addEventListener('change', updatePreview);
   nameInput.addEventListener('input', updatePreview);
   amountInput.addEventListener('input', updatePreview);
+  addressInput.addEventListener('input', updatePreview);
+  postalInput.addEventListener('input', updatePreview);
 
   // 金額クイック選択
   document.querySelectorAll('[data-amount]').forEach(btn => {
@@ -570,9 +809,11 @@
       ['font-yuji', 'font-klee', 'font-shippori'].forEach(c => {
         envelope.classList.remove(c);
         uchibukuro.classList.remove(c);
+        uchibukuroUra.classList.remove(c);
       });
       envelope.classList.add('font-' + font);
       uchibukuro.classList.add('font-' + font);
+      uchibukuroUra.classList.add('font-' + font);
     });
   });
 
@@ -582,12 +823,18 @@
       document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
       const target = tab.dataset.tab;
+
+      // 全部非表示にしてから対象を表示
+      envelope.style.display = 'none';
+      uchibukuro.style.display = 'none';
+      uchibukuroUra.style.display = 'none';
+
       if (target === 'omote') {
         envelope.style.display = 'flex';
-        uchibukuro.style.display = 'none';
-      } else {
-        envelope.style.display = 'none';
+      } else if (target === 'ura') {
         uchibukuro.style.display = 'flex';
+      } else if (target === 'uchi-ura') {
+        uchibukuroUra.style.display = 'flex';
       }
     });
   });
