@@ -163,7 +163,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     font-weight: 600;
   }
 
-  /* 修正版：図解モックアップ用CSS */
+  /* 直した図解モックアップ用CSS */
   .diagram-wrapper {
     background: rgba(255, 255, 255, 0.6);
     border: 1px solid var(--line);
@@ -215,7 +215,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     text-orientation: upright;
   }
 
-  /* 崩れない安全な配置 */
+  /* 💡Flexを消し、縦書きブロックとして安全に配置 */
   .diagram-names {
     position: absolute;
     top: 55%;
@@ -226,15 +226,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     color: var(--ink);
     writing-mode: vertical-rl;
     text-orientation: upright;
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
     white-space: nowrap;
     letter-spacing: 0.1em;
   }
 
+  /* 行を右から左へ並べるためのインラインブロック化 */
   .diagram-names span {
-    display: block; /* 縦書き時のフレックスアイテムの安定化 */
+    display: inline-block;
+    margin-right: 0.8rem;
+    vertical-align: top;
+  }
+  .diagram-names span:last-child {
+    margin-right: 0;
   }
 
   /* 強調ボックス */
@@ -377,11 +380,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="diagram-noshi"></div>
         <div class="diagram-mizuhiki"></div>
         <div class="diagram-title">寿</div>
-        <!-- 縦書きは右から左へ並ぶので、先に夫、次に妻を書く -->
-        <!-- 下げる文字は全角スペースを使って安全に位置調整 -->
+        <!-- 💡直しました！ -->
         <div class="diagram-names">
           <span>山田 太郎</span>
-          <span>　花子</span>
+          <span style="padding-top: 1.8em;">花子</span>
         </div>
       </div>
     </div>
@@ -410,8 +412,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="diagram-noshi"></div>
         <div class="diagram-mizuhiki"></div>
         <div class="diagram-title">寿</div>
-        <!-- 縦書きは右から左へ並ぶので、上位から記載 -->
-        <div class="diagram-names">
+        <!-- 💡直しました！ -->
+        <div class="diagram-names" style="font-size: 1.1rem; top: 58%;">
           <span>佐藤 次郎</span>
           <span>山田 太郎</span>
           <span>鈴木 一郎</span>
@@ -435,9 +437,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="diagram-noshi"></div>
         <div class="diagram-mizuhiki"></div>
         <div class="diagram-title">寿</div>
+        <!-- 💡直しました！ -->
         <div class="diagram-names">
           <span>鈴木 一郎</span>
-          <span style="font-size: 0.85em;">　外一同</span>
+          <span style="font-size: 0.85em; padding-top: 3em;">外一同</span>
         </div>
       </div>
     </div>
