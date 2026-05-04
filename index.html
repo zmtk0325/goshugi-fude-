@@ -79,6 +79,72 @@
 }
 </script>
 
+<!-- FAQ構造化データ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "連名で書く場合はどうすればいいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "夫婦連名の場合は、中央に夫の氏名を書き、その左隣に妻の名前のみを書きます。3名までなら全員の氏名を並べて書けますが、4名以上になる場合は代表者の氏名を中央に書き、その左に「外一同」と記すか、別紙に全員の氏名を書いて中袋に入れます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "金額の旧字体（壱・弐・参・萬）はなぜ使うのですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "旧字体（大字）は、金額の改ざんを防ぐために古くから使われてきた表記です。例えば「一」は線を足すと「二」「三」になりますが、「壱」「弐」「参」は形が複雑で改ざんが困難です。現代ではマナーとしての意味合いが強く、丁寧で正式な印象を与えるために使われています。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ボールペンで書いてはいけないのですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ご祝儀袋は人生の重要な儀礼の場で使うものなので、毛筆または筆ペンを使うのが正式なマナーです。ボールペンやサインペンは略式とされ、避けるのが一般的です。万年筆は略式として認められる場合もありますが、毛筆・筆ペンが最も丁寧です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "字が下手なのですが、印刷されたものを使ってもいいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "近年は印刷された祝儀袋も市販されており、使用しても失礼にはあたりません。ただし、手書きの文字には印刷では表現できない「お祝いの気持ち」が込められると言われています。字に自信がなくても、お手本を見ながらゆっくり丁寧に書くことで、十分に気持ちは伝わります。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "新札を入れるべきですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "結婚祝いには新札を用意するのがマナーです。「この日のために準備していました」という気持ちを表します。新札が用意できない場合は、できるだけきれいなお札を選びましょう。逆にお葬式など弔事では、新札を避けるのが一般的です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "中袋（内袋）の書き方は？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "中袋の表面中央に金額を旧字体で「金参萬円」のように記入します。裏面には左下に郵便番号・住所・氏名を縦書きで記入するのが一般的です。受け取る側が後から整理しやすいよう、丁寧に書きましょう。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ご祝儀袋はいつ渡すのが正しいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "結婚式当日、受付で渡すのが一般的です。ふくさから取り出し、相手から見て正面になる向きで両手で渡します。「本日はおめでとうございます」と一言添えると丁寧です。当日参加できない場合は、事前に郵送するか直接届けます。"
+      }
+    }
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Yuji+Mai&family=Shippori+Mincho:wght@400;600&family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
@@ -719,6 +785,205 @@
   .font-shippori .amount-area { font-family: 'Shippori Mincho', serif; font-weight: 600; }
 
   /* フッター */
+  /* 想いを込めたメッセージセクション */
+  .message-section {
+    max-width: 800px;
+    margin: 3rem auto 0;
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .message-section::before,
+  .message-section::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .message-section::before { top: 1.5rem; }
+  .message-section::after { bottom: 1.5rem; }
+
+  .message-section h2 {
+    font-family: 'Yuji Mai', serif;
+    font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+    color: var(--ink);
+    margin-bottom: 2rem;
+    letter-spacing: 0.1em;
+    line-height: 1.6;
+  }
+
+  .message-section p {
+    font-size: 0.95rem;
+    color: #4a4540;
+    line-height: 2;
+    margin-bottom: 1.2rem;
+  }
+
+  .message-section p:last-child { margin-bottom: 0; }
+  .message-section strong { color: var(--gold); font-weight: 600; }
+
+  /* マナー解説 */
+  .manners-section {
+    max-width: 1100px;
+    margin: 2rem auto 0;
+    padding: 2.5rem 1.5rem;
+    background: rgba(255, 255, 255, 0.4);
+    border-top: 1px solid var(--line);
+  }
+
+  .manners-section h2 {
+    font-family: 'Yuji Mai', serif;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: var(--ink);
+    text-align: center;
+    letter-spacing: 0.15em;
+  }
+
+  .manners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .manner-card {
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+  }
+
+  .manner-card h3 {
+    font-size: 1.05rem;
+    color: var(--ink);
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px dashed var(--line);
+  }
+
+  .manner-card p,
+  .manner-card ul {
+    font-size: 0.9rem;
+    color: #4a4540;
+    line-height: 1.7;
+  }
+
+  .manner-card ul {
+    padding-left: 1.2rem;
+    font-size: 0.85rem;
+  }
+
+  .manner-card strong { color: var(--crimson); }
+
+  /* FAQ セクション */
+  .faq-section {
+    max-width: 900px;
+    margin: 2rem auto 0;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .faq-section h2 {
+    font-family: 'Yuji Mai', serif;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: var(--ink);
+    text-align: center;
+    letter-spacing: 0.15em;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .faq-item {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    overflow: hidden;
+    transition: all 0.2s;
+  }
+
+  .faq-item[open] {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.06);
+  }
+
+  .faq-item summary {
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink);
+    list-style: none;
+    position: relative;
+    padding-right: 3rem;
+    user-select: none;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::before {
+    content: 'Q';
+    color: var(--gold);
+    font-family: 'Yuji Mai', serif;
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  .faq-item summary::after {
+    content: '+';
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gold);
+    font-size: 1.4rem;
+    font-weight: 300;
+    transition: transform 0.2s;
+  }
+
+  .faq-item[open] summary::after {
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .faq-answer {
+    padding: 0 1.5rem 1.2rem;
+  }
+
+  .faq-answer p {
+    font-size: 0.9rem;
+    color: #4a4540;
+    line-height: 1.8;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .faq-answer p::before {
+    content: 'A';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--crimson);
+    font-family: 'Yuji Mai', serif;
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 600px) {
+    .message-section { padding: 2rem 1rem; }
+    .manners-section { padding: 2rem 1rem; }
+    .faq-section { padding: 2rem 1rem; }
+    .manner-card { padding: 1.2rem; }
+    .faq-item summary { padding: 0.9rem 1rem 0.9rem 1rem; padding-right: 2.5rem; font-size: 0.9rem; }
+  }
+
   footer {
     text-align: center;
     padding: 2rem 1.5rem;
@@ -916,6 +1181,110 @@
     </div>
   </section>
 </main>
+
+<!-- 想いを込めたメッセージ -->
+<section class="message-section">
+  <div class="message-inner">
+    <h2>心を込めた一文字を、あなたの手で。</h2>
+    <p>
+      最近は印刷された祝儀袋も増えていますが、<br>
+      手書きの文字には、活字には宿らない<strong>「お祝いの気持ち」</strong>が込められると言われています。
+    </p>
+    <p>
+      字が上手か下手かは、本当は問題ではありません。<br>
+      大切な人のお祝いを、自分の手で書きたい——その想いこそが何より尊いものです。
+    </p>
+    <p>
+      このサイトは、字に自信がない方が、安心して<br>
+      心のこもった一文字を書けるよう、お手伝いするために作られました。
+    </p>
+  </div>
+</section>
+
+<!-- マナー解説 -->
+<section class="manners-section">
+  <h2>ご祝儀袋のマナー</h2>
+  <div class="manners-grid">
+    <div class="manner-card">
+      <h3>📝 表書きの選び方</h3>
+      <p>結婚祝いには「<strong>寿</strong>」「御祝」が一般的です。「壽」は旧字体で、より丁寧な印象を与えます。何度も繰り返したくないお祝いなので、結び切りの水引が使われます。</p>
+    </div>
+    <div class="manner-card">
+      <h3>🖋️ 毛筆・筆ペンが基本</h3>
+      <p>ご祝儀袋にはボールペンやサインペンは避け、毛筆または筆ペンを使うのが正式なマナーです。万年筆も略式として認められることがあります。</p>
+    </div>
+    <div class="manner-card">
+      <h3>💴 金額の相場</h3>
+      <ul>
+        <li>友人・同僚：30,000円</li>
+        <li>兄弟姉妹：50,000〜100,000円</li>
+        <li>親族（叔父叔母）：30,000〜50,000円</li>
+        <li>上司：30,000〜50,000円</li>
+      </ul>
+    </div>
+    <div class="manner-card">
+      <h3>🚫 避けるべき金額</h3>
+      <p><strong>偶数（割れる）</strong>と<strong>4・9</strong>は避けるのが習わしです。ただし「8万円」は末広がりで縁起が良く、夫婦連名なら「2万円」もOKとされます。</p>
+    </div>
+    <div class="manner-card">
+      <h3>📜 旧字体を使う理由</h3>
+      <p>金額には「壱・弐・参・伍・拾・萬」などの旧字体（大字）を使います。これは改ざん防止の意味があり、丁寧で正式な印象を与える伝統です。</p>
+    </div>
+    <div class="manner-card">
+      <h3>👜 ふくさに包んで持参</h3>
+      <p>ご祝儀袋は裸で持参せず、必ず<strong>ふくさ（袱紗）</strong>に包みます。慶事は赤・朱・金などの暖色系、紫は慶弔両用なので一つあると重宝します。</p>
+    </div>
+  </div>
+</section>
+
+<!-- よくある質問 -->
+<section class="faq-section">
+  <h2>よくある質問</h2>
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary>連名で書く場合はどうすればいいですか？</summary>
+      <div class="faq-answer">
+        <p>夫婦連名の場合は、中央に夫の氏名を書き、その左隣に妻の名前のみを書きます。3名までなら全員の氏名を並べて書けますが、4名以上になる場合は代表者の氏名を中央に書き、その左に「外一同」と記すか、別紙に全員の氏名を書いて中袋に入れます。</p>
+      </div>
+    </details>
+    <details class="faq-item">
+      <summary>金額の旧字体（壱・弐・参・萬）はなぜ使うのですか？</summary>
+      <div class="faq-answer">
+        <p>旧字体（大字）は、金額の改ざんを防ぐために古くから使われてきた表記です。例えば「一」は線を足すと「二」「三」になりますが、「壱」「弐」「参」は形が複雑で改ざんが困難です。現代ではマナーとしての意味合いが強く、丁寧で正式な印象を与えるために使われています。</p>
+      </div>
+    </details>
+    <details class="faq-item">
+      <summary>ボールペンで書いてはいけないのですか？</summary>
+      <div class="faq-answer">
+        <p>ご祝儀袋は人生の重要な儀礼の場で使うものなので、毛筆または筆ペンを使うのが正式なマナーです。ボールペンやサインペンは略式とされ、避けるのが一般的です。万年筆は略式として認められる場合もありますが、毛筆・筆ペンが最も丁寧です。</p>
+      </div>
+    </details>
+    <details class="faq-item">
+      <summary>字が下手なのですが、印刷されたものを使ってもいいですか？</summary>
+      <div class="faq-answer">
+        <p>近年は印刷された祝儀袋も市販されており、使用しても失礼にはあたりません。ただし、手書きの文字には印刷では表現できない「お祝いの気持ち」が込められると言われています。字に自信がなくても、お手本を見ながらゆっくり丁寧に書くことで、十分に気持ちは伝わります。</p>
+      </div>
+    </details>
+    <details class="faq-item">
+      <summary>新札を入れるべきですか？</summary>
+      <div class="faq-answer">
+        <p>結婚祝いには新札を用意するのがマナーです。「この日のために準備していました」という気持ちを表します。新札が用意できない場合は、できるだけきれいなお札を選びましょう。逆にお葬式など弔事では、新札を避けるのが一般的です。</p>
+      </div>
+    </details>
+    <details class="faq-item">
+      <summary>中袋（内袋）の書き方は？</summary>
+      <div class="faq-answer">
+        <p>中袋の表面中央に金額を旧字体で「金参萬円」のように記入します。裏面には左下に郵便番号・住所・氏名を縦書きで記入するのが一般的です。受け取る側が後から整理しやすいよう、丁寧に書きましょう。</p>
+      </div>
+    </details>
+    <details class="faq-item">
+      <summary>ご祝儀袋はいつ渡すのが正しいですか？</summary>
+      <div class="faq-answer">
+        <p>結婚式当日、受付で渡すのが一般的です。ふくさから取り出し、相手から見て正面になる向きで両手で渡します。「本日はおめでとうございます」と一言添えると丁寧です。当日参加できない場合は、事前に郵送するか直接届けます。</p>
+      </div>
+    </details>
+  </div>
+</section>
 
 <footer>
   <p>※ あくまで参考表示です。実際は毛筆または筆ペンでお書きください。</p>
