@@ -12,8 +12,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>このサイトについて | 祝儀袋 筆耕</title>
-<meta name="description" content="「祝儀袋 筆耕」は、ご祝儀袋・香典袋・お年玉袋などの文字を毛筆風にプレビューできる無料ツールです。字に自信がない方のお手本として、心のこもった一文字を書くお手伝いをします。">
+<title>このサイトについて | ご祝儀・香典 お手本メーカー</title>
+<meta name="description" content="「ご祝儀・香典 お手本メーカー」は、のし袋の文字を毛筆風にプレビューできる無料ツールです。字に自信がない方のお手本として、心のこもった一文字を書くお手伝いをします。">
 <meta name="author" content="zmtk0325">
 
 <link rel="canonical" href="https://zmtk0325.github.io/goshugi-fude-/about/">
@@ -21,9 +21,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- OGP -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://zmtk0325.github.io/goshugi-fude-/about/">
-<meta property="og:title" content="このサイトについて | 祝儀袋 筆耕">
-<meta property="og:description" content="「祝儀袋 筆耕」のコンセプトと使い方。字に自信がない方の毛筆お手本ツールです。">
-<meta property="og:site_name" content="祝儀袋 筆耕">
+<meta property="og:title" content="このサイトについて | ご祝儀・香典 お手本メーカー">
+<meta property="og:description" content="「ご祝儀・香典 お手本メーカー」のコンセプトと使い方。字に自信がない方の毛筆お手本ツールです。">
+<meta property="og:site_name" content="ご祝儀・香典 お手本メーカー">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://zmtk0325.github.io/goshugi-fude-/ogp.png">
 <meta property="og:image:width" content="1200">
@@ -31,8 +31,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="このサイトについて | 祝儀袋 筆耕">
-<meta name="twitter:description" content="「祝儀袋 筆耕」のコンセプトと使い方。字に自信がない方の毛筆お手本ツールです。">
+<meta name="twitter:title" content="このサイトについて | ご祝儀・香典 お手本メーカー">
+<meta name="twitter:description" content="「ご祝儀・香典 お手本メーカー」のコンセプトと使い方。字に自信がない方の毛筆お手本ツールです。">
 <meta name="twitter:image" content="https://zmtk0325.github.io/goshugi-fude-/ogp.png">
 
 <!-- 構造化データ -->
@@ -40,12 +40,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 {
   "@context": "https://schema.org",
   "@type": "AboutPage",
-  "name": "このサイトについて | 祝儀袋 筆耕",
+  "name": "このサイトについて | ご祝儀・香典 お手本メーカー",
   "url": "https://zmtk0325.github.io/goshugi-fude-/about/",
-  "description": "祝儀袋 筆耕のコンセプト・使い方・対応ページ一覧",
+  "description": "ご祝儀・香典 お手本メーカーのコンセプト・使い方・対応ページ一覧",
   "isPartOf": {
     "@type": "WebSite",
-    "name": "祝儀袋 筆耕",
+    "name": "ご祝儀・香典 お手本メーカー",
     "url": "https://zmtk0325.github.io/goshugi-fude-/"
   }
 }
@@ -110,10 +110,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   .site-logo {
     font-family: 'Yuji Mai', serif;
-    font-size: 1.3rem;
+    font-size: 1.15rem;
     color: var(--ink);
     text-decoration: none;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
   }
 
   .hamburger {
@@ -427,11 +427,40 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     margin-bottom: 0 !important;
   }
 
+  /* 自然な「できること」リスト */
+  .feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.2rem;
+  }
+
+  .feature-item {
+    background: rgba(184, 134, 11, 0.05);
+    border-left: 3px solid var(--gold);
+    padding: 1.2rem 1.5rem;
+    border-radius: 2px;
+  }
+
+  .feature-item strong {
+    display: block;
+    font-family: 'Yuji Mai', serif;
+    font-size: 1.05rem;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+
+  .feature-item p {
+    font-size: 0.88rem;
+    color: #5a4d3a;
+    line-height: 1.7;
+    margin-bottom: 0 !important;
+  }
+
   /* 注意事項 */
   .notice-box {
-    background: rgba(184, 134, 11, 0.05);
-    border: 1px solid rgba(184, 134, 11, 0.3);
-    border-left: 4px solid var(--gold);
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px dashed rgba(184, 134, 11, 0.4);
     padding: 1.2rem 1.5rem;
     border-radius: 2px;
     margin-top: 1rem;
@@ -465,6 +494,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .hero-story p { font-size: 0.95rem; }
     .tool-list { grid-template-columns: 1fr; }
     .step { padding: 1rem 1.2rem; }
+    .feature-item { padding: 1rem 1.2rem; }
   }
 </style>
 </head>
@@ -477,7 +507,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
 <nav class="site-nav">
   <div class="nav-container">
-    <a href="/goshugi-fude-/" class="site-logo">祝儀袋 筆耕</a>
+    <a href="/goshugi-fude-/" class="site-logo">ご祝儀・香典 お手本メーカー</a>
     <button class="hamburger" id="hamburger" aria-label="メニューを開く">
       <span></span><span></span><span></span>
     </button>
@@ -613,24 +643,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="step-num">三</div>
         <div class="step-body">
           <h3>スマホ画面を見ながら書き写す</h3>
-          <p>プレビューを表示したまま、実際ののし袋に毛筆・筆ペンで書き写します。字に自信がなくても、バランスのよい文字が書けます。</p>
+          <p>プレビューを表示したまま、実際ののし袋に毛筆・筆ペンで書き写します。上に紙を置いて透かせば、そのままなぞって書くこともできます。</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 主な機能 -->
+  <!-- 主な機能（人間味のあるテキストに変更） -->
   <section class="section">
-    <h2 class="section-title">⚙️ 主な機能</h2>
-    <p>すべての機能は<strong>完全無料</strong>でお使いいただけます。</p>
-    <div class="notice-box" style="margin-top: 1.2rem;">
-      <p>✅ 毛筆風の縦書きプレビュー（リアルタイム反映）</p>
-      <p>✅ 旧字体の漢数字（壱・弐・参・萬）自動変換</p>
-      <p>✅ 郵便番号入力 → 住所の自動補完</p>
-      <p>✅ 3種類のフォント切替（毛筆・手書き風・楷書）</p>
-      <p>✅ 表書き・中袋（表）・中袋（裏）の3画面対応</p>
-      <p>✅ 連名表示対応（夫婦連名・複数名）</p>
-      <p>✅ スマートフォン・タブレット・PCに対応</p>
+    <h2 class="section-title">💡 こんなことができます</h2>
+    <p>面倒なマナーの調べ物や文字の配置調整は、すべてツールにお任せください。もちろん<strong>完全無料</strong>です。</p>
+    
+    <div class="feature-list">
+      <div class="feature-item">
+        <strong>そのままなぞれる縦書き表示</strong>
+        <p>入力した名前や金額が、スマホ画面に毛筆風で表示されます。画面の上にのし袋を置いて透かせば、そのままなぞって綺麗に書けます。</p>
+      </div>
+      <div class="feature-item">
+        <strong>難しい旧字体も自動で変換</strong>
+        <p>「30000」と数字で入れるだけで、「金 参萬円」とマナーに沿った旧字体に勝手に直してくれます。</p>
+      </div>
+      <div class="feature-item">
+        <strong>連名や中袋にもしっかり対応</strong>
+        <p>夫婦連名や3名以上の連名も、スペースを空けるだけで綺麗に揃います。裏面に書く住所も郵便番号から自動入力して、漢数字の縦書きに整えます。</p>
+      </div>
+      <div class="feature-item">
+        <strong>書きやすい字を選べる</strong>
+        <p>お手本にする文字は「毛筆」「手書き風」「楷書」の3種類。自分の字のクセに合わせて、一番書き写しやすいものを選べます。</p>
+      </div>
     </div>
   </section>
 
@@ -638,16 +678,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="section">
     <h2 class="section-title">⚠️ ご注意</h2>
     <div class="notice-box">
-      <p>このサイトはあくまで<strong>書き方のお手本・参考</strong>としてご利用ください。プレビューをそのまま印刷してのし袋に使用することはできません。</p>
+      <p>このサイトはあくまで<strong>書き方のお手本・参考</strong>としてご利用いただくためのものです。画面のプレビューをそのまま印刷して使用することはできません。</p>
       <p>マナーの記載は一般的な慣習に基づいています。地域や宗派によって異なる場合がありますので、ご不明な点はご家族や専門家にご相談ください。</p>
-      <p>郵便番号の住所自動入力には外部API（zipcloud）を使用しています。通信環境によっては機能しない場合があります。</p>
     </div>
   </section>
 
 </div>
 
 <footer>
-  <p>© 祝儀袋 筆耕 — <a href="/goshugi-fude-/">トップへ戻る</a></p>
+  <p>© ご祝儀・香典 お手本メーカー — <a href="/goshugi-fude-/">トップへ戻る</a></p>
 </footer>
 
 <script>
@@ -657,12 +696,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('open');
     navMenu.classList.toggle('open');
+    hamburger.setAttribute('aria-label', navMenu.classList.contains('open') ? 'メニューを閉じる' : 'メニューを開く');
   });
 
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.site-nav') && navMenu.classList.contains('open')) {
       hamburger.classList.remove('open');
       navMenu.classList.remove('open');
+      hamburger.setAttribute('aria-label', 'メニューを開く');
     }
   });
 </script>
