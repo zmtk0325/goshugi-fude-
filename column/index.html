@@ -229,7 +229,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     transform: translateY(-2px);
   }
 
-  /* コラム一覧（グレーアウト版） */
+  /* コラム一覧 */
   .content {
     max-width: 900px;
     margin: 0 auto;
@@ -253,29 +253,50 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     margin-bottom: 4rem;
   }
 
-  /* ▼ 公開予定（グレーアウト）用のスタイルを追加 ▼ */
+  /* 有効な記事カード */
+  .article-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--ink);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .article-card:hover {
+    box-shadow: 0 8px 24px rgba(60, 40, 20, 0.08);
+    transform: translateY(-4px);
+  }
+
+  .article-thumb {
+    height: 140px;
+    background: rgba(184, 134, 11, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* 公開予定（グレーアウト）用のスタイル */
   .article-card.coming-soon {
     background: rgba(255, 255, 255, 0.4);
     border: 1px dashed var(--line);
-    border-radius: 4px;
-    overflow: hidden;
+    box-shadow: none;
     color: #8a7d6a;
     pointer-events: none; /* クリック無効化 */
     user-select: none;
-    display: flex;
-    flex-direction: column;
     position: relative;
+    transform: none;
   }
 
   /* 背景をグレーっぽく沈ませる */
   .article-card.coming-soon .article-thumb {
     background: #ebebe8;
     color: #b5ad9e;
-    height: 140px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
     border-bottom: 1px dashed var(--line);
   }
 
@@ -302,8 +323,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   .article-cat {
     font-size: 0.7rem;
-    color: #a09786;
-    border: 1px solid #c9bfa8;
+    color: var(--gold);
+    border: 1px solid var(--gold);
     padding: 0.1rem 0.5rem;
     border-radius: 10px;
     display: inline-block;
@@ -311,19 +332,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     margin-bottom: 0.8rem;
   }
 
+  .article-card.coming-soon .article-cat {
+    color: #a09786;
+    border-color: #c9bfa8;
+  }
+
   .article-title {
     font-size: 1.05rem;
     font-weight: 600;
     line-height: 1.5;
     margin-bottom: 0.8rem;
-    color: #6b5d4a; /* タイトルもグレーっぽく */
+  }
+
+  .article-card.coming-soon .article-title {
+    color: #6b5d4a;
   }
 
   .article-desc {
     font-size: 0.85rem;
-    color: #a09786;
+    color: #6b5d4a;
     line-height: 1.6;
     margin-bottom: 1.5rem;
+  }
+
+  .article-card.coming-soon .article-desc {
+    color: #a09786;
   }
 
   /* ご意見箱セクション */
@@ -469,21 +502,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="content">
 
-  <!-- 記事一覧モックアップ（すべてグレーアウト・リンク無効化） -->
-  <h2 class="section-title" id="wedding">準備中の記事</h2>
+  <h2 class="section-title" id="wedding">新着記事</h2>
   <div class="article-grid">
     
-<!-- aタグに戻してリンクを有効化 -->
+    <!-- 💡 有効化した記事リンク -->
     <a href="/goshugi-fude-/column/renmei/" class="article-card">
-      <div class="article-thumb" style="background: rgba(184, 134, 11, 0.05); color: var(--ink);">👥</div>
+      <div class="article-thumb">👥</div>
       <div class="article-body">
         <span class="article-cat">基本のマナー</span>
         <h3 class="article-title">【図解】夫婦連名・3名以上の連名でのご祝儀袋の書き方</h3>
         <p class="article-desc">「夫と妻、どっちが右？」「4人以上の場合はどうするの？」連名で贈る際の正しい配置を分かりやすく解説します。</p>
       </div>
-    </div>
+    </a> <!-- 💡 ここでちゃんと閉じてます！ -->
 
-    <!-- divタグに変更し、coming-soonクラスを付与 -->
+    <!-- グレーアウト（準備中）記事 -->
     <div class="article-card coming-soon">
       <div class="article-thumb">🙏</div>
       <div class="article-body">
@@ -493,7 +525,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
 
-    <!-- divタグに変更し、coming-soonクラスを付与 -->
+    <!-- グレーアウト（準備中）記事 -->
     <div class="article-card coming-soon">
       <div class="article-thumb">🖋️</div>
       <div class="article-body">
