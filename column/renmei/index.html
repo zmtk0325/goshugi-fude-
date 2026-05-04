@@ -163,20 +163,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     font-weight: 600;
   }
 
-  /* 図解モックアップ用CSS */
+  /* 修正版：図解モックアップ用CSS */
   .diagram-wrapper {
     background: rgba(255, 255, 255, 0.6);
     border: 1px solid var(--line);
     border-radius: 4px;
-    padding: 2.5rem 1rem;
+    padding: 3rem 1rem;
     margin: 2rem 0;
     display: flex;
     justify-content: center;
   }
 
   .diagram-envelope {
-    width: 240px;
-    height: 380px;
+    width: 220px;
+    height: 350px;
     background: linear-gradient(180deg, #fffcf8 0%, #f4eee1 100%);
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     position: relative;
@@ -185,12 +185,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   .diagram-mizuhiki {
     position: absolute;
-    top: 60%;
+    top: 45%;
     left: 0;
     width: 100%;
-    height: 4px;
+    height: 3px;
     background: var(--red);
-    box-shadow: 0 -8px 0 var(--gold), 0 8px 0 var(--gold);
+    box-shadow: 0 -6px 0 var(--gold), 0 6px 0 var(--gold);
   }
 
   .diagram-noshi {
@@ -205,32 +205,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   .diagram-title {
     position: absolute;
-    top: 3rem;
+    top: 2rem;
     left: 50%;
     transform: translateX(-50%);
     font-family: 'Yuji Mai', serif;
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: var(--ink);
     writing-mode: vertical-rl;
+    text-orientation: upright;
   }
 
+  /* 崩れない安全な配置 */
   .diagram-names {
     position: absolute;
-    bottom: 2rem;
+    top: 55%;
     left: 50%;
     transform: translateX(-50%);
     font-family: 'Yuji Mai', serif;
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     color: var(--ink);
     writing-mode: vertical-rl;
+    text-orientation: upright;
     display: flex;
-    gap: 0.8rem;
+    align-items: flex-start;
+    gap: 1rem;
     white-space: nowrap;
-    height: 100px;
+    letter-spacing: 0.1em;
   }
 
   .diagram-names span {
-    display: inline-block;
+    display: block; /* 縦書き時のフレックスアイテムの安定化 */
   }
 
   /* 強調ボックス */
@@ -299,6 +303,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   @media (max-width: 600px) {
     .article-hero { padding: 2rem 1rem 1.5rem; }
     .article-content { padding: 1.5rem 1rem 4rem; }
+    /* スマホで袋全体を少し縮小して画面に収める */
     .diagram-envelope { transform: scale(0.9); }
   }
 </style>
@@ -372,9 +377,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="diagram-noshi"></div>
         <div class="diagram-mizuhiki"></div>
         <div class="diagram-title">寿</div>
-        <div class="diagram-names" style="margin-left: -1rem;">
-          <span style="margin-top: 2rem;">花子</span>
+        <!-- 縦書きは右から左へ並ぶので、先に夫、次に妻を書く -->
+        <!-- 下げる文字は全角スペースを使って安全に位置調整 -->
+        <div class="diagram-names">
           <span>山田 太郎</span>
+          <span>　花子</span>
         </div>
       </div>
     </div>
@@ -403,7 +410,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="diagram-noshi"></div>
         <div class="diagram-mizuhiki"></div>
         <div class="diagram-title">寿</div>
-        <div class="diagram-names" style="font-size: 1.1rem; bottom: 3rem;">
+        <!-- 縦書きは右から左へ並ぶので、上位から記載 -->
+        <div class="diagram-names">
           <span>佐藤 次郎</span>
           <span>山田 太郎</span>
           <span>鈴木 一郎</span>
@@ -427,9 +435,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="diagram-noshi"></div>
         <div class="diagram-mizuhiki"></div>
         <div class="diagram-title">寿</div>
-        <div class="diagram-names" style="margin-left: 0.5rem;">
-          <span style="font-size: 0.9rem; margin-top: 3.5rem;">外一同</span>
+        <div class="diagram-names">
           <span>鈴木 一郎</span>
+          <span style="font-size: 0.85em;">　外一同</span>
         </div>
       </div>
     </div>
