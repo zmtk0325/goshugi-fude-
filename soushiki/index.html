@@ -56,6 +56,72 @@
 }
 </script>
 
+<!-- FAQ構造化データ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "「御霊前」と「御仏前」の違いは何ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "「御霊前」は四十九日までの仏式葬儀で広く使われ、宗派が分からない場合にも安全な表書きです。「御仏前」は四十九日以降の法要、または浄土真宗の場合に使用します。浄土真宗では亡くなってすぐ仏になるという考え方のため、最初から「御仏前」を使います。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "なぜ薄墨で書くのですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "「悲しみの涙で墨が薄まった」「急なことで濃く墨をする時間がなかった」という弔意を表すためです。四十九日までの弔事では薄墨を使うのが正式なマナーとされています。四十九日以降の法要では通常の濃さの墨で書いて構いません。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "香典の金額はいくらが適切ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "故人との関係性によって異なります。友人・知人は5,000〜10,000円、職場の同僚は3,000〜10,000円、親族（叔父叔母）は10,000〜30,000円、兄弟姉妹は30,000〜50,000円、両親は50,000〜100,000円が目安です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "4・9を含む金額はなぜ避けるのですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "「4」は「死」、「9」は「苦」を連想させるため、香典の金額では避ける習わしがあります。代わりに3,000円、5,000円、10,000円、30,000円、50,000円といった金額を選びましょう。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "香典に新札を入れるのはNGですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "新札は「不幸を予期して用意していた」という意味に取られかねないため、避けるのが伝統的なマナーです。新札しか手元にない場合は、一度折り目をつけてから入れましょう。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "キリスト教式の葬儀ではどう書きますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "キリスト教の葬儀では「御花料」「献花料」と書くのが一般的です。カトリック・プロテスタントどちらでも「御花料」で対応できます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "香典袋はどう持参すればいいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "香典袋は裸で持参せず、必ずふくさ（袱紗）に包んで持参します。色は紺・グレー・紫など寒色系が弔事用です。紫は慶弔両用なので一つあると便利です。受付で渡す際は、ふくさから取り出し、相手から見て正面になる向きで両手で渡します。"
+      }
+    }
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Yuji+Mai&family=Shippori+Mincho:wght@400;600&family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
@@ -612,6 +678,81 @@
     border-bottom-color: var(--silver);
   }
 
+  /* フォント切替 */
+  .font-yuji .vertical-text,
+  .font-yuji .amount-area,
+  .font-yuji .address-area,
+  .font-yuji .ura-name-area,
+  .font-yuji .postal-area { font-family: 'Yuji Mai', serif; }
+
+  .font-klee .vertical-text,
+  .font-klee .amount-area,
+  .font-klee .address-area,
+  .font-klee .ura-name-area,
+  .font-klee .postal-area { font-family: 'Klee One', serif; font-weight: 600; }
+
+  .font-shippori .vertical-text,
+  .font-shippori .amount-area,
+  .font-shippori .address-area,
+  .font-shippori .ura-name-area,
+  .font-shippori .postal-area { font-family: 'Shippori Mincho', serif; font-weight: 600; }
+
+  /* 濃さ切替 */
+  .ink-usuzumi .vertical-text,
+  .ink-usuzumi .amount-area,
+  .ink-usuzumi .address-area,
+  .ink-usuzumi .ura-name-area,
+  .ink-usuzumi .postal-area { color: var(--usuzumi); }
+
+  .ink-black .vertical-text,
+  .ink-black .amount-area,
+  .ink-black .address-area,
+  .ink-black .ura-name-area,
+  .ink-black .postal-area { color: var(--ink); }
+
+  .placeholder-faded { opacity: 0.3; }
+
+  /* 想いを込めたメッセージセクション */
+  .message-section {
+    max-width: 800px;
+    margin: 3rem auto 0;
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .message-section::before,
+  .message-section::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 1px;
+    background: var(--silver);
+  }
+  .message-section::before { top: 1.5rem; }
+  .message-section::after { bottom: 1.5rem; }
+
+  .message-section h2 {
+    font-family: 'Yuji Mai', serif;
+    font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+    color: var(--ink);
+    margin-bottom: 2rem;
+    letter-spacing: 0.1em;
+    line-height: 1.6;
+  }
+
+  .message-section p {
+    font-size: 0.95rem;
+    color: #4a4540;
+    line-height: 2;
+    margin-bottom: 1.2rem;
+  }
+
+  .message-section p:last-child { margin-bottom: 0; }
+  .message-section strong { color: var(--silver-dark); font-weight: 600; }
+
   /* マナー解説セクション */
   .manners-section {
     max-width: 1100px;
@@ -651,52 +792,126 @@
     border-bottom: 1px dashed var(--line);
   }
 
-  .manner-card p {
+  .manner-card p,
+  .manner-card ul {
     font-size: 0.9rem;
     color: #4a4540;
     line-height: 1.7;
   }
 
   .manner-card ul {
-    font-size: 0.85rem;
-    color: #4a4540;
-    line-height: 1.7;
     padding-left: 1.2rem;
+    font-size: 0.85rem;
   }
 
-  /* フォント切替 */
-  .font-yuji .vertical-text,
-  .font-yuji .amount-area,
-  .font-yuji .address-area,
-  .font-yuji .ura-name-area,
-  .font-yuji .postal-area { font-family: 'Yuji Mai', serif; }
+  .manner-card strong { color: var(--silver-dark); }
 
-  .font-klee .vertical-text,
-  .font-klee .amount-area,
-  .font-klee .address-area,
-  .font-klee .ura-name-area,
-  .font-klee .postal-area { font-family: 'Klee One', serif; font-weight: 600; }
+  /* FAQ セクション */
+  .faq-section {
+    max-width: 900px;
+    margin: 2rem auto 0;
+    padding: 2.5rem 1.5rem;
+  }
 
-  .font-shippori .vertical-text,
-  .font-shippori .amount-area,
-  .font-shippori .address-area,
-  .font-shippori .ura-name-area,
-  .font-shippori .postal-area { font-family: 'Shippori Mincho', serif; font-weight: 600; }
+  .faq-section h2 {
+    font-family: 'Yuji Mai', serif;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: var(--ink);
+    text-align: center;
+    letter-spacing: 0.15em;
+  }
 
-  /* 濃さ切替 */
-  .ink-usuzumi .vertical-text,
-  .ink-usuzumi .amount-area,
-  .ink-usuzumi .address-area,
-  .ink-usuzumi .ura-name-area,
-  .ink-usuzumi .postal-area { color: var(--usuzumi); }
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
 
-  .ink-black .vertical-text,
-  .ink-black .amount-area,
-  .ink-black .address-area,
-  .ink-black .ura-name-area,
-  .ink-black .postal-area { color: var(--ink); }
+  .faq-item {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    overflow: hidden;
+    transition: all 0.2s;
+  }
 
-  .placeholder-faded { opacity: 0.3; }
+  .faq-item[open] {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 8px rgba(60, 60, 60, 0.06);
+  }
+
+  .faq-item summary {
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink);
+    list-style: none;
+    position: relative;
+    padding-right: 3rem;
+    user-select: none;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::before {
+    content: 'Q';
+    color: var(--silver-dark);
+    font-family: 'Yuji Mai', serif;
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  .faq-item summary::after {
+    content: '+';
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--silver-dark);
+    font-size: 1.4rem;
+    font-weight: 300;
+    transition: transform 0.2s;
+  }
+
+  .faq-item[open] summary::after {
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .faq-answer {
+    padding: 0 1.5rem 1.2rem;
+  }
+
+  .faq-answer p {
+    font-size: 0.9rem;
+    color: #4a4540;
+    line-height: 1.8;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .faq-answer p::before {
+    content: 'A';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #6b3030;
+    font-family: 'Yuji Mai', serif;
+    font-size: 1.1rem;
+  }
+
+  .faq-answer strong { color: var(--silver-dark); }
+
+  @media (max-width: 600px) {
+    .message-section { padding: 2rem 1rem; }
+    .manners-section { padding: 2rem 1rem; }
+    .faq-section { padding: 2rem 1rem; }
+    .manner-card { padding: 1.2rem; }
+    .faq-item summary { padding: 0.9rem 1rem 0.9rem 1rem; padding-right: 2.5rem; font-size: 0.9rem; }
+  }
 
   footer {
     text-align: center;
@@ -892,6 +1107,28 @@
   </section>
 </main>
 
+<!-- 想いを込めたメッセージ -->
+<section class="message-section">
+  <div class="message-inner">
+    <h2>悲しみの中で、心を伝える一文字を。</h2>
+    <p>
+      故人を偲び、ご遺族へ気持ちを届ける——<br>
+      その大切な瞬間に、自分の手で<strong>「お悔やみの心」</strong>を綴りたい。<br>
+      そう願う方は決して少なくありません。
+    </p>
+    <p>
+      薄墨の文字には、「悲しみの涙で墨が薄まった」という<br>
+      日本人の繊細な心遣いが込められています。<br>
+      たとえ字に自信がなくても、丁寧に書こうとするその姿勢が、<br>
+      何よりも気持ちを伝えてくれるはずです。
+    </p>
+    <p>
+      このサイトは、急なご不幸の中でも安心して<br>
+      心のこもった一文字を書けるよう、お手伝いするために作られました。
+    </p>
+  </div>
+</section>
+
 <!-- マナー解説 -->
 <section class="manners-section">
   <h2>香典袋のマナー</h2>
@@ -926,6 +1163,55 @@
       <h3>👜 ふくさに包む</h3>
       <p>香典袋は裸で持参せず、必ず<strong>ふくさ（袱紗）</strong>に包みます。色は紺・グレー・紫など寒色系。紫は慶弔両用なので一つあると便利です。</p>
     </div>
+  </div>
+</section>
+
+<!-- よくある質問 -->
+<section class="faq-section">
+  <h2>よくある質問</h2>
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary>「御霊前」と「御仏前」の違いは何ですか？</summary>
+      <div class="faq-answer">
+        <p>「御霊前」は四十九日までの仏式葬儀で広く使われ、宗派が分からない場合にも安全な表書きです。「御仏前」は四十九日以降の法要、または浄土真宗の場合に使用します。浄土真宗では亡くなってすぐ仏になるという考え方のため、最初から「御仏前」を使います。</p>
+      </div>
+    </details>
+    <details class="faq-item">
+      <summary>なぜ薄墨で書くのですか？</summary>
+      <div class="faq-answer">
+        <p>「悲しみの涙で墨が薄まった」「急なことで濃く墨をする時間がなかった」という弔意を表すためです。四十九日までの弔事では薄墨を使うのが正式なマナーとされています。四十九日以降の法要では通常の濃さの墨で書いて構いません。</p>
+      </div>
+    </details>
+    <details class="faq-item">
+      <summary>香典の金額はいくらが適切ですか？</summary>
+      <div class="faq-answer">
+        <p>故人との関係性によって異なります。友人・知人は5,000〜10,000円、職場の同僚は3,000〜10,000円、親族（叔父叔母）は10,000〜30,000円、兄弟姉妹は30,000〜50,000円、両親は50,000〜100,000円が目安です。地域や年齢によっても変わりますので、ご家族や親族と相談されることをおすすめします。</p>
+      </div>
+    </details>
+    <details class="faq-item">
+      <summary>4・9を含む金額はなぜ避けるのですか？</summary>
+      <div class="faq-answer">
+        <p>「4」は「死」、「9」は「苦」を連想させるため、香典の金額では避ける習わしがあります。具体的には4,000円、9,000円、40,000円、90,000円などです。代わりに3,000円、5,000円、10,000円、30,000円、50,000円といった金額を選びましょう。</p>
+      </div>
+    </details>
+    <details class="faq-item">
+      <summary>香典に新札を入れるのはNGですか？</summary>
+      <div class="faq-answer">
+        <p>新札は「不幸を予期して用意していた」という意味に取られかねないため、避けるのが伝統的なマナーです。新札しか手元にない場合は、一度折り目をつけてから入れましょう。ただし、あまりに使い古されたお札も失礼にあたるため、適度にきれいなお札を選ぶのが理想です。</p>
+      </div>
+    </details>
+    <details class="faq-item">
+      <summary>キリスト教式の葬儀ではどう書きますか？</summary>
+      <div class="faq-answer">
+        <p>キリスト教の葬儀では「御花料」「献花料」と書くのが一般的です。カトリック・プロテスタントどちらでも「御花料」で対応できます。「御霊前」も使える場合がありますが、プロテスタントでは「霊」の概念が異なるため避けた方が無難です。</p>
+      </div>
+    </details>
+    <details class="faq-item">
+      <summary>香典袋はどう持参すればいいですか？</summary>
+      <div class="faq-answer">
+        <p>香典袋は裸で持参せず、必ず<strong>ふくさ（袱紗）</strong>に包んで持参します。色は紺・グレー・紫など寒色系が弔事用です。紫は慶弔両用なので一つあると便利です。受付で渡す際は、ふくさから取り出し、相手から見て正面になる向きで両手で渡します。</p>
+      </div>
+    </details>
   </div>
 </section>
 
