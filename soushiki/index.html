@@ -1276,7 +1276,7 @@
 
     if (sen > 0) s += (sen === 1 ? '' : kyujiMap[sen]) + '阡';
     if (hyaku > 0) s += (hyaku === 1 ? '' : kyujiMap[hyaku]) + '百';
-    if (juu > 0) s += (juu === 1 ? '' : kyujiMap[juu]) + '拾';
+    if (juu > 0) s += (juu === 1 ? '壱' : kyujiMap[juu]) + '拾';
     if (ichi > 0) s += kyujiMap[ichi];
     return s;
   }
