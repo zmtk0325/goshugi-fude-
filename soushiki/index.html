@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>香典袋 筆耕 | 不祝儀袋の文字を薄墨風に変換できる無料ツール</title>
+<meta name="description" content="香典袋の表書き・氏名・金額を薄墨の毛筆風にプレビューできる無料ツール。御霊前・御仏前・御香典など宗教別の表書きに対応。旧字体の漢数字も自動変換。葬儀・法事のマナーも解説。">
+<meta name="keywords" content="香典袋,不祝儀袋,書き方,薄墨,御霊前,御仏前,御香典,葬式,葬儀,法事,旧字体,漢数字,お手本,無料">
+<meta name="author" content="zmtk0325">
+
+<link rel="canonical" href="https://zmtk0325.github.io/goshugi-fude-/soushiki/">
+
+<!-- OGP -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zmtk0325.github.io/goshugi-fude-/soushiki/">
+<meta property="og:title" content="香典袋 筆耕 | 不祝儀袋の文字を薄墨風に変換できる無料ツール">
+<meta property="og:description" content="香典袋の表書き・氏名・金額を薄墨の毛筆風にプレビュー。御霊前・御仏前など宗教別の表書きに対応。マナー解説付き。">
+<meta property="og:site_name" content="祝儀袋 筆耕">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://zmtk0325.github.io/goshugi-fude-/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="香典袋 筆耕 | 不祝儀袋の文字を薄墨風に変換">
+<meta name="twitter:description" content="香典袋の書き方に困ったらこのツール。御霊前・御仏前など宗教別の表書きに対応。薄墨の毛筆風にプレビュー。">
+<meta name="twitter:image" content="https://zmtk0325.github.io/goshugi-fude-/ogp.png">
+
+<!-- 構造化データ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "香典袋 筆耕",
+  "alternateName": "不祝儀袋 文字変換ツール",
+  "url": "https://zmtk0325.github.io/goshugi-fude-/soushiki/",
+  "description": "香典袋（不祝儀袋）の表書き・氏名・金額を薄墨の毛筆風にプレビューできる無料ツール。",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires JavaScript",
+  "inLanguage": "ja",
+  "isAccessibleForFree": true,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://zmtk0325.github.io/goshugi-fude-/" },
+    { "@type": "ListItem", "position": 2, "name": "不祝儀（香典袋）" }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yuji+Mai&family=Shippori+Mincho:wght@400;600&family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #1a1410;
+    --usuzumi: #6b6968;       /* 薄墨色 */
+    --usuzumi-light: #8a8886; /* さらに薄い */
+    --paper: #f5f3ee;          /* 不祝儀向けやや冷たい紙色 */
+    --paper-warm: #e8e5dd;
+    --silver: #9c9c9c;
+    --silver-dark: #5a5a5a;
+    --line: #c4c2bb;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Shippori Mincho', serif;
+    background: var(--paper);
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(0, 0, 0, 0.02) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(0, 0, 0, 0.015) 0%, transparent 50%);
+    color: var(--ink);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* サイトナビ */
+  .site-nav {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0.8rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .site-logo {
+    font-family: 'Yuji Mai', serif;
+    font-size: 1.3rem;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+  }
+
+  .hamburger {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--ink);
+    transition: all 0.3s ease;
+  }
+
+  .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+  .nav-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+  }
+
+  .nav-menu.open {
+    max-height: 600px;
+    border-top: 1px solid var(--line);
+  }
+
+  .nav-menu ul {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    list-style: none;
+  }
+
+  .nav-menu a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0.5rem;
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 0.95rem;
+    border-bottom: 1px dashed rgba(196, 194, 187, 0.5);
+    transition: background 0.2s;
+  }
+
+  .nav-menu a:hover { background: rgba(0, 0, 0, 0.03); }
+  .nav-menu a.nav-current { color: var(--silver-dark); font-weight: 600; }
+  .nav-menu a.nav-coming { color: #8a7d6a; cursor: default; pointer-events: none; }
+
+  .badge {
+    font-size: 0.7rem;
+    background: var(--silver);
+    color: white;
+    padding: 0.15rem 0.5rem;
+    border-radius: 10px;
+    letter-spacing: 0.05em;
+  }
+
+  .nav-divider {
+    height: 1px;
+    background: var(--line);
+    margin: 0.5rem 0;
+    list-style: none;
+  }
+
+  /* パンくず */
+  .breadcrumb {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0.8rem 1.5rem 0.4rem;
+    font-size: 0.8rem;
+    color: #6a6660;
+  }
+
+  .breadcrumb ol {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    align-items: center;
+  }
+
+  .breadcrumb li {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .breadcrumb li:not(:last-child)::after {
+    content: '›';
+    color: var(--silver);
+    margin-left: 0.4rem;
+  }
+
+  .breadcrumb a { color: #5a4d3a; text-decoration: none; }
+  .breadcrumb a:hover { color: var(--silver-dark); text-decoration: underline; }
+  .breadcrumb [aria-current="page"] { color: var(--ink); font-weight: 600; }
+
+  /* ヘッダー */
+  header {
+    text-align: center;
+    padding: 1.5rem 1.5rem 2rem;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+
+  header::before, header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    width: 40px;
+    height: 3px;
+    background: var(--silver);
+  }
+  header::before { left: 50%; margin-left: -50px; }
+  header::after { left: 50%; margin-left: 10px; }
+
+  h1 {
+    font-family: 'Yuji Mai', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--ink);
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+    color: #6a6660;
+    letter-spacing: 0.2em;
+  }
+
+  /* 使い方案内 */
+  .usage-guide {
+    max-width: 600px;
+    margin: 1.5rem auto 0;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.015) 100%);
+    border: 1px solid var(--silver);
+    border-radius: 2px;
+    text-align: center;
+    position: relative;
+  }
+
+  .usage-guide::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: var(--silver);
+  }
+
+  .usage-text {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 0.95rem;
+    color: var(--ink);
+    line-height: 1.8;
+  }
+
+  @media (max-width: 600px) {
+    .usage-guide { margin: 1rem 1rem 0; padding: 0.8rem 1rem; }
+    .usage-text { font-size: 0.85rem; }
+  }
+
+  /* メインレイアウト */
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  @media (max-width: 768px) {
+    main { grid-template-columns: 1fr; gap: 2rem; }
+  }
+
+  /* 入力エリア */
+  .input-section {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 2rem;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+  }
+
+  .section-label {
+    font-family: 'Yuji Mai', serif;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+    border-bottom: 2px solid var(--silver);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+  }
+
+  .field { margin-bottom: 1.5rem; }
+
+  label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #4a4540;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.1em;
+  }
+
+  input[type="text"], input[type="number"], select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-family: 'Klee One', 'Shippori Mincho', serif;
+    font-size: 1rem;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    color: var(--ink);
+    transition: border-color 0.2s;
+  }
+
+  input:focus, select:focus {
+    outline: none;
+    border-color: var(--silver-dark);
+    box-shadow: 0 0 0 3px rgba(90, 90, 90, 0.1);
+  }
+
+  .hint {
+    font-size: 0.75rem;
+    color: #8a8780;
+    margin-top: 0.4rem;
+  }
+
+  .postal-status { margin-top: 0.3rem; font-weight: 600; }
+  .postal-status.success { color: #2d7a3e; }
+  .postal-status.error { color: #b8401a; }
+  .postal-status.loading { color: #6b6968; }
+
+  .controls {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .toggle {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    background: transparent;
+    border: 1px solid var(--line);
+    color: #4a4540;
+    cursor: pointer;
+    font-family: 'Shippori Mincho', serif;
+    transition: all 0.2s;
+    border-radius: 2px;
+  }
+
+  .toggle.active {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+
+  /* 表書き選択：宗教別グループ表示 */
+  .title-info {
+    background: rgba(0, 0, 0, 0.03);
+    border-left: 3px solid var(--silver);
+    padding: 0.75rem 1rem;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: #4a4540;
+    line-height: 1.5;
+    border-radius: 2px;
+  }
+
+  .info-box {
+    background: rgba(0, 0, 0, 0.03);
+    border-left: 3px solid var(--silver);
+    padding: 0.75rem 1rem;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: #4a4540;
+    line-height: 1.5;
+  }
+
+  /* プレビュー */
+  .preview-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .envelope {
+    width: 280px;
+    height: 460px;
+    background: linear-gradient(180deg, #fafaf6 0%, #ebeae3 100%);
+    border: 1px solid var(--line);
+    box-shadow:
+      0 4px 12px rgba(60, 60, 60, 0.08),
+      0 1px 3px rgba(60, 60, 60, 0.05),
+      inset 0 0 60px rgba(0, 0, 0, 0.02);
+    position: relative;
+    padding: 2rem 2rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* 黒白の水引 */
+  .mizuhiki {
+    position: absolute;
+    top: 38%; /* 真ん中より少し下 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 30px;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .mizuhiki svg { width: 100%; height: 100%; }
+
+  /* 縦書きエリア */
+  .vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-family: 'Yuji Mai', serif;
+    color: var(--usuzumi);
+    text-align: center;
+  }
+
+  /* 表書き：水引より上、絶対に被らない領域に固定 */
+  .title-area {
+    position: absolute;
+    top: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    max-height: 28%;
+    font-size: 2.2rem;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  /* 3文字以上（御霊前など）も氏名と同じサイズで */
+  .title-area.long {
+    font-size: 2.2rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* 名前：水引より下、絶対に被らない領域に固定 */
+  .name-area {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 1.5rem;
+    font-size: 2.2rem;
+    letter-spacing: 0.2em;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .surname { display: inline; }
+  .given-name { display: inline; margin-top: 0.5em; }
+  .single-name { display: inline; }
+  .person { display: inline-block; margin-left: 0.8em; }
+  .person:first-child { margin-left: 0; }
+
+  /* 内袋 */
+  .uchibukuro {
+    width: 200px;
+    height: 280px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    margin-top: 2rem;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(60, 60, 60, 0.06);
+    position: relative;
+  }
+
+  .uchibukuro-label {
+    position: absolute;
+    top: -1.8rem;
+    font-size: 0.8rem;
+    color: #6a6660;
+    letter-spacing: 0.2em;
+  }
+
+  .amount-area {
+    writing-mode: vertical-rl;
+    font-family: 'Yuji Mai', serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.25em;
+    color: var(--usuzumi);
+    line-height: 1.4;
+  }
+
+  /* 内袋（裏） */
+  .uchibukuro-ura {
+    width: 240px;
+    height: 340px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    margin-top: 2rem;
+    padding: 0;
+    box-shadow: 0 2px 8px rgba(60, 60, 60, 0.06);
+    position: relative;
+  }
+
+  .ura-content {
+    position: absolute;
+    top: 33%;
+    left: 8px;
+    width: auto;
+    height: 60%;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.5;
+  }
+
+  .postal-area {
+    font-family: 'Yuji Mai', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    color: var(--usuzumi);
+    margin-bottom: 0.2em;
+    white-space: nowrap;
+  }
+
+  .address-area {
+    font-family: 'Yuji Mai', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    color: var(--usuzumi);
+    line-height: 1.4;
+    margin-bottom: 1em;
+    white-space: nowrap;
+    padding-top: 1em;
+  }
+
+  .ura-name-area {
+    font-family: 'Yuji Mai', serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.2em;
+    color: var(--usuzumi);
+    align-self: flex-start;
+    padding-top: 2.4em;
+  }
+
+  .ura-name-area .surname { display: inline; }
+  .ura-name-area .given-name { display: inline; }
+  .ura-name-area .surname::after { content: ' '; }
+
+  /* タブ */
+  .tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .tab {
+    padding: 0.6rem 1.2rem;
+    background: transparent;
+    border: none;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 0.9rem;
+    color: #8a8780;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: all 0.2s;
+  }
+
+  .tab.active {
+    color: var(--ink);
+    border-bottom-color: var(--silver);
+  }
+
+  /* マナー解説セクション */
+  .manners-section {
+    max-width: 1100px;
+    margin: 3rem auto 0;
+    padding: 2rem 1.5rem;
+    background: rgba(255, 255, 255, 0.4);
+    border-top: 1px solid var(--line);
+  }
+
+  .manners-section h2 {
+    font-family: 'Yuji Mai', serif;
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+    text-align: center;
+    letter-spacing: 0.15em;
+  }
+
+  .manners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .manner-card {
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+  }
+
+  .manner-card h3 {
+    font-size: 1.05rem;
+    color: var(--ink);
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px dashed var(--line);
+  }
+
+  .manner-card p {
+    font-size: 0.9rem;
+    color: #4a4540;
+    line-height: 1.7;
+  }
+
+  .manner-card ul {
+    font-size: 0.85rem;
+    color: #4a4540;
+    line-height: 1.7;
+    padding-left: 1.2rem;
+  }
+
+  /* フォント切替 */
+  .font-yuji .vertical-text,
+  .font-yuji .amount-area,
+  .font-yuji .address-area,
+  .font-yuji .ura-name-area,
+  .font-yuji .postal-area { font-family: 'Yuji Mai', serif; }
+
+  .font-klee .vertical-text,
+  .font-klee .amount-area,
+  .font-klee .address-area,
+  .font-klee .ura-name-area,
+  .font-klee .postal-area { font-family: 'Klee One', serif; font-weight: 600; }
+
+  .font-shippori .vertical-text,
+  .font-shippori .amount-area,
+  .font-shippori .address-area,
+  .font-shippori .ura-name-area,
+  .font-shippori .postal-area { font-family: 'Shippori Mincho', serif; font-weight: 600; }
+
+  /* 濃さ切替 */
+  .ink-usuzumi .vertical-text,
+  .ink-usuzumi .amount-area,
+  .ink-usuzumi .address-area,
+  .ink-usuzumi .ura-name-area,
+  .ink-usuzumi .postal-area { color: var(--usuzumi); }
+
+  .ink-black .vertical-text,
+  .ink-black .amount-area,
+  .ink-black .address-area,
+  .ink-black .ura-name-area,
+  .ink-black .postal-area { color: var(--ink); }
+
+  .placeholder-faded { opacity: 0.3; }
+
+  footer {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    font-size: 0.8rem;
+    color: #8a8780;
+    border-top: 1px solid var(--line);
+    margin-top: 2rem;
+  }
+
+  footer a {
+    color: #5a4d3a;
+    text-decoration: none;
+  }
+  footer a:hover {
+    color: var(--silver-dark);
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+
+<!-- ハンバーガーメニュー -->
+<nav class="site-nav">
+  <div class="nav-container">
+    <a href="/goshugi-fude-/" class="site-logo">祝儀袋 筆耕</a>
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="nav-menu" id="navMenu">
+    <ul>
+      <li><a href="/goshugi-fude-/">💍 結婚祝い</a></li>
+      <li><a href="/goshugi-fude-/soushiki/" class="nav-current">⚱️ 不祝儀（香典袋）</a></li>
+      <li><a href="#" class="nav-coming">👶 出産・お宮参り <span class="badge">近日公開</span></a></li>
+      <li><a href="#" class="nav-coming">🎓 入学・卒業祝い <span class="badge">近日公開</span></a></li>
+      <li><a href="#" class="nav-coming">🎍 お年玉袋 <span class="badge">近日公開</span></a></li>
+      <li class="nav-divider"></li>
+      <li><a href="#" class="nav-coming">📚 マナーコラム <span class="badge">近日公開</span></a></li>
+      <li><a href="#" class="nav-coming">ℹ️ このサイトについて <span class="badge">近日公開</span></a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- パンくず -->
+<div class="breadcrumb">
+  <ol>
+    <li><a href="/goshugi-fude-/">ホーム</a></li>
+    <li><span aria-current="page">不祝儀（香典袋）</span></li>
+  </ol>
+</div>
+
+<header>
+  <h1>香典袋 筆耕</h1>
+  <p class="subtitle">不 祝 儀 袋 の 文 字 変 換</p>
+</header>
+
+<div class="usage-guide">
+  <p class="usage-text">
+    📱 スマホの画面に表示させたまま、上からなぞって<br>お手本としてご利用ください
+  </p>
+</div>
+
+<main>
+  <!-- 入力エリア -->
+  <section class="input-section">
+    <div class="section-label">入力</div>
+
+    <div class="field">
+      <label for="title">表書き</label>
+      <select id="title">
+        <optgroup label="― 仏教（宗派不明・通夜葬儀）―">
+          <option value="御霊前" selected>御霊前（迷ったらこれ）</option>
+          <option value="御香典">御香典</option>
+          <option value="御香料">御香料</option>
+        </optgroup>
+        <optgroup label="― 仏教（浄土真宗・四十九日後）―">
+          <option value="御仏前">御仏前</option>
+          <option value="御佛前">御佛前（旧字）</option>
+        </optgroup>
+        <optgroup label="― 神道 ―">
+          <option value="御玉串料">御玉串料</option>
+          <option value="御榊料">御榊料</option>
+          <option value="御神前">御神前</option>
+        </optgroup>
+        <optgroup label="― キリスト教 ―">
+          <option value="御花料">御花料</option>
+          <option value="献花料">献花料</option>
+        </optgroup>
+        <option value="">（入力しない）</option>
+      </select>
+      <div class="title-info" id="titleInfo">
+        <strong>御霊前</strong>：宗派が分からないときに最も使える表書きです（浄土真宗を除く）
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="name">お名前</label>
+      <input type="text" id="name" placeholder="山田 太郎">
+      <p class="hint">苗字と名前の間にスペースで縦書き表示。連名は3つ以上のスペース区切りで</p>
+    </div>
+
+    <div class="field">
+      <label for="amount">金額（円）</label>
+      <input type="number" id="amount" placeholder="5000" min="0" step="1000">
+      <div class="controls">
+        <button class="toggle" data-amount="3000">3千円</button>
+        <button class="toggle" data-amount="5000">5千円</button>
+        <button class="toggle" data-amount="10000">1万円</button>
+        <button class="toggle" data-amount="30000">3万円</button>
+      </div>
+      <p class="hint">旧字体の漢数字（壱・伍・萬）に自動変換。4・9を含む金額は避けるのが習わしです</p>
+    </div>
+
+    <div class="field">
+      <label for="postal">郵便番号</label>
+      <input type="text" id="postal" placeholder="100-0001" maxlength="8">
+      <p class="hint">7桁入力すると住所が自動で入ります（番地は手入力してください）</p>
+      <p class="hint postal-status" id="postalStatus" style="display:none;"></p>
+    </div>
+
+    <div class="field">
+      <label for="address">ご住所</label>
+      <input type="text" id="address" placeholder="東京都千代田区千代田1-1">
+      <p class="hint">数字も漢数字に自動変換</p>
+    </div>
+
+    <div class="field">
+      <label>濃さ</label>
+      <div class="controls">
+        <button class="toggle ink-btn active" data-ink="usuzumi">薄墨（伝統）</button>
+        <button class="toggle ink-btn" data-ink="black">通常墨</button>
+      </div>
+      <p class="hint">薄墨は「悲しみの涙で墨が薄まった」という意味があり、四十九日までの弔事で使用します</p>
+    </div>
+
+    <div class="field">
+      <label>フォント</label>
+      <div class="controls">
+        <button class="toggle font-btn active" data-font="yuji">毛筆</button>
+        <button class="toggle font-btn" data-font="klee">手書き風</button>
+        <button class="toggle font-btn" data-font="shippori">楷書</button>
+      </div>
+    </div>
+
+    <div class="info-box">
+      💡 表示された文字を見ながら、お手本として実際の香典袋に書き写すと、字が苦手な方でもバランスよく書けます。
+    </div>
+  </section>
+
+  <!-- プレビュー -->
+  <section class="preview-section">
+    <div class="tabs">
+      <button class="tab active" data-tab="omote">表書き</button>
+      <button class="tab" data-tab="ura">中袋（表）</button>
+      <button class="tab" data-tab="uchi-ura">中袋（裏）</button>
+    </div>
+
+    <!-- 表書き -->
+    <div class="envelope font-yuji ink-usuzumi" id="envelope">
+      <!-- 黒白の水引 -->
+      <div class="mizuhiki">
+        <svg viewBox="0 0 200 30" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 15 Q 50 5, 100 15 T 190 15" stroke="#2a2a2a" stroke-width="2" fill="none"/>
+          <path d="M10 18 Q 50 8, 100 18 T 190 18" stroke="#2a2a2a" stroke-width="2" fill="none"/>
+          <path d="M10 21 Q 50 11, 100 21 T 190 21" stroke="#dadada" stroke-width="2" fill="none"/>
+          <path d="M10 24 Q 50 14, 100 24 T 190 24" stroke="#dadada" stroke-width="2" fill="none"/>
+          <path d="M10 27 Q 50 17, 100 27 T 190 27" stroke="#5a5a5a" stroke-width="2" fill="none"/>
+          <ellipse cx="100" cy="20" rx="12" ry="6" fill="#5a5a5a" opacity="0.4"/>
+        </svg>
+      </div>
+
+      <div class="vertical-text title-area" id="titleDisplay">御霊前</div>
+      <div class="vertical-text name-area" id="nameDisplay">山田 太郎</div>
+    </div>
+
+    <!-- 中袋（表）：金額 -->
+    <div class="uchibukuro font-yuji ink-usuzumi" id="uchibukuro" style="display:none;">
+      <span class="uchibukuro-label">― 中袋（表）―</span>
+      <div class="amount-area" id="amountDisplay">金伍仟円</div>
+    </div>
+
+    <!-- 中袋（裏）：住所と名前 -->
+    <div class="uchibukuro-ura font-yuji ink-usuzumi" id="uchibukuroUra" style="display:none;">
+      <span class="uchibukuro-label">― 中袋（裏）―</span>
+      <div class="ura-content">
+        <div class="postal-area" id="postalDisplay">〒一〇〇-〇〇〇一</div>
+        <div class="address-area" id="addressDisplay">東京都千代田区千代田一-一</div>
+        <div class="ura-name-area" id="uraNameDisplay">山田 太郎</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- マナー解説 -->
+<section class="manners-section">
+  <h2>香典袋のマナー</h2>
+  <div class="manners-grid">
+    <div class="manner-card">
+      <h3>📝 表書きの選び方</h3>
+      <p>宗派が分からない場合は<strong>「御霊前」</strong>が無難です。ただし浄土真宗では「御仏前」を使用します。神道は「御玉串料」、キリスト教は「御花料」が一般的です。</p>
+    </div>
+    <div class="manner-card">
+      <h3>🖋️ 薄墨で書く理由</h3>
+      <p>「悲しみの涙で墨が薄まった」「急なことで墨を十分にすれなかった」という意味を込め、四十九日までは薄墨で書くのが伝統的です。四十九日以降は通常の墨でも構いません。</p>
+    </div>
+    <div class="manner-card">
+      <h3>💴 金額の相場</h3>
+      <ul>
+        <li>友人・知人：5,000〜10,000円</li>
+        <li>会社の同僚：3,000〜10,000円</li>
+        <li>親族（叔父叔母）：10,000〜30,000円</li>
+        <li>兄弟姉妹：30,000〜50,000円</li>
+        <li>両親：50,000〜100,000円</li>
+      </ul>
+    </div>
+    <div class="manner-card">
+      <h3>🚫 避けるべき金額</h3>
+      <p><strong>4・9を含む金額</strong>は「死」「苦」を連想するため避けます。また、新札は「不幸を予期していた」と取られるので、新札しかない場合は折り目をつけてから入れます。</p>
+    </div>
+    <div class="manner-card">
+      <h3>🎀 水引の種類</h3>
+      <p>香典袋の水引は<strong>「黒白」または「双銀」</strong>を使用します。結び方は「結び切り」または「あわじ結び」（一度きりで繰り返さない意）。蓮の絵柄は仏教専用です。</p>
+    </div>
+    <div class="manner-card">
+      <h3>👜 ふくさに包む</h3>
+      <p>香典袋は裸で持参せず、必ず<strong>ふくさ（袱紗）</strong>に包みます。色は紺・グレー・紫など寒色系。紫は慶弔両用なので一つあると便利です。</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>※ あくまで参考表示です。実際は毛筆または筆ペン（薄墨）でお書きください。</p>
+  <p style="margin-top:0.5rem;"><a href="/goshugi-fude-/">← 結婚祝い版へ戻る</a></p>
+</footer>
+
+<script>
+  // 通常の漢数字
+  const kanjiMap = {
+    '0': '〇', '1': '一', '2': '二', '3': '三',
+    '4': '四', '5': '五', '6': '六', '7': '七',
+    '8': '八', '9': '九'
+  };
+
+  // 旧字体の漢数字（金額用）
+  const kyujiMap = {
+    '0': '〇', '1': '壱', '2': '弐', '3': '参',
+    '4': '四', '5': '伍', '6': '六', '7': '七',
+    '8': '八', '9': '九'
+  };
+
+  function numToKanji(str) {
+    return str.replace(/[0-9]/g, d => kanjiMap[d]);
+  }
+
+  function formatAddress(addr) {
+    if (!addr) return '';
+    return numToKanji(addr);
+  }
+
+  // 金額を旧字体に変換
+  function toKyuji(num) {
+    if (!num || num <= 0) return '';
+    const n = parseInt(num);
+    if (isNaN(n)) return '';
+
+    let result = '';
+    const oku = Math.floor(n / 100000000);
+    const man = Math.floor((n % 100000000) / 10000);
+    const sen = Math.floor((n % 10000) / 1000);
+    const remainder = n % 1000;
+
+    if (oku > 0) result += convertGroup(oku) + '億';
+    if (man > 0) result += convertGroup(man) + '萬';
+    if (sen > 0) {
+      if (sen === 1) result += '阡';
+      else result += kyujiMap[sen] + '阡';
+    }
+    if (remainder > 0) result += remainder;
+
+    return '金' + result + '円';
+  }
+
+  function convertGroup(num) {
+    let s = '';
+    const sen = Math.floor(num / 1000);
+    const hyaku = Math.floor((num % 1000) / 100);
+    const juu = Math.floor((num % 100) / 10);
+    const ichi = num % 10;
+
+    if (sen > 0) s += (sen === 1 ? '' : kyujiMap[sen]) + '阡';
+    if (hyaku > 0) s += (hyaku === 1 ? '' : kyujiMap[hyaku]) + '百';
+    if (juu > 0) s += (juu === 1 ? '' : kyujiMap[juu]) + '拾';
+    if (ichi > 0) s += kyujiMap[ichi];
+    return s;
+  }
+
+  // 表書きの説明文
+  const titleDescriptions = {
+    '御霊前': '宗派が分からないときに最も使える表書きです（浄土真宗を除く）',
+    '御香典': '仏教全般で使えます。香りを供えるという意味',
+    '御香料': '仏教全般で使えます。御香典と同じ意味',
+    '御仏前': '浄土真宗、または四十九日後の法事で使用します',
+    '御佛前': '御仏前の旧字体表記',
+    '御玉串料': '神道の葬儀（神葬祭）で使用します',
+    '御榊料': '神道で使用。御玉串料と同じ意味',
+    '御神前': '神道で使用',
+    '御花料': 'キリスト教（カトリック・プロテスタント両方OK）で使用',
+    '献花料': 'キリスト教で使用'
+  };
+
+  // サンプルデータ
+  const SAMPLE = {
+    name: '山田 太郎',
+    amount: '5000',
+    postal: '100-0001',
+    address: '東京都千代田区千代田1-1'
+  };
+
+  // DOM
+  const titleSelect = document.getElementById('title');
+  const nameInput = document.getElementById('name');
+  const amountInput = document.getElementById('amount');
+  const addressInput = document.getElementById('address');
+  const postalInput = document.getElementById('postal');
+  const titleDisplay = document.getElementById('titleDisplay');
+  const titleInfo = document.getElementById('titleInfo');
+  const nameDisplay = document.getElementById('nameDisplay');
+  const amountDisplay = document.getElementById('amountDisplay');
+  const addressDisplay = document.getElementById('addressDisplay');
+  const postalDisplay = document.getElementById('postalDisplay');
+  const uraNameDisplay = document.getElementById('uraNameDisplay');
+  const envelope = document.getElementById('envelope');
+  const uchibukuro = document.getElementById('uchibukuro');
+  const uchibukuroUra = document.getElementById('uchibukuroUra');
+
+  function buildNameHtml(name) {
+    const parts = name.split(/[\s　]+/).filter(p => p);
+    if (parts.length === 2) {
+      return `<span class="surname">${parts[0]}</span><span class="given-name">${parts[1]}</span>`;
+    } else if (parts.length >= 3) {
+      return parts.map(p => `<span class="person">${p}</span>`).join('');
+    } else {
+      return `<span class="single-name">${parts[0]}</span>`;
+    }
+  }
+
+  function updatePreview() {
+    const title = titleSelect.value;
+    const name = nameInput.value.trim() || SAMPLE.name;
+    const amount = amountInput.value || SAMPLE.amount;
+    const address = addressInput.value.trim() || SAMPLE.address;
+    const postal = postalInput.value.trim() || SAMPLE.postal;
+
+    titleDisplay.textContent = title || '　';
+    titleDisplay.classList.toggle('placeholder-faded', !title);
+
+    // 3文字以上は字を小さく（御霊前、御香典、御仏前など）
+    if (title.length >= 3) {
+      titleDisplay.classList.add('long');
+    } else {
+      titleDisplay.classList.remove('long');
+    }
+
+    // 表書きの説明更新
+    if (title && titleDescriptions[title]) {
+      titleInfo.innerHTML = `<strong>${title}</strong>：${titleDescriptions[title]}`;
+      titleInfo.style.display = 'block';
+    } else {
+      titleInfo.style.display = 'none';
+    }
+
+    const nameHtml = buildNameHtml(name);
+    nameDisplay.innerHTML = nameHtml;
+    uraNameDisplay.innerHTML = nameHtml;
+
+    const kyuji = toKyuji(amount);
+    amountDisplay.textContent = kyuji || '金額';
+    amountDisplay.classList.toggle('placeholder-faded', !kyuji);
+
+    addressDisplay.textContent = formatAddress(address);
+
+    const kanjiPostal = postal.replace(/[0-9]/g, d => kanjiMap[d]);
+    postalDisplay.textContent = '〒' + kanjiPostal;
+  }
+
+  titleSelect.addEventListener('change', updatePreview);
+  nameInput.addEventListener('input', updatePreview);
+  amountInput.addEventListener('input', updatePreview);
+  addressInput.addEventListener('input', updatePreview);
+  postalInput.addEventListener('input', updatePreview);
+
+  // 金額クイック選択
+  document.querySelectorAll('[data-amount]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-amount]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      amountInput.value = btn.dataset.amount;
+      updatePreview();
+    });
+  });
+
+  // フォント切替
+  document.querySelectorAll('.font-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.font-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const font = btn.dataset.font;
+      ['font-yuji', 'font-klee', 'font-shippori'].forEach(c => {
+        envelope.classList.remove(c);
+        uchibukuro.classList.remove(c);
+        uchibukuroUra.classList.remove(c);
+      });
+      envelope.classList.add('font-' + font);
+      uchibukuro.classList.add('font-' + font);
+      uchibukuroUra.classList.add('font-' + font);
+    });
+  });
+
+  // 濃さ切替
+  document.querySelectorAll('.ink-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.ink-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const ink = btn.dataset.ink;
+      ['ink-usuzumi', 'ink-black'].forEach(c => {
+        envelope.classList.remove(c);
+        uchibukuro.classList.remove(c);
+        uchibukuroUra.classList.remove(c);
+      });
+      envelope.classList.add('ink-' + ink);
+      uchibukuro.classList.add('ink-' + ink);
+      uchibukuroUra.classList.add('ink-' + ink);
+    });
+  });
+
+  // タブ切替
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const target = tab.dataset.tab;
+
+      envelope.style.display = 'none';
+      uchibukuro.style.display = 'none';
+      uchibukuroUra.style.display = 'none';
+
+      if (target === 'omote') envelope.style.display = 'flex';
+      else if (target === 'ura') uchibukuro.style.display = 'flex';
+      else if (target === 'uchi-ura') uchibukuroUra.style.display = 'flex';
+    });
+  });
+
+  updatePreview();
+
+  // ハンバーガーメニュー
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('navMenu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navMenu.classList.toggle('open');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.site-nav') && navMenu.classList.contains('open')) {
+      hamburger.classList.remove('open');
+      navMenu.classList.remove('open');
+    }
+  });
+
+  // 郵便番号API
+  const postalStatus = document.getElementById('postalStatus');
+  let postalTimer = null;
+
+  postalInput.addEventListener('input', () => {
+    if (postalTimer) clearTimeout(postalTimer);
+    const raw = postalInput.value.trim();
+    const zip = raw.replace(/[‐ー－—-]/g, '').replace(/[０-９]/g, s => String.fromCharCode(s.charCodeAt(0) - 0xFEE0));
+
+    if (!/^\d{7}$/.test(zip)) {
+      postalStatus.style.display = 'none';
+      return;
+    }
+
+    postalTimer = setTimeout(async () => {
+      postalStatus.style.display = 'block';
+      postalStatus.className = 'hint postal-status loading';
+      postalStatus.textContent = '⏳ 住所を検索中...';
+
+      try {
+        const res = await fetch(`https://zipcloud.ibsnet.co.jp/api/search?zipcode=${zip}`);
+        const data = await res.json();
+
+        if (data.status === 200 && data.results) {
+          const r = data.results[0];
+          const fullAddress = r.address1 + r.address2 + r.address3;
+          addressInput.value = fullAddress;
+          updatePreview();
+          postalStatus.className = 'hint postal-status success';
+          postalStatus.textContent = `✓ ${fullAddress}（番地を追記してください）`;
+        } else {
+          postalStatus.className = 'hint postal-status error';
+          postalStatus.textContent = '⚠ 該当する住所が見つかりませんでした';
+        }
+      } catch (err) {
+        postalStatus.className = 'hint postal-status error';
+        postalStatus.textContent = '⚠ 検索に失敗しました';
+      }
+    }, 400);
+  });
+</script>
+
+</body>
+</html>
