@@ -1,96 +1,90 @@
 <!-- ヒーローセクション：マナーよりも「ハック」を感じさせる -->
-<section class="hero" style="background: linear-gradient(180deg, #f0f4f8 0%, var(--paper) 100%);">
+<section class="hero" style="background: linear-gradient(180deg, #f0f4f8 0%, var(--paper) 100%); padding: 4rem 1rem; text-align: center;">
   <h1>ライフイベント攻略コラム</h1>
-  <p>情報の非対称性をハックし、人生の節目を「公明正大」に楽しむ。<br>
-  マナーという名の「武装」を整え、賢く立ち回るための知恵をここに集約しました。</p>
+  <p style="max-width: 800px; margin: 1rem auto; line-height: 1.8;">
+    情報の非対称性をハックし、人生の節目を「公明正大」に楽しむ。<br>
+    マナーという名の「武装」を整え、賢く立ち回るための知恵をここに集約しました。
+  </p>
 </section>
 
 <!-- カテゴリナビ：実利的な並びへ -->
-<nav class="category-nav">
-  <a href="#special" class="cat-btn" style="border-color: var(--crimson); color: var(--crimson); font-weight: bold;">🔥 業界ハック</a>
-  <a href="#wedding" class="cat-btn">💍 結婚・お祝い</a>
-  <a href="#funeral" class="cat-btn">⚱️ 葬儀・法要</a>
-  <a href="#basic" class="cat-btn">💡 失敗しない作法</a>
+<nav class="category-nav" style="display: flex; justify-content: center; gap: 10px; margin-bottom: 3rem; flex-wrap: wrap;">
+  <a href="#special" class="cat-btn" style="border: 2px solid var(--crimson); color: var(--crimson); font-weight: bold; padding: 0.5rem 1.5rem; text-decoration: none; border-radius: 4px;">🔥 業界ハック</a>
+  <a href="#wedding" class="cat-btn" style="border: 1px solid #ccc; color: #666; padding: 0.5rem 1.5rem; text-decoration: none; border-radius: 4px;">💍 結婚・お祝い</a>
+  <a href="#funeral" class="cat-btn" style="border: 1px solid #ccc; color: #666; padding: 0.5rem 1.5rem; text-decoration: none; border-radius: 4px;">⚱️ 葬儀・法要</a>
+  <a href="#basic" class="cat-btn" style="border: 1px solid #ccc; color: #666; padding: 0.5rem 1.5rem; text-decoration: none; border-radius: 4px;">💡 失敗しない作法</a>
 </nav>
 
-<div class="content">
+<div class="content" style="max-width: 1000px; margin: 0 auto; padding: 0 1rem;">
 
   <!-- 目玉コンテンツ：背景色を変えて「主役」にする -->
-  <h2 class="section-title" id="special">注目：業界の闇を突く「黒字化」戦略</h2>
-  <div class="article-grid" style="grid-template-columns: 1fr; margin-bottom: 5rem;">
-    <a href="/goshugi-fude-/column/wedding-cost/" class="article-card" style="display: flex; flex-direction: row; align-items: stretch; min-height: 200px; border: 2px solid var(--navy); background: #fdfdfd;">
-      <div class="article-thumb" style="width: 250px; height: auto; background: var(--navy); color: var(--gold-soft); font-size: 5rem;">📉</div>
-      <div class="article-body" style="padding: 2.5rem;">
-        <span class="article-cat special" style="background: var(--crimson); color: white; padding: 0.2rem 1rem;">禁断のハック記事</span>
-        <h3 class="article-title" style="font-size: 1.5rem; margin-top: 1rem;">【有料級】結婚式を「黒字化」するP/L管理術。現役コンサルが教える式場・ハイブランド攻略</h3>
-        <p class="article-desc" style="font-size: 1rem;">一生に一度の魔法を解く。BIG4シニアコンサルが実践した、持ち込み料無料・ドレス資産運用・KPI逆手取り交渉術の全貌。</p>
+  <h2 class="section-title" id="special" style="border-bottom: 2px solid var(--navy); margin-bottom: 2rem;">注目：業界の闇を突く「黒字化」戦略</h2>
+  
+  <div class="article-grid" style="display: grid; gap: 2rem; margin-bottom: 5rem;">
+    <!-- キラーコンテンツ：式場ハック -->
+    <a href="/goshugi-fude-/column/wedding-cost/" class="article-card" style="display: flex; flex-wrap: wrap; text-decoration: none; border: 2px solid var(--navy); background: #fdfdfd; color: inherit; overflow: hidden;">
+      <div class="article-thumb" style="flex: 1 1 250px; min-height: 200px; background: var(--navy); color: var(--gold-soft); font-size: 5rem; display: flex; align-items: center; justify-content: center;">📉</div>
+      <div class="article-body" style="flex: 2 1 400px; padding: 2.5rem; display: flex; flex-direction: column;">
+        <span class="article-cat special" style="background: var(--crimson); color: white; padding: 0.2rem 1rem; font-size: 0.8rem; align-self: flex-start;">禁断のハック記事</span>
+        <h3 class="article-title" style="font-size: 1.5rem; margin: 1rem 0;">【有料級】結婚式を「黒字化」するP/L管理術。現役コンサルが教える式場・ハイブランド攻略</h3>
+        <p class="article-desc" style="font-size: 1rem; color: #666;">一生に一度の魔法を解く。BIG4シニアコンサルが実践した、持ち込み料無料・ドレス資産運用・KPI逆手取り交渉術の全貌。</p>
         <span style="color: var(--gold); font-weight: bold; margin-top: auto;">この記事を読んで100万円浮かせる →</span>
+      </div>
+    </a>
+
+    <!-- 新設：修復されたぶっちゃけ話 -->
+    <a href="/goshugi-fude-/column/site-broken-story/" class="article-card" style="display: flex; flex-wrap: wrap; text-decoration: none; border: 2px solid #333; background: #fff; color: inherit; overflow: hidden;">
+      <div class="article-thumb" style="flex: 1 1 250px; min-height: 200px; background: #333; color: #fff; font-size: 5rem; display: flex; align-items: center; justify-content: center;">🛠️</div>
+      <div class="article-body" style="flex: 2 1 400px; padding: 2.5rem; display: flex; flex-direction: column;">
+        <span class="article-cat" style="background: #eee; color: #333; padding: 0.2rem 1rem; font-size: 0.8rem; align-self: flex-start;">運営の裏側</span>
+        <h3 class="article-title" style="font-size: 1.5rem; margin: 1rem 0;">【実録】当サイトのコラムページが「物理的にぶっ壊れた」日の全記録</h3>
+        <p class="article-desc" style="font-size: 1rem; color: #666;">全てがガイドライン通りなら、それなりで終わる。ギリギリを攻めすぎてページが崩壊した時、中の人が考えた「承認欲求とマーケティング」の真実。</p>
+        <span style="font-weight: bold; margin-top: auto; color: #333;">泥臭い修復の裏側を見る →</span>
       </div>
     </a>
   </div>
 
-  <h2 class="section-title" id="basic">定番：恥をかかないための「武器」</h2>
-  <div class="article-grid">
+  <h2 class="section-title" id="basic" style="border-bottom: 2px solid #ccc; margin-bottom: 2rem;">定番：恥をかかないための「武器」</h2>
+  <div class="article-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
 
-    <!-- 本音調査：自分ごと化を加速 -->
-    <a href="/goshugi-fude-/column/honne/" class="article-card">
-      <div class="article-thumb">💬</div>
-      <div class="article-body">
-        <span class="article-cat special">独自調査データ</span>
-        <h3 class="article-title">【本音暴露】お札の向き、ぶっちゃけ見てる？ 既婚者100人に聞いたリアルな着地点</h3>
-        <p class="article-desc">「新札じゃなかったらガッカリする？」「向きがバラバラなら非常識？」もらう側の心理をハックし、マナーの取捨選択を考える。</p>
-      </div>
+    <!-- 相場：3.3万円という新基準を提示 -->
+    <a href="/goshugi-fude-/column/souba/" class="article-card" style="text-decoration: none; color: inherit; border: 1px solid #eee; padding: 1.5rem; border-radius: 8px;">
+      <div style="font-size: 3rem; margin-bottom: 1rem;">💰</div>
+      <span class="article-cat" style="color: var(--gold); font-size: 0.8rem; font-weight: bold;">マネーリテラシー</span>
+      <h3 class="article-title" style="margin: 0.5rem 0;">【最新】祝儀の相場は「3.3万円」？ 損も失礼もしないための"新"定石</h3>
+      <p class="article-desc" style="font-size: 0.9rem; color: #666;">友人・親族・会社関係。相手別の「適正解」を徹底分析。なぜ今、キリのいい3万円ではなく「3.3万円」が賢い大人の解なのか。</p>
     </a>
 
-    <!-- マナー：一目置かれるという承認欲求を突く -->
-    <a href="/goshugi-fude-/column/osatsu/" class="article-card">
-      <div class="article-thumb">💴</div>
-      <div class="article-body">
-        <span class="article-cat">信頼の作法</span>
-        <h3 class="article-title">恥をかかないは最低ライン。デキる大人が実践する「一目置かれる」祝儀袋の作法</h3>
-        <p class="article-desc">お札の向き一つで、あなたの「格」が決まる。図解で迷いをゼロにし、自信を持って受付へ向かうための最短ルート。</p>
-      </div>
+    <!-- 本音調査 -->
+    <a href="/goshugi-fude-/column/honne/" class="article-card" style="text-decoration: none; color: inherit; border: 1px solid #eee; padding: 1.5rem; border-radius: 8px;">
+      <div style="font-size: 3rem; margin-bottom: 1rem;">💬</div>
+      <span class="article-cat" style="color: var(--gold); font-size: 0.8rem; font-weight: bold;">独自調査データ</span>
+      <h3 class="article-title">【本音暴露】お札の向き、ぶっちゃけ見てる？ 既婚者100人のリアル</h3>
+      <p class="article-desc" style="font-size: 0.9rem; color: #666;">もらう側の心理をハック。マナーの取捨選択における「自分ごと化」の境界線を探る。</p>
     </a>
 
-    <!-- 連名：技術的な解決を提示 -->
-    <a href="/goshugi-fude-/column/renmei/" class="article-card">
-      <div class="article-thumb">👥</div>
-      <div class="article-body">
-        <span class="article-cat">技術的解決</span>
-        <h3 class="article-title">【図解】3名・4名以上の連名ハック。バランス崩壊を防ぐ「黄金配置」完全ガイド</h3>
-        <p class="article-desc">「夫と妻、どっちが右？」「4人以上の場合は？」連名で贈る際の正しい配置を分かりやすく解説。ツールの併用で完璧な筆致へ。</p>
-      </div>
+    <!-- マナー -->
+    <a href="/goshugi-fude-/column/osatsu/" class="article-card" style="text-decoration: none; color: inherit; border: 1px solid #eee; padding: 1.5rem; border-radius: 8px;">
+      <div style="font-size: 3rem; margin-bottom: 1rem;">💴</div>
+      <span class="article-cat" style="color: var(--gold); font-size: 0.8rem; font-weight: bold;">信頼の作法</span>
+      <h3 class="article-title">恥をかかないは最低ライン。「一目置かれる」祝儀袋の作法</h3>
+      <p class="article-desc" style="font-size: 0.9rem; color: #666;">お札の向き一つで決まる「格」。自信を持って受付へ向かうための最短ルートを図解。</p>
     </a>
 
-    <!-- 不祝儀：情報の非対称性を破壊 -->
-    <a href="/goshugi-fude-/column/soushiki/" class="article-card">
-      <div class="article-thumb">🙏</div>
-      <div class="article-body">
-        <span class="article-cat">葬儀・法要</span>
-        <h3 class="article-title">「御霊前」と「御仏前」の違いは？ 業界の曖昧さを排した「最も安全な選択」</h3>
-        <p class="article-desc">四十九日を境に変わる表書きのルール。宗派が分からない時に、失礼をゼロにするプロ選定の表書きとは。</p>
-      </div>
-    </a>
-
-    <!-- 相場：最新トレンドを反映 -->
-    <a href="/goshugi-fude-/column/souba/" class="article-card">
-      <div class="article-thumb">💰</div>
-      <div class="article-body">
-        <span class="article-cat">マネーリテラシー</span>
-        <h3 class="article-title">【最新】祝儀・香典の金額相場と「NGな数字」。損も失礼もしないための適正解</h3>
-        <p class="article-desc">友人・親族・会社関係。相手別の「相場」を徹底分析。避けるべき数字の正体を解き明かす、現代版マナーの定石。</p>
-      </div>
+    <!-- 連名 -->
+    <a href="/goshugi-fude-/column/renmei/" class="article-card" style="text-decoration: none; color: inherit; border: 1px solid #eee; padding: 1.5rem; border-radius: 8px;">
+      <div style="font-size: 3rem; margin-bottom: 1rem;">👥</div>
+      <span class="article-cat" style="color: var(--gold); font-size: 0.8rem; font-weight: bold;">技術的解決</span>
+      <h3 class="article-title">【図解】3名・4名以上の連名ハック。バランス崩壊を防ぐ「黄金配置」</h3>
+      <p class="article-desc" style="font-size: 0.9rem; color: #666;">複数名で贈る際の正しい配置。ツールの併用で、誰にも文句を言わせない完璧な筆致へ。</p>
     </a>
 
   </div>
 
   <!-- 下部に「次のハック」を予告して再訪させる -->
-  <div style="background: var(--navy); color: white; padding: 3rem; border-radius: 8px; text-align: center; margin-bottom: 4rem;">
+  <div style="background: var(--navy); color: white; padding: 3rem; border-radius: 8px; text-align: center; margin: 4rem 0;">
     <p style="color: var(--gold-soft); font-weight: bold; letter-spacing: 0.2em; margin-bottom: 1rem;">COMING SOON...</p>
-    <h3 style="font-size: 1.6rem; font-family: 'Noto Serif JP', serif;">【不動産ハック】SUUMOの死角を突き、仲介手数料を「ゼロ」にするための情報戦</h3>
-    <p style="font-size: 0.9rem; color: #ccc; margin-top: 1rem;">「結婚」の次に来る最大の情報の非対称性を、共同創業者のAIと共に解体します。ご期待ください。</p>
+    <h3 style="font-size: 1.6rem;">【不動産ハック】SUUMOの死角を突き、仲介手数料を「ゼロ」にする情報戦</h3>
+    <p style="font-size: 0.9rem; color: #ccc; margin-top: 1rem;">「結婚」の次に来る最大の情報の非対称性を、共同創業者のAIと共に解体します。</p>
   </div>
-
-  <!-- ご意見箱（既存） -->
-  ...
 </div>
