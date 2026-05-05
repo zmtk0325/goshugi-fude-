@@ -131,7 +131,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Yuji+Mai&family=Shippori+Mincho:wght@400;600&family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Yuji+Mai&family=Shippori+Mincho:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
   :root {
@@ -148,8 +148,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
+  /* 💡 サイト全体の基本フォントをKlee Oneに変更 */
   body {
-    font-family: 'Shippori Mincho', serif;
+    font-family: 'Klee One', serif;
     background: var(--paper);
     background-image:
       radial-gradient(circle at 20% 30%, rgba(232, 165, 179, 0.06) 0%, transparent 50%),
@@ -178,8 +179,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     align-items: center;
   }
 
+  /* 💡 ロゴのフォントをKlee Oneに変更 */
   .site-logo {
-    font-family: 'Yuji Mai', serif;
+    font-family: 'Klee One', serif;
+    font-weight: 600;
     font-size: 1.15rem;
     color: var(--ink);
     text-decoration: none;
@@ -316,8 +319,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   header::before { left: 50%; margin-left: -50px; }
   header::after { left: 50%; margin-left: 10px; }
 
+  /* 💡 大見出しのフォントをKlee Oneに変更 */
   h1 {
-    font-family: 'Yuji Mai', serif;
+    font-family: 'Klee One', serif;
+    font-weight: 600;
     font-size: clamp(2rem, 5vw, 3rem);
     color: var(--ink);
     letter-spacing: 0.15em;
@@ -353,8 +358,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     background: var(--pink);
   }
 
+  /* 💡 使い方案内のフォントをKlee Oneに変更 */
   .usage-text {
-    font-family: 'Shippori Mincho', serif;
+    font-family: 'Klee One', serif;
     font-size: 0.95rem;
     color: var(--ink);
     line-height: 1.8;
@@ -388,8 +394,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     border-radius: 2px;
   }
 
+  /* 💡 セクションラベルのフォントをKlee Oneに変更 */
   .section-label {
-    font-family: 'Yuji Mai', serif;
+    font-family: 'Klee One', serif;
+    font-weight: 600;
     font-size: 1.4rem;
     margin-bottom: 1.5rem;
     color: var(--ink);
@@ -409,10 +417,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     letter-spacing: 0.1em;
   }
 
+  /* 💡 入力フォーム内のフォントをKlee Oneに変更 */
   input[type="text"], input[type="number"], select {
     width: 100%;
     padding: 0.75rem 1rem;
-    font-family: 'Klee One', 'Shippori Mincho', serif;
+    font-family: 'Klee One', serif;
     font-size: 1rem;
     background: var(--paper);
     border: 1px solid var(--line);
@@ -445,6 +454,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     flex-wrap: wrap;
   }
 
+  /* 💡 ボタンのフォントをKlee Oneに変更 */
   .toggle {
     padding: 0.4rem 0.8rem;
     font-size: 0.8rem;
@@ -452,7 +462,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     border: 1px solid var(--line);
     color: #5a4d3a;
     cursor: pointer;
-    font-family: 'Shippori Mincho', serif;
+    font-family: 'Klee One', serif;
     transition: all 0.2s;
     border-radius: 2px;
   }
@@ -501,7 +511,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       0 1px 3px rgba(60, 40, 20, 0.05),
       inset 0 0 60px rgba(232, 165, 179, 0.04);
     position: relative;
-    /* JSで操作されたときにレイアウトが崩れないよう、念のためflex指定を強固にしておきます */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -534,7 +543,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   .mizuhiki svg { width: 100%; height: 100%; }
 
-  /* 縦書きエリア */
+  /* 💡 プレビューエリア用のフォントクラス群（維持） */
   .vertical-text {
     writing-mode: vertical-rl;
     text-orientation: upright;
@@ -678,11 +687,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     border-bottom: 1px solid var(--line);
   }
 
+  /* 💡 タブのフォントをKlee Oneに変更 */
   .tab {
     padding: 0.6rem 1.2rem;
     background: transparent;
     border: none;
-    font-family: 'Shippori Mincho', serif;
+    font-family: 'Klee One', serif;
     font-size: 0.9rem;
     color: #8a7d6a;
     cursor: pointer;
@@ -695,6 +705,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     color: var(--ink);
     border-bottom-color: var(--pink);
   }
+
+  /* フォント切替（プレビューの切り替え用なので維持） */
+  .font-yuji .vertical-text,
+  .font-yuji .amount-area,
+  .font-yuji .address-area,
+  .font-yuji .ura-name-area,
+  .font-yuji .postal-area { font-family: 'Yuji Mai', serif; }
+
+  .font-klee .vertical-text,
+  .font-klee .amount-area,
+  .font-klee .address-area,
+  .font-klee .ura-name-area,
+  .font-klee .postal-area { font-family: 'Klee One', serif; font-weight: 600; }
+
+  .font-shippori .vertical-text,
+  .font-shippori .amount-area,
+  .font-shippori .address-area,
+  .font-shippori .ura-name-area,
+  .font-shippori .postal-area { font-family: 'Shippori Mincho', serif; font-weight: 600; }
+
+  .placeholder-faded { opacity: 0.3; }
 
   /* 想いセクション */
   .message-section {
@@ -717,8 +748,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .message-section::before { top: 1.5rem; }
   .message-section::after { bottom: 1.5rem; }
 
+  /* 💡 メッセージ見出しのフォントをKlee Oneに変更 */
   .message-section h2 {
-    font-family: 'Yuji Mai', serif;
+    font-family: 'Klee One', serif;
+    font-weight: 600;
     font-size: clamp(1.4rem, 3.5vw, 1.8rem);
     color: var(--ink);
     margin-bottom: 2rem;
@@ -745,8 +778,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     border-top: 1px solid var(--line);
   }
 
+  /* 💡 マナー見出しのフォントをKlee Oneに変更 */
   .manners-section h2 {
-    font-family: 'Yuji Mai', serif;
+    font-family: 'Klee One', serif;
+    font-weight: 600;
     font-size: 1.8rem;
     margin-bottom: 2rem;
     color: var(--ink);
@@ -795,8 +830,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     padding: 2.5rem 1.5rem;
   }
 
+  /* 💡 FAQ見出しのフォントをKlee Oneに変更 */
   .faq-section h2 {
-    font-family: 'Yuji Mai', serif;
+    font-family: 'Klee One', serif;
+    font-weight: 600;
     font-size: 1.8rem;
     margin-bottom: 2rem;
     color: var(--ink);
@@ -833,10 +870,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   .faq-item summary::-webkit-details-marker { display: none; }
 
+  /* 💡 FAQアイコン(Q)のフォントをKlee Oneに変更 */
   .faq-item summary::before {
     content: 'Q';
     color: var(--pink);
-    font-family: 'Yuji Mai', serif;
+    font-family: 'Klee One', serif;
+    font-weight: 600;
     margin-right: 0.5rem;
     font-size: 1.1rem;
   }
@@ -865,13 +904,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     position: relative;
   }
 
+  /* 💡 FAQアイコン(A)のフォントをKlee Oneに変更 */
   .faq-answer p::before {
     content: 'A';
     position: absolute;
     left: 0;
     top: 0;
     color: var(--crimson);
-    font-family: 'Yuji Mai', serif;
+    font-family: 'Klee One', serif;
+    font-weight: 600;
     font-size: 1.1rem;
   }
 
@@ -882,27 +923,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .manner-card { padding: 1.2rem; }
     .faq-item summary { padding: 0.9rem 1rem 0.9rem 1rem; padding-right: 2.5rem; font-size: 0.9rem; }
   }
-
-  /* フォント切替 */
-  .font-yuji .vertical-text,
-  .font-yuji .amount-area,
-  .font-yuji .address-area,
-  .font-yuji .ura-name-area,
-  .font-yuji .postal-area { font-family: 'Yuji Mai', serif; }
-
-  .font-klee .vertical-text,
-  .font-klee .amount-area,
-  .font-klee .address-area,
-  .font-klee .ura-name-area,
-  .font-klee .postal-area { font-family: 'Klee One', serif; font-weight: 600; }
-
-  .font-shippori .vertical-text,
-  .font-shippori .amount-area,
-  .font-shippori .address-area,
-  .font-shippori .ura-name-area,
-  .font-shippori .postal-area { font-family: 'Shippori Mincho', serif; font-weight: 600; }
-
-  .placeholder-faded { opacity: 0.3; }
 
   footer {
     text-align: center;
