@@ -26,7 +26,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:site_name" content="ご祝儀・香典 お手本メーカー">
 <meta property="og:image" content="https://zmtk0325.github.io/goshugi-fude-/ogp.png">
 
-<!-- JSON-LD: FAQリッチリザルトを狙う[cite: 1] -->
+<!-- JSON-LD: FAQリッチリザルトを狙う -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -46,6 +46,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "レンタルではなく、人気ブランドのセカンドオーナー品を購入し、挙式後にサードオーナーへ売却することで実質負担を数万円に抑えることが可能です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "結婚式のご祝儀の平均金額はいくらですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "首都圏の平均では、友人・同僚は3万円、上司は4.5万円、恩師は4.2万円、親族は7.9万円です（一般社団法人全日本冠婚葬祭互助協会の令和5年度調査より）。ゲスト構成によって祝儀総額が大きく変わるため、平均値ではなく関係性別に分解して見積もる必要があります。"
       }
     }
   ]
@@ -104,13 +112,69 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .voice-tag { background: var(--navy); color: white; padding: 0.2rem 1rem; font-size: 0.8rem; position: absolute; margin-top: -3.8rem; margin-left: -2rem; border-radius: 4px; }
 
+  /* 祝儀相場テーブル */
+  .gift-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    font-size: 0.95rem;
+  }
+  .gift-table thead {
+    background: var(--navy);
+    color: white;
+  }
+  .gift-table th, .gift-table td {
+    padding: 0.9rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+  }
+  .gift-table th {
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+  .gift-table td.amount {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 700;
+    color: var(--red);
+    text-align: right;
+    white-space: nowrap;
+  }
+  .gift-table tbody tr:hover {
+    background: rgba(212, 168, 44, 0.05);
+  }
+  .source-note {
+    font-size: 0.8rem;
+    color: #8a7d6a;
+    margin-top: 0.5rem;
+    line-height: 1.6;
+  }
+
   /* P/Lシミュレーター（埋め込みおもちゃ） */
   .pl-sim { background: var(--navy); color: white; padding: 2rem; border-radius: 8px; margin: 3rem 0; }
   .pl-sim h4 { text-align: center; margin-bottom: 1.5rem; color: var(--gold-soft); font-size: 1.2rem; }
-  .sim-input { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+  .sim-input { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+  .sim-input.guests { grid-template-columns: 1fr 1fr 1fr 1fr; gap: 0.6rem; }
   .input-group label { display: block; font-size: 0.8rem; margin-bottom: 0.3rem; }
   .input-group input { width: 100%; padding: 0.5rem; border: none; border-radius: 4px; font-size: 1rem; }
-  .sim-result { text-align: center; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem; }
+  .sim-divider {
+    border: none;
+    border-top: 1px dashed rgba(255,255,255,0.2);
+    margin: 1.2rem 0;
+  }
+  .sim-subtotal {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.6rem 0.8rem;
+    background: rgba(255,255,255,0.05);
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .sim-subtotal .label { color: #ccc; }
+  .sim-subtotal .value { color: var(--gold-soft); font-weight: 600; }
+  .sim-result { text-align: center; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem; margin-top: 1rem; }
   .result-val { font-size: 2rem; font-family: 'Noto Serif JP', serif; color: var(--gold-soft); }
 
   /* 強調 */
@@ -143,6 +207,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   @media (max-width: 600px) {
     .sim-input { grid-template-columns: 1fr; }
+    .sim-input.guests { grid-template-columns: 1fr 1fr; }
+    .gift-table { font-size: 0.85rem; }
+    .gift-table th, .gift-table td { padding: 0.6rem 0.5rem; }
   }
 </style>
 </head>
@@ -172,50 +239,137 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       「式場の営業マンは、新郎新婦の『ウェディングハイ』を燃料にしてオプションを積み上げる。でも、構造を理解すれば、その魔法を無効化して、<strong>手出しゼロどころかプラスに持っていくことさえ可能だよ。</strong>」
     </div>
 
-    <h2>1. 損益分岐点を極める「シミュレーター」</h2>
-    <p>Tさんがまず行ったのは、エクセルでの徹底したシミュレーション。ここであなたも、自分の式の「リアルな着地点」を計算してみてください。</p>
+    <h2>1. まず、祝儀という「売上」を正確に分解する</h2>
+    <p>多くの人がここで最初の判断ミスを犯します。それは「ゲスト数 × 平均3万円」でざっくり売上予測を立ててしまうこと。Tさん曰く、これは典型的な情弱ムーブだそうです。</p>
+
+    <div class="consultant-voice">
+      <div class="voice-tag">SEGMENTATION</div>
+      「ゲストを『一律の単価』で見るな。関係性別の祝儀額は<strong>2倍以上の差</strong>がある。これを無視して『平均3.3万円』みたいな雑な数字で組んでたら、計画は絶対外れる。コンサルなら関係性別に分解するのが基本だ。」
+    </div>
+
+    <h3>関係性別の祝儀相場（首都圏平均）</h3>
+
+    <table class="gift-table">
+      <thead>
+        <tr>
+          <th>関係性</th>
+          <th>平均額</th>
+          <th>相場の考え方</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>友人・同僚</td>
+          <td class="amount">3.0万円</td>
+          <td>料理・飲物（約2.1万円）＋引出物（約0.6万円）＋気持ち（約0.3万円）</td>
+        </tr>
+        <tr>
+          <td>恩師</td>
+          <td class="amount">4.2万円</td>
+          <td>立場上、相場より上乗せして包むのが慣例</td>
+        </tr>
+        <tr>
+          <td>上司</td>
+          <td class="amount">4.5万円</td>
+          <td>主賓スピーチ等を頼まれる場合は5〜10万円に上がる</td>
+        </tr>
+        <tr>
+          <td>親族</td>
+          <td class="amount">7.9万円</td>
+          <td>兄弟は5万円〜、叔父叔母は10万円など、関係の近さで5〜10万円</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="source-note">出典：一般社団法人全日本冠婚葬祭互助協会「祝儀（結婚祝い）等に関するアンケート調査（令和5年度）」、料理・飲物代と引出物代はゼクシィ結婚トレンド調査2024より。</p>
+
+    <p style="margin-top: 2rem;">例えばゲスト50人の構成が <span class="marker">「友人25人＋同僚10人＋上司3人＋親族12人」</span> だとすると、売上予測は：</p>
+
+    <p style="text-align: center; font-size: 1.15rem; margin: 1.5rem 0;">
+      <strong>35人 × 3.0万 ＋ 3人 × 4.5万 ＋ 12人 × 7.9万 ≒ 213万円</strong>
+    </p>
+
+    <p>これを「50人×3万＝150万」で組んでいたら、<span class="impact-text">60万円以上の見積もり誤差</span>。ハイブランドのドレス1着分が宙に浮く規模感です。</p>
+
+    <h2>2. 損益分岐点を極める「シミュレーター」</h2>
+    <p>Tさんがまず行ったのは、エクセルでの徹底したシミュレーション。ここであなたも、自分の式の「リアルな着地点」を計算してみてください。<strong>関係性別の人数を入れる</strong>ことで、ざっくり計算とは違う精緻な予測が出ます。</p>
 
     <!-- 共同創業者からのプレゼント：簡易シミュレーター -->
     <div class="pl-sim">
       <h4>💰 結婚式P/L 黒字化シミュレーター</h4>
-      <div class="sim-input">
+      
+      <p style="font-size: 0.85rem; margin-bottom: 0.8rem; color: #ccc;">▼ ゲストを関係性別に入力</p>
+      <div class="sim-input guests">
         <div class="input-group">
-          <label>ゲスト人数（人）</label>
-          <input type="number" id="guestCount" value="60" oninput="calcPL()">
+          <label>友人・同僚（人）</label>
+          <input type="number" id="guestFriend" value="35" min="0" oninput="calcPL()">
         </div>
         <div class="input-group">
-          <label>式場見積もり額（万円）</label>
-          <input type="number" id="totalCost" value="300" oninput="calcPL()">
+          <label>恩師（人）</label>
+          <input type="number" id="guestTeacher" value="0" min="0" oninput="calcPL()">
+        </div>
+        <div class="input-group">
+          <label>上司（人）</label>
+          <input type="number" id="guestBoss" value="3" min="0" oninput="calcPL()">
+        </div>
+        <div class="input-group">
+          <label>親族（人）</label>
+          <input type="number" id="guestRelative" value="12" min="0" oninput="calcPL()">
         </div>
       </div>
+
+      <hr class="sim-divider">
+
+      <div class="sim-subtotal">
+        <span class="label">推定ゲスト総数</span>
+        <span class="value" id="totalGuests">50 人</span>
+      </div>
+      <div class="sim-subtotal">
+        <span class="label">推定祝儀総額（売上）</span>
+        <span class="value" id="totalRevenue">213.0 万円</span>
+      </div>
+
+      <hr class="sim-divider">
+
+      <p style="font-size: 0.85rem; margin-bottom: 0.8rem; color: #ccc;">▼ 式場の総額見積もり</p>
+      <div class="sim-input">
+        <div class="input-group">
+          <label>式場見積もり額（万円）</label>
+          <input type="number" id="totalCost" value="300" min="0" oninput="calcPL()">
+        </div>
+        <div class="input-group" style="display:flex; align-items:flex-end; font-size:0.8rem; color:#aaa;">
+          ※ゲスト構成を変えると、同じ式場価格でも黒字／赤字が変わります
+        </div>
+      </div>
+
       <div class="sim-result">
         <p>あなたの現在の収支予測</p>
-        <div class="result-val" id="plResult">▲ 102 万円</div>
-        <p style="font-size: 0.8rem; color: #aaa; margin-top: 10px;">※祝儀平均3.3万円/人で計算。ここからハックで黒字を目指します。</p>
+        <div class="result-val" id="plResult">▲ 87 万円</div>
+        <p style="font-size: 0.8rem; color: #aaa; margin-top: 10px;">※祝儀額は首都圏平均（友人3.0万 / 恩師4.2万 / 上司4.5万 / 親族7.9万）で計算。ここからハックで黒字を目指します。</p>
       </div>
     </div>
 
-    <h2>2. 「ベンダーロックイン」を契約前に破壊せよ</h2>
+    <h2>3. 「ベンダーロックイン」を契約前に破壊せよ</h2>
     <p>式場との戦いで最大の敗因は、契約後に「持ち込み」を交渉すること。Tさんは、ハンコを突く直前の「最も力関係が逆転する瞬間」を逃しませんでした。</p>
     
     <p class="impact-text">「『今日契約します。ただし、特記事項に【全アイテムの持ち込み料永久無料】を追記してください。さもなくば、この場で相見積もり先の式場に電話します』」</p>
     
     <p>この一言で、ドレス、引き出物、カメラマン……すべての中間マージンが消え去り、市場価格での「自由競争」が可能になったのです。</p>
 
-    <h2>3. 資産としてのウェディングドレス</h2>
+    <h2>4. 資産としてのウェディングドレス</h2>
     <div class="consultant-voice">
       <div class="voice-tag">ASSET MANAGEMENT</div>
       「50万でレンタルするのは情弱。<strong>30万でセカンドオーナー品を買い、式後に25万で売る。</strong>これがドレスの『資産運用』だ。実質負担はクリーニング代だけさ。」
     </div>
 
-    <h2>4. 営業の「KPI」を人質に取る交渉術</h2>
+    <h2>5. 営業の「KPI」を人質に取る交渉術</h2>
     <p>5大ジュエラー（ティファニー、カルティエ等）での婚約指輪選び。ここでもTさんの「逆手取り」が冴え渡ります。彼は自身のステータスを誇示するのではなく、<strong>担当者の「将来の売上目標」</strong>を突きました。</p>
     
     <p><span class="marker">「実は私、大学の体育会ラグビー部の同期で結婚第一号なんです。私の後に控える20人以上の『猛者（見込み客）』に、〇〇さんを指名するようプッシュしておきますよ。」</span></p>
     
     <p>このリード（見込み客）提供の約束により、本来は上顧客様にしか出さない「極上のルース」が裏から出てきたといいます。営業マンを「商品を売る相手」ではなく「共通のKPIを追うパートナー」に変えた瞬間です。</p>
 
-    <h2>5. 決裁者（妻）を「共犯」にする</h2>
+    <h2>6. 決裁者（妻）を「共犯」にする</h2>
     <p>もっとも重要なのは、これらを「ケチるため」ではなく、<strong>「君が本当にやりたいことだけにリソースを集中させるため」</strong>と定義し、新婦を「特命交渉チームのリーダー」に祭り上げること。これこそが、家庭内合意形成のフレームワークです。</p>
 
     <div class="final-cta">
@@ -231,12 +385,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </article>
 
 <script>
+  // 関係性別の祝儀単価（万円）
+  const GIFT_RATES = {
+    friend: 3.0,
+    teacher: 4.2,
+    boss: 4.5,
+    relative: 7.9
+  };
+
   function calcPL() {
-    const guests = document.getElementById('guestCount').value;
-    const cost = document.getElementById('totalCost').value;
-    const revenue = guests * 3.3;
+    const friend = Number(document.getElementById('guestFriend').value) || 0;
+    const teacher = Number(document.getElementById('guestTeacher').value) || 0;
+    const boss = Number(document.getElementById('guestBoss').value) || 0;
+    const relative = Number(document.getElementById('guestRelative').value) || 0;
+    const cost = Number(document.getElementById('totalCost').value) || 0;
+
+    const totalGuests = friend + teacher + boss + relative;
+    const revenue = friend * GIFT_RATES.friend
+                  + teacher * GIFT_RATES.teacher
+                  + boss * GIFT_RATES.boss
+                  + relative * GIFT_RATES.relative;
+
+    document.getElementById('totalGuests').innerText = `${totalGuests} 人`;
+    document.getElementById('totalRevenue').innerText = `${revenue.toFixed(1)} 万円`;
+
     const result = Math.round(revenue - cost);
-    
     const resultElement = document.getElementById('plResult');
     if (result >= 0) {
       resultElement.innerText = `+ ${result} 万円 (黒字化達成！)`;
