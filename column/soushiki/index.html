@@ -29,7 +29,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Yuji+Mai&family=Shippori+Mincho:wght@400;600&family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
   :root {
@@ -44,8 +44,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
+  /* 💡 サイト全体の基本フォントをKlee Oneに変更 */
   body {
-    font-family: 'Shippori Mincho', serif;
+    font-family: 'Klee One', serif;
     background: var(--paper);
     color: var(--ink);
     min-height: 100vh;
@@ -55,7 +56,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   /* ナビ */
   .site-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 100; }
   .nav-container { max-width: 1100px; margin: 0 auto; padding: 0.8rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
-  .site-logo { font-family: 'Yuji Mai', serif; font-size: 1.15rem; color: var(--ink); text-decoration: none; letter-spacing: 0.05em; }
+  
+  /* 💡 ロゴのフォントをKlee Oneに変更 */
+  .site-logo { font-family: 'Klee One', serif; font-weight: 600; font-size: 1.15rem; color: var(--ink); text-decoration: none; letter-spacing: 0.05em; }
 
   .hamburger { background: transparent; border: none; cursor: pointer; width: 36px; height: 36px; padding: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 6px; }
   .hamburger span { display: block; width: 24px; height: 2px; background: var(--ink); transition: all 0.3s ease; }
@@ -100,8 +103,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     letter-spacing: 0.05em;
   }
 
+  /* 💡 記事タイトルのフォントをKlee Oneに変更 */
   .article-title {
-    font-family: 'Yuji Mai', serif;
+    font-family: 'Klee One', serif;
+    font-weight: 600;
     font-size: clamp(1.6rem, 4vw, 2.2rem);
     color: var(--ink);
     line-height: 1.5;
@@ -133,8 +138,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     margin-bottom: 3rem;
   }
 
+  /* 💡 見出し2のフォントをKlee Oneに変更 */
   .article-content h2 {
-    font-family: 'Yuji Mai', serif;
+    font-family: 'Klee One', serif;
+    font-weight: 600;
     font-size: 1.5rem;
     color: var(--ink);
     margin: 3.5rem 0 1.5rem;
@@ -145,9 +152,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     gap: 0.5rem;
   }
 
+  /* 💡 見出し3の太さを調整 */
   .article-content h3 {
     font-size: 1.15rem;
     color: var(--ink);
+    font-weight: 600;
     margin: 2.5rem 0 1rem;
     padding-left: 0.8rem;
     border-left: 4px solid var(--mourning);
@@ -220,11 +229,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     margin-top: 4rem;
   }
 
+  /* 💡 CTA見出しのフォントをKlee Oneに変更 */
   .tool-cta h3 {
     margin-top: 0;
     border: none;
     padding: 0;
-    font-family: 'Yuji Mai', serif;
+    font-family: 'Klee One', serif;
+    font-weight: 600;
     font-size: 1.4rem;
     color: var(--ink);
     margin-bottom: 1rem;
