@@ -302,6 +302,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     margin-bottom: 0.8rem;
   }
 
+  /* ぶっちゃけ話用の特別スタイル */
+  .article-cat.special {
+    color: var(--crimson);
+    border-color: var(--crimson);
+  }
+
   .article-title {
     font-size: 1.05rem;
     font-weight: 600;
@@ -462,12 +468,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <h2 class="section-title" id="wedding">新着記事</h2>
   <div class="article-grid">
+
+    <!-- 有効化した記事（結婚式コストダウン） -->
+    <a href="/goshugi-fude-/column/wedding-cost/" class="article-card">
+      <div class="article-thumb">📉</div>
+      <div class="article-body">
+        <span class="article-cat special">ぶっちゃけ話</span>
+        <h3 class="article-title">結婚式はぶっちゃけ「プラス」にできる？やり手コンサルが教えるコストダウン術</h3>
+        <p class="article-desc">BIG4の現役シニアコンサルに聞いた結婚式の損益分岐点。祝儀で黒字化するコストダウン術と、決裁者（妻）の口説き方を公開。</p>
+      </div>
+    </a>
     
     <!-- 有効化した記事（本音・独自調査） -->
     <a href="/goshugi-fude-/column/honne/" class="article-card">
       <div class="article-thumb">💬</div>
       <div class="article-body">
-        <span class="article-cat">基本のマナー</span>
+        <span class="article-cat special">ぶっちゃけ話</span>
         <h3 class="article-title">【独自調査】ご祝儀のお札の向き、ぶっちゃけ見てる？既婚者のリアルな本音</h3>
         <p class="article-desc">お札の向きや新札マナー、もらう側は本当に気にしてるの？卒花嫁・卒花婿に聞いたリアルすぎる本音を大公開。</p>
       </div>
