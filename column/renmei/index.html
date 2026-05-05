@@ -8,6 +8,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-KXDVRJGC');</script>
 <!-- End Google Tag Manager -->
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>【図解】夫婦連名・3名以上の連名でのご祝儀袋の書き方 | ご祝儀・香典 お手本メーカー</title>
@@ -82,7 +83,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 </script>
 
-<!-- UI用のKlee Oneと、図解用のYuji Maiを読み込み -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Yuji+Mai&display=swap" rel="stylesheet">
@@ -147,282 +147,65 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .article-content strong { color: var(--red); font-weight: 600; }
 
   /* 目次 */
-  .toc {
-    background: rgba(255, 255, 255, 0.6);
-    border: 1px solid var(--line);
-    border-radius: 4px;
-    padding: 1.5rem 2rem;
-    margin: 2rem 0 3rem;
-  }
-  .toc-title {
-    font-family: 'Klee One', serif;
-    font-weight: 600;
-    font-size: 1.05rem;
-    color: var(--ink);
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px dashed var(--line);
-  }
-  .toc ol {
-    padding-left: 1.5rem;
-    color: #4a4540;
-  }
-  .toc li {
-    font-size: 0.9rem;
-    line-height: 2;
-  }
+  .toc { background: rgba(255, 255, 255, 0.6); border: 1px solid var(--line); border-radius: 4px; padding: 1.5rem 2rem; margin: 2rem 0 3rem; }
+  .toc-title { font-family: 'Klee One', serif; font-weight: 600; font-size: 1.05rem; color: var(--ink); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px dashed var(--line); }
+  .toc ol { padding-left: 1.5rem; color: #4a4540; }
+  .toc li { font-size: 0.9rem; line-height: 2; }
   .toc a { color: #4a4540; text-decoration: none; }
   .toc a:hover { color: var(--gold); }
 
   /* 比較カード */
-  .compare-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.2rem;
-    margin: 2rem 0;
-  }
-  @media (max-width: 600px) {
-    .compare-grid { grid-template-columns: 1fr; }
-  }
-  .compare-card {
-    background: white;
-    border: 1px solid var(--line);
-    border-radius: 6px;
-    padding: 1.2rem;
-    text-align: center;
-  }
-  .compare-card.recommended {
-    border: 2px solid var(--gold);
-    position: relative;
-  }
-  .compare-card.recommended::before {
-    content: '伝統的・基本';
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--gold);
-    color: white;
-    font-size: 0.7rem;
-    padding: 0.2rem 0.8rem;
-    border-radius: 10px;
-    letter-spacing: 0.05em;
-    white-space: nowrap;
-  }
-  .compare-card.modern {
-    border: 2px solid var(--red);
-    position: relative;
-  }
-  .compare-card.modern::before {
-    content: '近代的・対等';
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--red);
-    color: white;
-    font-size: 0.7rem;
-    padding: 0.2rem 0.8rem;
-    border-radius: 10px;
-    letter-spacing: 0.05em;
-    white-space: nowrap;
-  }
-  .compare-card h4 {
-    font-family: 'Klee One', serif;
-    font-weight: 600;
-    font-size: 1.1rem;
-    color: var(--ink);
-    margin: 0.5rem 0 0.8rem;
-  }
-  .compare-card p {
-    font-size: 0.85rem !important;
-    color: #5a4d3a !important;
-    line-height: 1.7 !important;
-    margin: 0 !important;
-    text-align: left;
-  }
-  .compare-card ul {
-    text-align: left;
-    padding-left: 1.2rem;
-    margin-top: 0.8rem;
-    font-size: 0.83rem;
-    color: #5a4d3a;
-    line-height: 1.7;
-  }
-  .compare-card li { margin-bottom: 0.3rem; }
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin: 2rem 0; }
+  @media (max-width: 600px) { .compare-grid { grid-template-columns: 1fr; } }
+  .compare-card { background: white; border: 1px solid var(--line); border-radius: 6px; padding: 1.2rem; text-align: center; }
+  .compare-card.recommended { border: 2px solid var(--gold); position: relative; }
+  .compare-card.recommended::before { content: '伝統的・基本'; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--gold); color: white; font-size: 0.7rem; padding: 0.2rem 0.8rem; border-radius: 10px; letter-spacing: 0.05em; white-space: nowrap; }
+  .compare-card.modern { border: 2px solid var(--red); position: relative; }
+  .compare-card.modern::before { content: '近代的・対等'; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--red); color: white; font-size: 0.7rem; padding: 0.2rem 0.8rem; border-radius: 10px; letter-spacing: 0.05em; white-space: nowrap; }
+  .compare-card h4 { font-family: 'Klee One', serif; font-weight: 600; font-size: 1.1rem; color: var(--ink); margin: 0.5rem 0 0.8rem; }
+  .compare-card p { font-size: 0.85rem !important; color: #5a4d3a !important; line-height: 1.7 !important; margin: 0 !important; text-align: left; }
+  .compare-card ul { text-align: left; padding-left: 1.2rem; margin-top: 0.8rem; font-size: 0.83rem; color: #5a4d3a; line-height: 1.7; }
 
-  /* 図解モックアップ（図解内の文字は毛筆のYuji Maiを維持） */
+  /* 図解モックアップ */
   .diagram-wrapper { background: rgba(255, 255, 255, 0.6); border: 1px solid var(--line); border-radius: 4px; padding: 3rem 1rem; margin: 2rem 0; display: flex; justify-content: center; }
   .diagram-envelope { width: 260px; height: 400px; background: linear-gradient(180deg, #fffcf8 0%, #f4eee1 100%); box-shadow: 0 4px 12px rgba(0,0,0,0.05); position: relative; border: 1px solid #e0d4c5; }
   .diagram-mizuhiki { position: absolute; top: 45%; left: 0; width: 100%; height: 3px; background: var(--red); box-shadow: 0 -6px 0 var(--gold), 0 6px 0 var(--gold); }
   .diagram-noshi { position: absolute; top: 15px; right: 15px; width: 25px; height: 45px; background: #e8a838; border: 1px solid #c93030; }
   .diagram-title { position: absolute; top: 2rem; left: 50%; transform: translateX(-50%); font-family: 'Yuji Mai', serif; font-size: 2.2rem; color: var(--ink); writing-mode: vertical-rl; text-orientation: upright; }
   .diagram-names { position: absolute; top: 55%; left: 50%; transform: translateX(-50%); font-family: 'Yuji Mai', serif; font-size: 1.25rem; color: var(--ink); writing-mode: vertical-rl; text-orientation: upright; white-space: nowrap; letter-spacing: 0.1em; }
-  .diagram-names span { display: inline-block; margin-right: 0.8rem; vertical-align: top; }
-  .diagram-names span:last-child { margin-right: 0; }
+  .vname { position: absolute; top: 0; font-family: 'Yuji Mai', serif; color: var(--ink); writing-mode: vertical-rl; text-orientation: upright; letter-spacing: 0.05em; white-space: nowrap; font-size: 1.7rem; }
+  .diagram-area { position: absolute; top: 58%; left: 50%; transform: translateX(-50%); width: 200px; height: 180px; writing-mode: horizontal-tb; }
 
-  /* === 縦書き並列配置：absolute positionで確実に配置 === */
-  .diagram-area {
-    position: absolute;
-    top: 58%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 200px;
-    height: 180px;
-    writing-mode: horizontal-tb;
-  }
-
-  .vname {
-    position: absolute;
-    top: 0;
-    font-family: 'Yuji Mai', serif;
-    color: var(--ink);
-    writing-mode: vertical-rl;
-    text-orientation: upright;
-    letter-spacing: 0.05em;
-    white-space: nowrap;
-    font-size: 1.7rem;
-  }
-
-  /* 2名並列（夫婦左右均等型） */
-  .vname.pos-2-right { 
-    left: 50%;
-    transform: translateX(-100%);
-    margin-left: -0.3rem;
-  }
-  .vname.pos-2-left { 
-    left: 50%;
-    margin-left: 0.3rem;
-  }
-
-  /* 3名並列 */
+  /* 配置クラス */
+  .vname.pos-husband { left: 50%; transform: translateX(-50%); }
+  .vname.pos-wife { left: 50%; transform: translateX(-50%); margin-left: -2.5rem; }
+  .vname.pos-2-right { left: 50%; transform: translateX(-100%); margin-left: -0.3rem; }
+  .vname.pos-2-left { left: 50%; margin-left: 0.3rem; }
+  .vname.pos-3-right { left: 50%; transform: translateX(-50%); margin-left: -3rem; }
   .vname.pos-3-center { left: 50%; transform: translateX(-50%); }
-  .vname.pos-3-right { 
-    left: 50%;
-    transform: translateX(-50%);
-    margin-left: -3rem;
-  }
-  .vname.pos-3-left { 
-    left: 50%;
-    transform: translateX(-50%);
-    margin-left: 3rem;
-  }
-
-  /* 単独中央 */
-  .vname.pos-single { left: 50%; transform: translateX(-50%); }
-
-  /* 中央寄せ型 */
-  .vname.pos-husband { 
-    left: 50%;
-  }
-  .vname.pos-wife { 
-    right: 50%;
-    padding-top: 1.5em;
-  }
-
-  /* 「外一同」 */
-  .vname.pos-main { 
-    left: 50%;
-  }
-  .vname.pos-sub { 
-    right: 50%;
-    font-size: 0.95rem !important;
-    padding-top: 2em;
-  }
-
-  /* 会社名 */
-  .vname.pos-company { 
-    left: 50%;
-    transform: translateX(-50%);
-    margin-left: 1.5rem;
-    font-size: 0.8rem !important;
-    top: -0.2em;
-  }
-  .vname.pos-company-3 { 
-    left: 50%;
-    transform: translateX(-50%);
-    margin-left: 4.5rem;
-    font-size: 0.8rem !important;
-    top: -0.2em;
-  }
+  .vname.pos-3-left { left: 50%; transform: translateX(-50%); margin-left: 3rem; }
+  .vname.pos-main { left: 50%; transform: translateX(-50%); }
+  .vname.pos-sub { left: 50%; transform: translateX(-50%); margin-left: -2.5rem; font-size: 0.95rem !important; }
+  .vname.pos-company { left: 50%; transform: translateX(-50%); margin-left: 1.5rem; font-size: 0.8rem !important; top: -0.2em; }
+  .vname.pos-company-3 { left: 50%; transform: translateX(-50%); margin-left: 4.5rem; font-size: 0.8rem !important; top: -0.2em; }
   .vname.pos-with-company { left: 50%; transform: translateX(-50%); }
-
-  /* 写真サンプル */
-  .photo-sample {
-    text-align: center;
-    margin: 2rem 0;
-  }
-  .photo-sample img {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 4px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    background: white;
-    padding: 1rem;
-    border: 1px solid var(--line);
-  }
-  .photo-caption {
-    font-size: 0.85rem;
-    color: #6b5d4a;
-    margin-top: 0.8rem;
-    font-style: italic;
-  }
 
   /* 強調ボックス */
   .point-box { background: rgba(184, 134, 11, 0.05); border: 1px solid rgba(184, 134, 11, 0.3); padding: 1.5rem; border-radius: 4px; margin: 2rem 0; }
   .point-box-title { font-weight: 600; color: var(--gold); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
-  .point-box p { margin-bottom: 0; }
-
-  .case-box {
-    background: rgba(201, 48, 48, 0.04);
-    border-left: 4px solid var(--red);
-    padding: 1.2rem 1.5rem;
-    margin: 1.5rem 0;
-    border-radius: 0 4px 4px 0;
-  }
-  .case-box-title {
-    font-weight: 600;
-    color: var(--red);
-    margin-bottom: 0.5rem;
-    font-size: 0.95rem;
-  }
-  .case-box p {
-    font-size: 0.9rem !important;
-    line-height: 1.8 !important;
-    margin-bottom: 0 !important;
-    color: #5a4d3a !important;
-  }
-
-  /* ツールへのCTA */
+  .case-box { background: rgba(201, 48, 48, 0.04); border-left: 4px solid var(--red); padding: 1.2rem 1.5rem; margin: 1.5rem 0; border-radius: 0 4px 4px 0; }
+  .case-box-title { font-weight: 600; color: var(--red); margin-bottom: 0.5rem; font-size: 0.95rem; }
   .tool-cta { background: white; border: 2px dashed var(--gold); padding: 2.5rem 1.5rem; text-align: center; border-radius: 8px; margin-top: 4rem; }
-  .tool-cta h3 { margin-top: 0; border: none; padding: 0; font-family: 'Klee One', serif; font-weight: 600; font-size: 1.4rem; color: var(--ink); margin-bottom: 1rem; justify-content: center; }
-  .cta-btn { display: inline-block; background: var(--ink); color: white; text-decoration: none; padding: 1rem 3rem; border-radius: 4px; font-weight: 600; margin-top: 1.5rem; transition: all 0.2s; }
+  .tool-cta h3 { font-family: 'Klee One', serif; font-weight: 600; font-size: 1.4rem; color: var(--ink); margin-bottom: 1rem; }
+  .cta-btn { display: inline-block; background: var(--ink); color: white; text-decoration: none; padding: 1rem 3rem; border-radius: 4px; font-weight: 600; margin-top: 1.5rem; }
   .cta-btn:hover { background: #3a2f29; transform: translateY(-2px); }
-
+  
   /* FAQ */
   .faq-section { margin-top: 4rem; }
   .faq-item { background: white; border: 1px solid var(--line); border-radius: 4px; margin-bottom: 0.8rem; overflow: hidden; }
-  .faq-item[open] { box-shadow: 0 2px 8px rgba(60,40,20,0.06); }
-  .faq-item summary { padding: 1rem 1.5rem; cursor: pointer; font-size: 0.95rem; font-weight: 600; color: var(--ink); list-style: none; position: relative; padding-right: 3rem; user-select: none; }
-  .faq-item summary::-webkit-details-marker { display: none; }
-  .faq-item summary::before { content: 'Q'; color: var(--gold); font-family: 'Klee One', serif; font-weight: 600; margin-right: 0.5rem; font-size: 1.1rem; }
-  .faq-item summary::after { content: '+'; position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%); color: var(--gold); font-size: 1.4rem; transition: transform 0.2s; }
-  .faq-item[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+  .faq-item summary { padding: 1rem 1.5rem; cursor: pointer; font-size: 0.95rem; font-weight: 600; color: var(--ink); }
   .faq-answer { padding: 0 1.5rem 1.2rem; }
-  .faq-answer p { font-size: 0.9rem !important; line-height: 1.8 !important; padding-left: 1.5rem; position: relative; margin-bottom: 0 !important; }
-  .faq-answer p::before { content: 'A'; position: absolute; left: 0; top: 0; color: var(--red); font-family: 'Klee One', serif; font-weight: 600; font-size: 1.1rem; }
-
   footer { text-align: center; padding: 2rem 1.5rem; font-size: 0.8rem; color: #8a7d6a; border-top: 1px solid var(--line); }
-  footer a { color: #5a4d3a; text-decoration: none; }
-  footer a:hover { color: var(--gold); text-decoration: underline; }
-
-  @media (max-width: 600px) {
-    .article-hero { padding: 2rem 1rem 1.5rem; }
-    .article-content { padding: 1.5rem 1rem 4rem; }
-    .diagram-envelope { transform: scale(0.9); }
-    .toc { padding: 1.2rem 1.5rem; }
-  }
 </style>
 </head>
 <body>
@@ -476,362 +259,44 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </p>
     <p>
       マナーは「〇〇の法則」のような名前のついた堅苦しい定理ではなく、<strong>人と人との繋がり（ご縁）を大切にするための形</strong>です。受け取る新郎新婦が後から整理しやすいように、という思いやりの心遣いでもあります。<br>
-      この記事では、迷いがちな連名の書き方を、人数別の図解と実物写真で分かりやすく解説します。
+      この記事では、迷いがちな連名の書き方を、人数別の図解で分かりやすく解説します。
     </p>
 
-    <!-- 目次 -->
     <div class="toc">
       <div class="toc-title">📖 この記事の目次</div>
       <ol>
         <li><a href="#section1">夫婦連名で贈る場合（2つの書き方）</a></li>
-        <li><a href="#section1-1">　パターンA：中央寄せ型（伝統的・基本）</a></li>
-        <li><a href="#section1-2">　パターンB：左右均等型（近代的・対等）</a></li>
         <li><a href="#section2">3名までの連名で贈る場合（友人・同僚）</a></li>
         <li><a href="#section3">4名以上の連名で贈る場合</a></li>
-        <li><a href="#section3-2">　全員書きたい場合（奉書紙を使用）</a></li>
         <li><a href="#section4">会社・部署からの連名で贈る場合</a></li>
-        <li><a href="#section4-1">　個人名＋会社名を入れる場合</a></li>
-        <li><a href="#section4-2">　会社・部署として贈る場合</a></li>
-        <li><a href="#section4-3">　会社内3名連名</a></li>
-        <li><a href="#faq">よくある質問</a></li>
       </ol>
     </div>
 
     <h2 id="section1">1. 夫婦連名で贈る場合</h2>
-    <p>
-      夫婦で結婚式に招待された場合、一つのご祝儀袋に二人分の名前を連名で記載します。実は、夫婦連名には<strong>大きく分けて2つの書き方</strong>があり、どちらも正式なマナーとして認められています。
-    </p>
-
-    <!-- 比較カード -->
+    <p>夫婦で結婚式に招待された場合、一つのご祝儀袋に二人分の名前を連名で記載します。</p>
+    
     <div class="compare-grid">
       <div class="compare-card recommended">
         <h4>A. 中央寄せ型</h4>
         <p>夫のフルネームを中央に書き、左隣に妻の名前のみを添える。</p>
-        <ul>
-          <li>最も伝統的</li>
-          <li>同姓夫婦に最適</li>
-          <li>見た目がスッキリ</li>
-        </ul>
       </div>
       <div class="compare-card modern">
         <h4>B. 左右均等型</h4>
         <p>中央線を挟んで両名のフルネームをバランスよく並べる。</p>
-        <ul>
-          <li>近年広まっている形</li>
-          <li>別姓夫婦に最適</li>
-          <li>対等な印象</li>
-        </ul>
       </div>
     </div>
 
-    <h3 id="section1-1">パターンA：中央寄せ型（最も一般的・伝統的）</h3>
-    <p>
-      水引の下の中央に<strong>夫のフルネーム</strong>を書き、その左隣（夫の名前の左側）に<strong>妻の下の名前のみ</strong>を書く方法です。最も伝統的な書き方で、目上の方や年配の親族から見ても安心感のある形式です。
-    </p>
-
-    <div class="diagram-wrapper">
-      <div class="diagram-envelope">
-        <div class="diagram-noshi"></div>
-        <div class="diagram-mizuhiki"></div>
-        <div class="diagram-title">寿</div>
-        <div class="diagram-area">
-          <div class="vname pos-husband">田中 太郎</div>
-          <div class="vname pos-wife">花子</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="point-box">
-      <div class="point-box-title">💡 この書き方のメリット</div>
-      <p>夫婦同姓であることが前提となるため、妻の姓を省略することで全体がコンパクトに収まり、毛筆の美しさが際立ちます。「夫の家として贈る」という伝統的な家制度の名残でもあり、年配の方々からも好まれる形式です。</p>
-    </div>
-
-    <h3 id="section1-2">パターンB：左右均等型（近代的・対等）</h3>
-    <p>
-      水引の下の中央線を挟んで、<strong>右側に夫のフルネーム、左側に妻のフルネーム</strong>をバランスよく並べる方法です。近年は夫婦が対等であるという考え方の広がりとともに、こちらを選ぶ方も増えています。
-    </p>
-
-    <div class="diagram-wrapper">
-      <div class="diagram-envelope">
-        <div class="diagram-noshi"></div>
-        <div class="diagram-mizuhiki"></div>
-        <div class="diagram-title">寿</div>
-        <div class="diagram-area">
-          <div class="vname pos-2-right">田中 太郎</div>
-          <div class="vname pos-2-left">田中 花子</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="point-box">
-      <div class="point-box-title">💡 この書き方が向いている場面</div>
-      <p>別姓夫婦・事実婚のカップル・どちらか一方が著名人で名前を明確にしたい場合・夫婦それぞれが新郎新婦と独立した関係を持っている場合などに適しています。中央線をしっかり意識して、左右のバランスが崩れないように書くのがコツです。</p>
-    </div>
-
-    <h3 id="section1-3">どちらを選ぶべき？選び方ガイド</h3>
-    <p>
-      「正解」はひとつではありません。状況に応じて最適なパターンを選びましょう。
-    </p>
-
-    <div class="case-box">
-      <div class="case-box-title">📌 中央寄せ型がおすすめの場合</div>
-      <p>
-        ・親族や目上の方の結婚式（保守的な場面）<br>
-        ・夫婦が同姓<br>
-        ・夫の関係者の結婚式（夫の友人・職場同僚など）<br>
-        ・「家として贈る」という意識を表したい時
-      </p>
-    </div>
-
-    <div class="case-box">
-      <div class="case-box-title">📌 左右均等型がおすすめの場合</div>
-      <p>
-        ・別姓夫婦・事実婚<br>
-        ・夫婦それぞれが新郎新婦と個人的な親交がある<br>
-        ・カジュアルな結婚式・友人同士の式<br>
-        ・対等な関係を表現したい時
-      </p>
-    </div>
-
-    <div class="point-box">
-      <div class="point-box-title">⚠️ どちらの場合も気をつけたいこと</div>
-      <p>表書き（「寿」など）は必ず<strong>水引の真上の中央</strong>に来るように書きます。また、ボールペンやサインペンは避け、毛筆または筆ペンで書くのが正式なマナーです。文字の大きさは表書きより少し小さめに、すべて同じ大きさで揃えるのが美しく見えるコツです。</p>
-    </div>
-
-    <h2 id="section2">2. 3名までの連名で贈る場合（友人・同僚）</h2>
-    <p>
-      職場の同僚や友人同士でお金を出し合ってご祝儀を贈る場合、表書きに名前を書けるのは<strong>最大3名まで</strong>です。それ以上だと文字が小さくなりすぎて、見た目のバランスが崩れてしまいます。
-    </p>
-
-    <h3 id="section2-1">基本ルール：右から左へ、格上順に並べる</h3>
-    <p>
-      もっとも<strong>格上（年長・役職上）の人を一番右</strong>に書き、順に<strong>右から左へ</strong>と並べていきます。3名分全体が水引の真下の中央に収まるようバランスよく配置します。
-    </p>
-
-    <div class="diagram-wrapper">
-      <div class="diagram-envelope">
-        <div class="diagram-noshi"></div>
-        <div class="diagram-mizuhiki"></div>
-        <div class="diagram-title">寿</div>
-        <div class="diagram-area">
-          <div class="vname pos-3-right">佐藤 浩一郎</div>
-          <div class="vname pos-3-center">井上 英正</div>
-          <div class="vname pos-3-left">鈴木 渉</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="point-box">
-      <div class="point-box-title">💡 順番のポイント</div>
-      <p>右から「格上 → 格下」の順に並べます。職場で贈る場合は<strong>役職順</strong>、友人同士など上下関係がない場合は<strong>五十音順</strong>で並べるのが一般的です。文字の大きさは全員同じでOKです。</p>
-    </div>
-
-    <div class="case-box">
-      <div class="case-box-title">📌 並べ方の判断基準</div>
-      <p>
-        ・職場：役職順（部長 → 課長 → 係長など）<br>
-        ・先輩後輩：年次順（先輩から右へ）<br>
-        ・友人同士：五十音順（あ→い→う...）<br>
-        ・同格3名：五十音順が無難
-      </p>
-    </div>
-
+    <h2 id="section2">2. 3名までの連名で贈る場合</h2>
+    <p>格上の人（年長・役職上）を一番右に書き、順に右から左へ並べます。</p>
+    
     <h2 id="section3">3. 4名以上の連名で贈る場合</h2>
-    <p>
-      4名以上で贈呈する場合、表書きに全員の名前をずらりと書くのは、ご祝儀袋の見た目が煩雑になってしまうため避けます。
-    </p>
-
-    <h3>代表者名＋「外一同」とする</h3>
-    <p>
-      水引の下の中央に<strong>代表者の名前</strong>を書き、その左下に少し小さめの字で<strong>「外一同（ほかいちどう）」</strong>と書き添えます。
-    </p>
-
-    <div class="diagram-wrapper">
-      <div class="diagram-envelope">
-        <div class="diagram-noshi"></div>
-        <div class="diagram-mizuhiki"></div>
-        <div class="diagram-title">寿</div>
-        <div class="diagram-area">
-          <div class="vname pos-main">鈴木 一郎</div>
-          <div class="vname pos-sub">外一同</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="point-box">
-      <div class="point-box-title">📄 全員の名前は「別紙」に書いて中へ</div>
-      <p>表書きに書けなかった方々の名前は、和紙や白い便箋に全員の「氏名・住所・包んだ金額」を箇条書きにし、中袋（お金を入れる封筒）の中に同封します。これにより、新郎新婦が内祝い（お返し）を準備する際に困りません。</p>
-    </div>
-
-    <h3 id="section3-2">4人以上を全員書きたい場合（奉書紙を使用）</h3>
-    <p>
-      「外一同」ではなく、どうしても全員の名前を書きたい場合は、<strong>奉書紙（ほうしょし）または和紙</strong>を使った正式な書き方があります。表書きには名前を書かず、紙の中央に表書きを書いて、下段に全員の氏名を記載します。
-    </p>
-
-    <div class="diagram-wrapper" style="padding: 2rem 1rem;">
-      <div class="diagram-envelope" style="background: linear-gradient(180deg, #fffefb 0%, #faf6ec 100%);">
-        <div style="position: absolute; top: 1.5rem; left: 50%; transform: translateX(-50%); font-family: 'Yuji Mai', serif; font-size: 2rem; color: var(--ink); writing-mode: vertical-rl; text-orientation: upright;">寿</div>
-        <div style="position: absolute; top: 35%; left: 0; right: 0; height: 1px; background: var(--line);"></div>
-        <div style="position: absolute; top: 42%; left: 50%; transform: translateX(-50%); display: flex; flex-direction: row-reverse; gap: 0.4rem; align-items: flex-start; writing-mode: horizontal-tb;">
-          <div style="font-family: 'Yuji Mai', serif; color: var(--ink); writing-mode: vertical-rl; text-orientation: upright; font-size: 1.2rem; letter-spacing: 0.05em; white-space: nowrap;">佐藤 浩一郎</div>
-          <div style="font-family: 'Yuji Mai', serif; color: var(--ink); writing-mode: vertical-rl; text-orientation: upright; font-size: 1.2rem; letter-spacing: 0.05em; white-space: nowrap;">井上 英正</div>
-          <div style="font-family: 'Yuji Mai', serif; color: var(--ink); writing-mode: vertical-rl; text-orientation: upright; font-size: 1.2rem; letter-spacing: 0.05em; white-space: nowrap;">鈴木 渉</div>
-          <div style="font-family: 'Yuji Mai', serif; color: var(--ink); writing-mode: vertical-rl; text-orientation: upright; font-size: 1.2rem; letter-spacing: 0.05em; white-space: nowrap;">高橋 健</div>
-        </div>
-        <p style="position: absolute; bottom: 0.5rem; left: 0; right: 0; text-align: center; font-size: 0.7rem; color: #8a7d6a; margin: 0; font-family: 'Klee One', serif;">― 別紙（奉書紙）の例 ―</p>
-      </div>
-    </div>
-
-    <div class="point-box">
-      <div class="point-box-title">💡 奉書紙の書き方</div>
-      <p>紙の<strong>中央上段に「寿」</strong>と表書きを書き、<strong>下段に全員の氏名</strong>を書きます。並び順は表書きと同様、<strong>格上・年長から右→左</strong>へ、同格なら五十音順で並べます。文字の大きさは全員同じでOKです。書き終わったら奉書紙ごとご祝儀袋の中に入れます。</p>
-    </div>
+    <p>代表者の名前を中央に書き、その左下に「外一同」と添えます。全員の名簿は別紙に書き中袋へ同封しましょう。</p>
 
     <h2 id="section4">4. 会社・部署からの連名で贈る場合</h2>
-    <p>
-      職場の同僚・部下・部署メンバーで連名でご祝儀を贈る場合は、個人連名とは少し異なる<strong>独自のマナー</strong>があります。会社名の入れ方や、宛名（贈る相手の名前）を書く場合の特殊ルールを覚えておきましょう。
-    </p>
-
-    <h3 id="section4-1">パターンA：個人名＋会社名を入れる場合</h3>
-    <p>
-      会社の代表として個人名で贈る場合や、上司・部下混合で連名する場合は、<strong>代表者の氏名を中央に書き、その右上に小さく会社名を書き添えます</strong>。会社名は氏名より小さめに、控えめに記載するのがポイントです。
-    </p>
-
-    <div class="diagram-wrapper">
-      <div class="diagram-envelope">
-        <div class="diagram-noshi"></div>
-        <div class="diagram-mizuhiki"></div>
-        <div class="diagram-title">寿</div>
-        <div class="diagram-area">
-          <div class="vname pos-with-company">鈴木 一郎</div>
-          <div class="vname pos-company">株式会社○○商事</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="point-box">
-      <div class="point-box-title">💡 肩書きを入れる場合は？</div>
-      <p>「営業部 部長」などの肩書きを入れる場合は、<strong>氏名の右上、会社名の下</strong>に小さめに書きます。長くなる場合は2行に分けても構いません。文字の大きさは「会社名 ＞ 肩書き ＞ 氏名」の順で、氏名が一番大きく目立つように書きます。</p>
-    </div>
-
-    <h3 id="section4-2">パターンB：会社・部署として贈る場合</h3>
-    <p>
-      部署メンバー全員で贈る場合や、特定の代表者を立てない団体として贈る場合は、<strong>「○○部一同」「○○課一同」</strong>と中央に記載します。個人名は表書きに書かず、別紙に全員の氏名を記載して中袋に同封するのが正式なマナーです。
-    </p>
-
-    <div class="diagram-wrapper">
-      <div class="diagram-envelope">
-        <div class="diagram-noshi"></div>
-        <div class="diagram-mizuhiki"></div>
-        <div class="diagram-title">寿</div>
-        <div class="diagram-area">
-          <div class="vname pos-with-company">営業部一同</div>
-          <div class="vname pos-company">株式会社○○商事</div>
-        </div>
-      </div>
-    </div>
-
-    <h3 id="section4-3">パターンC：会社内3名連名</h3>
-    <p>
-      会社の上司・先輩・後輩など、<strong>3名までの連名</strong>で贈る場合は、最も役職の高い人を一番右に書き、左へ順に並べます。会社名は代表者氏名の右上に小さく添えます。
-    </p>
-
-    <div class="diagram-wrapper">
-      <div class="diagram-envelope">
-        <div class="diagram-noshi"></div>
-        <div class="diagram-mizuhiki"></div>
-        <div class="diagram-title">寿</div>
-        <div class="diagram-area">
-          <div class="vname pos-3-right">佐藤 浩一郎</div>
-          <div class="vname pos-3-center">井上 英正</div>
-          <div class="vname pos-3-left">鈴木 渉</div>
-          <div class="vname pos-company-3">株式会社○○商事</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="point-box">
-      <div class="point-box-title">💡 役職順の決め方</div>
-      <p>会社連名では役職の高い順に右から並べます。例えば「部長 → 課長 → 係長」の3名であれば、部長を一番右、課長を中央、係長を左に配置します。同じ役職同士なら年次や入社順、それも同じなら五十音順が一般的です。</p>
-    </div>
-
-    <h3 id="section4-4">⚠️ 宛名（贈る相手の名前）を書く場合は順番が逆！</h3>
-    <p>
-      特殊なケースですが、ご祝儀袋の<strong>左上に新郎新婦の宛名</strong>を書く場合があります。この場合、贈り主の連名の順番は<strong>通常とは逆</strong>になります。
-    </p>
-
-    <div class="case-box">
-      <div class="case-box-title">📌 通常の連名と逆になる理由</div>
-      <p>
-        宛名を書く場合は、<strong>宛名側（左側）に目上の人</strong>がくるよう配置するのが格式高い書き方です。<br>
-        ・通常：右が目上 → 左へ下位<br>
-        ・宛名あり：左が目上 → 右へ下位<br>
-        会社の取引先関係や格式を重んじる場面で使われる書き方なので、迷ったら通常の書き方（右が目上）で問題ありません。
-      </p>
-    </div>
-
-    <!-- FAQ -->
-    <div class="faq-section">
-      <h2 id="faq">よくある質問</h2>
-      <details class="faq-item">
-        <summary>夫婦連名で書くとき、夫と妻はどちらが右ですか？</summary>
-        <div class="faq-answer">
-          <p>夫が右、妻が左に書くのが基本のマナーです。中央寄せ型でも左右均等型でも、夫を右側に配置するのが伝統的な書き方です。</p>
-        </div>
-      </details>
-      <details class="faq-item">
-        <summary>妻の苗字は書かなくていいのですか？</summary>
-        <div class="faq-answer">
-          <p>夫婦同姓の場合は、妻の姓を省略するのが伝統的な「中央寄せ型」のマナーです。別姓夫婦やそれぞれ独立した立場を示したい場合は、両名フルネームの「左右均等型」を選びましょう。</p>
-        </div>
-      </details>
-      <details class="faq-item">
-        <summary>3名以上で贈る場合、名前の順番はどう決めますか？</summary>
-        <div class="faq-answer">
-          <p>目上の人から順に右から左へ並べます。職場の場合は役職順、友人同士など上下関係がない場合は五十音順が一般的です。</p>
-        </div>
-      </details>
-      <details class="faq-item">
-        <summary>別姓夫婦の場合、ご祝儀袋の連名はどう書けばいいですか？</summary>
-        <div class="faq-answer">
-          <p>別姓夫婦の場合は「左右均等型」がおすすめです。中央線を挟んで右側に夫のフルネーム、左側に妻のフルネームをバランスよく配置します。それぞれが独立した個人として連名する形になります。</p>
-        </div>
-      </details>
-      <details class="faq-item">
-        <summary>事実婚やパートナーと連名で出す場合は？</summary>
-        <div class="faq-answer">
-          <p>左右均等型でそれぞれフルネームを書くのが適切です。新郎新婦との関係性を明確にできるため、後で受け取る側も誰からのお祝いか分かりやすくなります。</p>
-        </div>
-      </details>
-      <details class="faq-item">
-        <summary>会社名や肩書きはどこに書きますか？</summary>
-        <div class="faq-answer">
-          <p>会社名は氏名の右上に小さめに書きます。肩書きを入れる場合は、氏名の右上で会社名の下、または会社名と並列に配置します。文字の大きさは「会社名 ＞ 肩書き ＞ 氏名」の順にし、氏名が一番大きく目立つように書くのが基本です。</p>
-        </div>
-      </details>
-      <details class="faq-item">
-        <summary>部署で連名する場合、何名まで個別に書けますか？</summary>
-        <div class="faq-answer">
-          <p>会社の連名でも上限は3名までが基本です。4名以上になる場合は「○○部一同」「○○課一同」と中央に書き、別紙に全員の氏名と住所を記載して中袋に同封します。役職順に書くのが一般的で、同じ役職同士なら入社順や五十音順で並べます。</p>
-        </div>
-      </details>
-      <details class="faq-item">
-        <summary>3名連名の「中央起点型」と「中央揃え型」、どっちが正しいですか？</summary>
-        <div class="faq-answer">
-          <p>3名連名のマナーはシンプルで、最も格上の人を一番右に書き、左へ順に並べます。3名分全体が水引の真下の中央に収まるよう、バランスよく配置するのが基本です。中央に1人を配置するルールはありません。</p>
-        </div>
-      </details>
-      <details class="faq-item">
-        <summary>4人以上の場合、全員の名前を表書きに書くことはできますか？</summary>
-        <div class="faq-answer">
-          <p>表書きに4人以上の名前を書くと文字が小さくなりバランスが崩れるため、避けるのが一般的です。どうしても全員の名前を書きたい場合は、奉書紙（または和紙）の中央上段に「寿」、下段に全員の氏名を格上順に書いて、ご祝儀袋の中に入れる方法があります。</p>
-        </div>
-      </details>
-    </div>
+    <p>「○○部一同」と中央に記載するのが基本です。</p>
 
     <div class="tool-cta">
-      <h3>書き方がわかったら、<br>実際にお手本を作ってみましょう！</h3>
-      <p>当サイトの無料ツールを使えば、連名のスペースも自動でバランス良く配置。スマホの画面を透かしてなぞるだけで、誰でも達筆なご祝儀袋が完成します。</p>
+      <h3>書き方がわかったら、お手本を作ってみましょう！</h3>
       <a href="/goshugi-fude-/" class="cta-btn">結婚祝い お手本メーカーを使う</a>
     </div>
   </div>
@@ -847,13 +312,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('open');
     navMenu.classList.toggle('open');
-    hamburger.setAttribute('aria-label', navMenu.classList.contains('open') ? 'メニューを閉じる' : 'メニューを開く');
   });
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.site-nav') && navMenu.classList.contains('open')) {
       hamburger.classList.remove('open');
       navMenu.classList.remove('open');
-      hamburger.setAttribute('aria-label', 'メニューを開く');
     }
   });
 </script>
