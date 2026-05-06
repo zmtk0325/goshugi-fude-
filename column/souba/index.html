@@ -11,177 +11,253 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>祝儀・香典の金額相場。損も失礼もしないための適正解 | 祝儀・香典 お手本メーカー</title>
+  <title>マナーコラム | ご祝儀・香典 お手本メーカー</title>
+  <meta name="description" content="結婚式や葬儀、出産祝いなどののし袋・香典袋のマナーをわかりやすく解説。迷ったときの道しるべとしてご活用ください。">
   
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Shippori+Mincho:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --navy: #1a2b4c;
-      --gold: #d4a82c;
-      --paper: #fcfaf7;
+      --ink: #1a1410;
+      --paper: #f5f0e6;
+      --gold: #b8860b;
+      --line: #c9bfa8;
     }
-    body { 
-      font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif; 
-      color: #333; 
-      line-height: 1.8; 
-      background-color: #fff; 
-      margin: 0; 
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Klee One', serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
     }
-    .article-header { 
-      background-color: var(--paper); 
-      padding: 3rem 1rem; 
-      text-align: center; 
-      border-bottom: 1px solid #eee; 
+
+    /* ナビゲーション */
+    .site-nav {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-    .article-title { 
-      color: var(--navy); 
-      font-size: 1.8rem; 
-      margin-bottom: 1rem; 
-      font-family: 'Noto Serif JP', serif; 
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    .content-body { 
-      max-width: 800px; 
-      margin: 3rem auto; 
-      padding: 0 1rem 4rem 1rem; 
+
+    .site-logo {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: 0.05em;
     }
-    h2 { 
-      border-bottom: 2px solid var(--navy); 
-      padding-bottom: 0.5rem; 
-      margin-top: 3.5rem; 
-      color: var(--navy); 
-      font-size: 1.4rem;
+
+    .hamburger {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 5px;
     }
-    h3 { 
-      border-left: 4px solid var(--gold); 
-      padding-left: 0.8rem; 
-      margin-top: 2.5rem; 
-      font-size: 1.2rem;
+
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background: var(--ink);
+      transition: 0.3s;
     }
-    p { 
-      margin-bottom: 1.5rem; 
-      color: #444; 
-    }
-    .table-wrapper {
-      margin: 2rem 0;
-      overflow-x: auto;
-    }
-    table {
+
+    .nav-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
       width: 100%;
-      border-collapse: collapse;
-      background: #fff;
+      background: white;
+      border-bottom: 1px solid var(--line);
+      display: none;
     }
-    th, td {
-      border: 1px solid #ddd;
-      padding: 1rem;
-      text-align: left;
+
+    .nav-menu.open { display: block; }
+
+    .nav-menu ul { list-style: none; padding: 1rem; }
+    .nav-menu li a {
+      display: block;
+      padding: 0.8rem;
+      text-decoration: none;
+      color: var(--ink);
+      border-bottom: 1px solid #f0f0f0;
     }
-    th {
-      background-color: #f5f5f5;
-      color: var(--navy);
-      font-weight: bold;
+
+    /* ヒーロー & カテゴリナビ */
+    .hero { text-align: center; padding: 4rem 1.5rem 2rem; }
+    .hero h1 { font-size: 2.2rem; margin-bottom: 1rem; }
+
+    .category-nav {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
     }
-    .highlight-box { 
-      background: #f9f9f9; 
-      border: 1px solid #ddd; 
-      padding: 1.5rem; 
-      border-radius: 4px; 
-      margin: 2rem 0; 
+
+    .cat-btn {
+      text-decoration: none;
+      background: white;
+      border: 1px solid var(--line);
+      padding: 0.5rem 1.2rem;
+      border-radius: 20px;
+      color: var(--ink);
+      font-size: 0.85rem;
+      transition: 0.2s;
     }
-    .highlight-box h4 { 
-      margin-top: 0; 
-      color: var(--navy); 
-      margin-bottom: 1rem;
+
+    .cat-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* 記事グリッド */
+    .content { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem 5rem; }
+    .section-title {
+      font-size: 1.4rem;
+      margin: 3rem 0 1.5rem;
+      border-bottom: 2px solid var(--gold);
+      display: inline-block;
     }
-    .highlight-box ul {
-      margin: 0;
-      padding-left: 1.5rem;
+
+    .article-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
     }
-    .highlight-box li {
-      margin-bottom: 0.5rem;
+
+    .article-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
     }
+
+    .article-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+
+    .article-thumb {
+      height: 120px;
+      background: #fdfaf5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .article-body { padding: 1.5rem; }
+    .article-cat { font-size: 0.7rem; color: var(--gold); font-weight: bold; }
+    .article-title { font-size: 1.1rem; margin: 0.5rem 0; font-weight: 600; }
+    .article-desc { font-size: 0.85rem; color: #666; }
+
+    /* 近日公開スタイル */
+    .coming-soon { opacity: 0.6; pointer-events: none; border-style: dashed; }
+
+    footer { text-align: center; padding: 3rem; border-top: 1px solid var(--line); color: #888; font-size: 0.8rem; }
   </style>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KXDVRJGC"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <nav class="site-nav">
+    <div class="nav-container">
+      <a href="#" class="site-logo">ご祝儀・香典 お手本メーカー</a>
+      <button class="hamburger" id="h-btn">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-menu" id="n-menu">
+      <ul>
+        <li><a href="#">💍 結婚祝い</a></li>
+        <li><a href="#">⚱️ 不祝儀</a></li>
+        <li><a href="#">👶 出産・お宮参り</a></li>
+        <li><a href="#" style="color: #aaa;">🎓 入学・卒業(近日公開)</a></li>
+        <li><a href="#">📚 マナーコラム</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  <header class="article-header">
-    <div style="font-size: 0.9rem; color: var(--gold); font-weight: bold; margin-bottom: 1rem;">結婚・お祝いの作法</div>
-    <h1 class="article-title">祝儀の金額相場と「連名・プレゼント」のマナー。<br>迷わず準備するための適正解</h1>
-  </header>
+  <section class="hero">
+    <h1>マナーコラム</h1>
+    <p>相手を思いやる心を、正しい形にするための道しるべ。</p>
+  </section>
 
-  <div class="content-body">
-    <p>結婚式のご祝儀は、新郎新婦との関係性や、個人の年齢・立場によって目安となる金額が変わります。いざという時に迷わないよう、基本となる相場と、品物を贈る際のマナーを整理しました。</p>
+  <nav class="category-nav">
+    <a href="#wedding" class="cat-btn">💍 お祝いの作法</a>
+    <a href="#funeral" class="cat-btn">⚱️ 葬儀の作法</a>
+    <a href="#honne" class="cat-btn">💬 ぶっちゃけ話</a>
+  </nav>
 
-    <h2>相手別・ご祝儀の基本相場</h2>
-    <p>一般的なご祝儀の相場は以下の通りです。基本的には「割り切れない」奇数の金額を包むのがマナーとされています。</p>
-
-    <div class="table-wrapper">
-      <table>
-        <tr>
-          <th>関係性</th>
-          <th>金額の目安</th>
-          <th>備考</th>
-        </tr>
-        <tr>
-          <td>友人・同僚</td>
-          <td>30,000円</td>
-          <td>最も一般的な金額です。20代〜30代であれば3万円が標準となります。</td>
-        </tr>
-        <tr>
-          <td>上司・恩師</td>
-          <td>30,000円 〜 50,000円</td>
-          <td>自身の年齢や役職、相手との関係性の深さによって調整します。主賓や乾杯の挨拶を頼まれた場合は多めに包むのが一般的です。</td>
-        </tr>
-        <tr>
-          <td>兄弟・姉妹</td>
-          <td>50,000円 〜 100,000円</td>
-          <td>親族間のルールがある場合も多いため、事前に家族と相談することをおすすめします。</td>
-        </tr>
-        <tr>
-          <td>夫婦で出席する場合</td>
-          <td>50,000円 または 70,000円</td>
-          <td>2人分の料理・引き出物代を考慮し、奇数になるように包みます。（※偶数ですが、8万円は「末広がり」として近年は許容される傾向にあります）</td>
-        </tr>
-      </table>
+  <div class="content">
+    <h2 class="section-title" id="wedding">💍 結婚・お祝いの作法</h2>
+    <div class="article-grid">
+      <a href="#" class="article-card">
+        <div class="article-thumb">💰</div>
+        <div class="article-body">
+          <span class="article-cat">基本マナー</span>
+          <h3 class="article-title">ご祝儀の金額相場と「NGな数字」マナー</h3>
+          <p class="article-desc">友人・親族など相手別の相場表と、避けるべき数字を解説。</p>
+        </div>
+      </a>
+      <a href="#" class="article-card">
+        <div class="article-thumb">💴</div>
+        <div class="article-body">
+          <span class="article-cat">基本マナー</span>
+          <h3 class="article-title">祝儀袋の正しい包み方と新札の向き</h3>
+          <p class="article-desc">迷いやすいお札の入れ方を図解で分かりやすく解説します。</p>
+        </div>
+      </a>
     </div>
 
-    <h2>「連名」でご祝儀を贈る場合の金額感とマナー</h2>
-    <p>職場の同僚有志や、サークルの友人たちでお金を出し合って一つのお祝いを贈る「連名」。出席しない場合のお祝いとしてもよく使われますが、金額の設定には少し注意が必要です。</p>
-
-    <h3>1人あたりの金額の目安</h3>
-    <p>連名の場合、1人あたりの金額は<strong>「3,000円」「5,000円」「10,000円」</strong>など、キリの良い数字にするのが一般的です。お金を集める幹事の負担を減らすためにも、端数が出ないように設定しましょう。</p>
-
-    <h3>合計金額の注意点</h3>
-    <p>集まった合計金額が、後述する<strong>「NGな数字（4や9）」</strong>にならないように調整が必要です。例えば、1人1万円ずつ出し合って4人になった場合、合計が4万円になってしまいます。その場合は「1人7,500円にして合計3万円にする」か、「現金を少し減らし、残りでプレゼントを買って添える」などの工夫をします。</p>
-
-
-    <h2>ご祝儀とは別に「プレゼント（お祝いの品）」を贈る場合</h2>
-    <p>「ご祝儀の相場は包むけれど、親友だから特別に品物も贈りたい」または「連名でプレゼントを贈る」場合の、スマートなタイミングと選び方を解説します。</p>
-
-    <h3>渡すベストなタイミング</h3>
-    <p>結婚式当日にプレゼントを持参するのは、新郎新婦の帰りの荷物になってしまうため<strong>NG</strong>です。<br>
-    基本的には、式の1〜2ヶ月前から、遅くとも式の1ヶ月後までに<strong>自宅へ配送する</strong>のがマナーです。もし新居へ遊びに行く機会があれば、手土産と一緒に直接渡すのも大変喜ばれます。</p>
-
-    <h3>センスが光る！喜ばれるプレゼントの選び方</h3>
-    <p>お祝いの品は「自分では買わないけれど、もらうと嬉しいちょっと良いもの」が鉄則です。</p>
-    <ul>
-      <li><strong>絶対に割れないペア食器</strong>：<br>本来、結婚祝いで「割れ物（陶器など）」は関係が壊れることを連想させるためタブーとされてきました。しかし、あえて「割れない素材（上質な木製や特殊樹脂など）」で作られたペアプレートなどを選ぶのは、「縁起の良さ」と「実用性」を兼ね備えた、非常にセンスのある選択として一目置かれます。</li>
-      <li><strong>ちょっと贅沢な「消え物」（ワインとおつまみ等）</strong>：<br>形に残るものは相手の好みが分かれますが、新居で二人が楽しめる上質なお酒やグルメのセットは、負担にならず喜ばれる定番です。</li>
-      <li><strong>上質な日用品（高級タオルなど）</strong>：<br>糸を紡いで作るタオルは「縁を結ぶ」という意味があり、定番の縁起物です。</li>
-    </ul>
-
-    <h2>絶対に避けるべき「NGな数字」</h2>
-    <p>お祝い事において、以下の数字は縁起が悪いとされるため、ご祝儀の金額において必ず避けてください。</p>
-    <ul>
-      <li><strong>「4」（死を連想させる）</strong>：4万円などを包むのは厳禁です。</li>
-      <li><strong>「9」（苦を連想させる）</strong>：9万円なども同様に避けましょう。</li>
-      <li><strong>「偶数」（割り切れる＝別れる）</strong>：ただし、「2万円」は「ペア」という意味合いで近年は容認されつつあり（その場合、お札は1万円札1枚と5千円札2枚の計3枚にするなどの工夫をすることもあります）、また「8万円」は末広がりで縁起が良いとされています。</li>
-    </ul>
-
-    <h2>まとめ</h2>
-    <p>ご祝儀の金額やプレゼントは、マナーを守りつつも「お祝いしたい」という気持ちが一番大切です。相場を一つの基準として参考にしながら、無理のない範囲で、新郎新婦の門出を心から祝福しましょう。</p>
+    <h2 class="section-title" id="honne">💬 ぶっちゃけ話</h2>
+    <div class="article-grid">
+      <a href="#" class="article-card">
+        <div class="article-thumb">📊</div>
+        <div class="article-body">
+          <span class="article-cat">禁断コラム</span>
+          <h3 class="article-title">結婚式を「黒字化」するP/L管理術</h3>
+          <p class="article-desc">式場ビジネスの裏側を突き、賢くコストを最適化する戦略。</p>
+        </div>
+      </a>
+      <a href="#" class="article-card coming-soon">
+        <div class="article-thumb">💎</div>
+        <div class="article-body">
+          <span class="article-cat">近日公開</span>
+          <h3 class="article-title">5大ジュエラー攻略！婚約指輪の買い方</h3>
+          <p class="article-desc">定価で買わないための交渉術と外商ルートの活用法。</p>
+        </div>
+      </a>
+    </div>
   </div>
+
+  <footer>© ご祝儀・香典 お手本メーカー</footer>
+
+  <script>
+    const btn = document.getElementById('h-btn');
+    const menu = document.getElementById('n-menu');
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
