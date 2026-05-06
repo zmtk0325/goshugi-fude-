@@ -1,58 +1,665 @@
-<!-- ヒーローセクション：シンプルで誠実な導入 -->
-<section class="hero" style="padding: 3rem 1rem; text-align: center; background-color: var(--paper);">
-  <h1 style="font-family: 'Noto Serif JP', serif; color: var(--navy);">コラム：人生の節目を整える</h1>
-  <p style="max-width: 600px; margin: 1rem auto; color: #555; line-height: 1.8;">
-    お祝いや弔いの場において、迷いをなくし、大切な人への想いを正しく届けるための知恵をまとめています。
-  </p>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KXDVRJGC');</script>
+<!-- End Google Tag Manager -->
+  
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>マナーコラム | ご祝儀・香典 お手本メーカー</title>
+<meta name="description" content="結婚式や葬儀、出産祝いなどののし袋・香典袋のマナーをわかりやすく解説。迷ったときの道しるべとしてご活用ください。">
+<meta name="author" content="zmtk0325">
+
+<link rel="canonical" href="https://zmtk0325.github.io/goshugi-fude-/column/">
+
+<!-- OGP -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zmtk0325.github.io/goshugi-fude-/column/">
+<meta property="og:title" content="マナーコラム | ご祝儀・香典 お手本メーカー">
+<meta property="og:description" content="冠婚葬祭ののし袋・香典袋のマナーを解説。迷ったときの道しるべとしてご活用ください。">
+<meta property="og:site_name" content="ご祝儀・香典 お手本メーカー">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://zmtk0325.github.io/goshugi-fude-/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yuji+Mai&family=Shippori+Mincho:wght@400;600&family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #1a1410;
+    --paper: #f5f0e6;
+    --paper-warm: #ebe2d0;
+    --gold: #b8860b;
+    --gold-soft: #d4a82c;
+    --crimson: #8b1a1a;
+    --line: #c9bfa8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* 💡 サイト全体の基本フォントをKlee Oneに */
+  body {
+    font-family: 'Klee One', serif;
+    background: var(--paper);
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(184, 134, 11, 0.04) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(139, 26, 26, 0.03) 0%, transparent 50%);
+    color: var(--ink);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* ナビ */
+  .site-nav {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0.8rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* 💡 ロゴをKlee Oneに */
+  .site-logo {
+    font-family: 'Klee One', serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+  }
+
+  .hamburger {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--ink);
+    transition: all 0.3s ease;
+  }
+
+  .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+  .nav-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+  }
+
+  .nav-menu.open {
+    max-height: 600px;
+    border-top: 1px solid var(--line);
+  }
+
+  .nav-menu ul {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    list-style: none;
+  }
+
+  .nav-menu a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0.5rem;
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 0.95rem;
+    border-bottom: 1px dashed rgba(201, 191, 168, 0.5);
+    transition: background 0.2s;
+  }
+
+  .nav-menu a:hover { background: rgba(184, 134, 11, 0.05); }
+  .nav-menu a.nav-current { color: var(--gold); font-weight: 600; }
+  .nav-menu a.nav-coming { color: #8a7d6a; cursor: default; pointer-events: none; }
+
+  .badge {
+    font-size: 0.7rem;
+    background: var(--gold);
+    color: white;
+    padding: 0.15rem 0.5rem;
+    border-radius: 10px;
+    letter-spacing: 0.05em;
+  }
+
+  .nav-divider {
+    height: 1px;
+    background: var(--line);
+    margin: 0.5rem 0;
+    list-style: none;
+  }
+
+  /* パンくず */
+  .breadcrumb {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0.8rem 1.5rem 0.4rem;
+    font-size: 0.8rem;
+    color: #8a7d6a;
+  }
+
+  .breadcrumb ol { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; }
+  .breadcrumb li { display: flex; align-items: center; gap: 0.4rem; }
+  .breadcrumb li:not(:last-child)::after { content: '›'; color: var(--gold); margin-left: 0.4rem; }
+  .breadcrumb a { color: #5a4d3a; text-decoration: none; }
+  .breadcrumb a:hover { color: var(--gold); text-decoration: underline; }
+  .breadcrumb [aria-current="page"] { color: var(--ink); font-weight: 600; }
+
+  /* ヒーローセクション */
+  .hero {
+    text-align: center;
+    padding: 4rem 1.5rem;
+    background: linear-gradient(180deg, transparent 0%, rgba(184, 134, 11, 0.02) 100%);
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* 💡 ヒーロー大見出しをKlee Oneに */
+  .hero h1 {
+    font-family: 'Klee One', serif;
+    font-weight: 600;
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    color: var(--ink);
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+    color: #5a4d3a;
+    line-height: 2;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* カテゴリナビ */
+  .category-nav {
+    max-width: 900px;
+    margin: -1.5rem auto 3rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 10;
+  }
+
+  /* 💡 カテゴリボタンもKlee Oneに */
+  .cat-btn {
+    background: white;
+    border: 1px solid var(--line);
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    font-family: 'Klee One', serif;
+    font-size: 0.9rem;
+    color: var(--ink);
+    text-decoration: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    transition: all 0.2s;
+  }
+
+  .cat-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  /* コラム一覧 */
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 5rem;
+  }
+
+  /* 💡 セクションタイトルをKlee Oneに */
+  .section-title {
+    font-family: 'Klee One', serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+  }
+
+  .article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  /* 有効な記事カード */
+  .article-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--ink);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .article-card:hover {
+    box-shadow: 0 8px 24px rgba(60, 40, 20, 0.08);
+    transform: translateY(-4px);
+  }
+
+  .article-thumb {
+    height: 140px;
+    background: rgba(184, 134, 11, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* 公開予定（グレーアウト） */
+  .article-card.coming-soon {
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px dashed var(--line);
+    box-shadow: none;
+    color: #8a7d6a;
+    pointer-events: none;
+    user-select: none;
+    position: relative;
+    transform: none;
+  }
+
+  .article-card.coming-soon .article-thumb {
+    background: #ebebe8;
+    color: #b5ad9e;
+    border-bottom: 1px dashed var(--line);
+  }
+
+  .article-card.coming-soon::after {
+    content: '公開予定';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #6a6660;
+    color: white;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  .article-body {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* 💡 カテゴリラベルもKlee Oneに */
+  .article-cat {
+    font-family: 'Klee One', serif;
+    font-size: 0.7rem;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 0.1rem 0.5rem;
+    border-radius: 10px;
+    display: inline-block;
+    align-self: flex-start;
+    margin-bottom: 0.8rem;
+  }
+
+  .article-card.coming-soon .article-cat {
+    color: #a09786;
+    border-color: #c9bfa8;
+  }
+
+  /* 💡 記事タイトルをKlee Oneに */
+  .article-title {
+    font-family: 'Klee One', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 0.8rem;
+  }
+
+  .article-card.coming-soon .article-title {
+    color: #6b5d4a;
+  }
+
+  .article-desc {
+    font-size: 0.85rem;
+    color: #6b5d4a;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .article-card.coming-soon .article-desc {
+    color: #a09786;
+  }
+
+  /* ご意見箱セクション */
+  .feedback-section {
+    background: white;
+    border: 1px dashed var(--gold);
+    padding: 3rem 2rem;
+    text-align: center;
+    border-radius: 8px;
+    margin-top: 2rem;
+  }
+
+  /* 💡 ご意見箱の見出しもKlee Oneに */
+  .feedback-section h2 {
+    font-family: 'Klee One', serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+
+  .feedback-section p {
+    font-size: 0.9rem;
+    color: #5a4d3a;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+  }
+
+  .feedback-form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* 💡 textareaをKlee Oneに */
+  .feedback-form textarea {
+    width: 100%;
+    padding: 1rem;
+    font-family: 'Klee One', serif;
+    font-size: 1rem;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    resize: vertical;
+    background: #faf9f7;
+    transition: border 0.2s;
+  }
+
+  .feedback-form textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+    background: white;
+  }
+
+  /* 💡 ボタンをKlee Oneに */
+  .feedback-btn {
+    background: var(--ink);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-family: 'Klee One', serif;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .feedback-btn:hover {
+    background: #3a2f29;
+  }
+
+  .form-note {
+    font-size: 0.7rem;
+    color: #a09786;
+    margin-top: 0.5rem;
+  }
+
+  /* フッター */
+  footer {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    font-size: 0.8rem;
+    color: #8a7d6a;
+    border-top: 1px solid var(--line);
+  }
+
+  footer a { color: #5a4d3a; text-decoration: none; }
+  footer a:hover { color: var(--gold); text-decoration: underline; }
+
+  @media (max-width: 600px) {
+    .hero { padding: 3rem 1rem; }
+    .category-nav { flex-direction: column; gap: 0.5rem; margin-top: 1.5rem; }
+    .feedback-section { padding: 2rem 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KXDVRJGC"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+  
+<nav class="site-nav">
+  <div class="nav-container">
+    <a href="/goshugi-fude-/" class="site-logo">ご祝儀・香典 お手本メーカー</a>
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="nav-menu" id="navMenu">
+    <ul>
+      <li><a href="/goshugi-fude-/">💍 結婚祝い</a></li>
+      <li><a href="/goshugi-fude-/soushiki/">⚱️ 不祝儀(香典袋)</a></li>
+      <li><a href="/goshugi-fude-/baby/">👶 出産・お宮参り</a></li>
+      <li><a href="/goshugi-fude-/otoshidama/">🎍 お年玉袋</a></li>
+      <li><a href="#" class="nav-coming">🎓 入学・卒業祝い <span class="badge">近日公開</span></a></li>
+      <li class="nav-divider"></li>
+      <li><a href="/goshugi-fude-/column/" class="nav-current">📚 マナーコラム</a></li>
+      <li><a href="/goshugi-fude-/about/">ℹ️ このサイトについて</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <ol>
+    <li><a href="/goshugi-fude-/">ホーム</a></li>
+    <li><span aria-current="page">マナーコラム</span></li>
+  </ol>
+</div>
+
+<!-- ヒーローセクション -->
+<section class="hero">
+  <h1>マナーコラム</h1>
+  <p>マナーは決して堅苦しい決まりごとではなく、<br>相手を思いやる心の表現です。<br>書き方や選び方に迷ったときの道しるべとしてご活用ください。</p>
 </section>
 
 <!-- カテゴリナビ -->
-<nav class="category-nav" style="display: flex; justify-content: center; gap: 20px; margin-bottom: 2rem;">
-  <a href="#wedding" style="color: #666; text-decoration: none; font-size: 0.9rem;">結婚・お祝い</a>
-  <a href="#funeral" style="color: #666; text-decoration: none; font-size: 0.9rem;">葬儀・法要</a>
+<nav class="category-nav">
+  <a href="#wedding" class="cat-btn">💍 結婚・お祝いの作法</a>
+  <a href="#funeral" class="cat-btn">⚱️ 葬儀・法要の作法</a>
+  <a href="#honne" class="cat-btn">💬 ぶっちゃけ話</a>
 </nav>
 
-<div class="content" style="max-width: 900px; margin: 0 auto; padding: 0 1rem; margin-bottom: 4rem;">
+<div class="content">
 
-  <!-- 結婚・お祝いセクション -->
-  <h2 id="wedding" style="font-size: 1.2rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; margin-top: 3rem; color: var(--navy);">結婚・お祝いの作法</h2>
-  <div class="article-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+  <!-- ============================================ -->
+  <!-- 💍 結婚・お祝いの作法 -->
+  <!-- ============================================ -->
+  <h2 class="section-title" id="wedding">💍 結婚・お祝いの作法</h2>
+  <div class="article-grid">
 
-    <a href="/goshugi-fude-/column/souba/" style="text-decoration: none; color: inherit; border: 1px solid #eee; padding: 1.5rem; transition: background 0.2s;">
-      <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">祝儀・香典の金額相場。損も失礼もしないための適正解</h3>
-      <p style="font-size: 0.85rem; color: #666; line-height: 1.6;">友人・親族・会社関係。相手別の「相場」を徹底分析し、避けるべき数字の正体を解き明かします。</p>
+    <!-- 相場 -->
+    <a href="/goshugi-fude-/column/souba/" class="article-card">
+      <div class="article-thumb">💰</div>
+      <div class="article-body">
+        <span class="article-cat">基本のマナー</span>
+        <h3 class="article-title">【最新】ご祝儀・香典の金額相場と「NGな数字」マナー完全版</h3>
+        <p class="article-desc">友人・親族・会社関係など相手別の相場一覧表と、避けるべき「NGな数字(4・9・偶数)」を詳しく解説します。</p>
+      </div>
     </a>
 
-    <a href="/goshugi-fude-/column/osatsu/" style="text-decoration: none; color: inherit; border: 1px solid #eee; padding: 1.5rem; transition: background 0.2s;">
-      <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">恥をかかない、祝儀袋の正しい包み方と新札の向き</h3>
-      <p style="font-size: 0.85rem; color: #666; line-height: 1.6;">迷いやすいお札の入れ方や向きを図解で分かりやすく解説。自信を持って当日の受付を迎えましょう。</p>
+    <!-- お札 -->
+    <a href="/goshugi-fude-/column/osatsu/" class="article-card">
+      <div class="article-thumb">💴</div>
+      <div class="article-body">
+        <span class="article-cat">基本のマナー</span>
+        <h3 class="article-title">恥をかかない、祝儀袋の正しい包み方と新札の向き</h3>
+        <p class="article-desc">迷いやすいお札の入れ方や向きを図解で分かりやすく解説。自信を持って当日の受付を迎えましょう。</p>
+      </div>
     </a>
 
-    <a href="/goshugi-fude-/column/renmei/" style="text-decoration: none; color: inherit; border: 1px solid #eee; padding: 1.5rem; transition: background 0.2s;">
-      <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">【図解】3名・4名以上の連名。バランス崩壊を防ぐ配置ガイド</h3>
-      <p style="font-size: 0.85rem; color: #666; line-height: 1.6;">複数名で贈る際の正しい配置を解説。「夫と妻、どっちが右？」などの疑問を解消します。</p>
-    </a>
-
-    <a href="/goshugi-fude-/column/honne/" style="text-decoration: none; color: inherit; border: 1px solid #eee; padding: 1.5rem; transition: background 0.2s;">
-      <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">【本音暴露】お札の向き、ぶっちゃけ見てる？ 既婚者100人に聞いたリアル</h3>
-      <p style="font-size: 0.85rem; color: #666; line-height: 1.6;">「新札じゃなかったらガッカリする？」もらう側の心理を調査し、マナーの取捨選択を考えます。</p>
-    </a>
-  </div>
-
-  <!-- 葬儀・法要セクション -->
-  <h2 id="funeral" style="font-size: 1.2rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; margin-top: 4rem; color: var(--navy);">葬儀・法要の作法</h2>
-  <div class="article-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
-
-    <a href="/goshugi-fude-/column/soushiki/" style="text-decoration: none; color: inherit; border: 1px solid #eee; padding: 1.5rem; transition: background 0.2s;">
-      <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">「御霊前」と「御仏前」の違いは？ 最も安全な選択</h3>
-      <p style="font-size: 0.85rem; color: #666; line-height: 1.6;">四十九日を境に変わる表書きのルール。宗派が分からない時に、失礼をゼロにする表書きとは。</p>
-    </a>
-
-    <a href="/goshugi-fude-/column/usuzumi/" style="text-decoration: none; color: inherit; border: 1px solid #eee; padding: 1.5rem; transition: background 0.2s;">
-      <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">香典の「薄墨」はいつまで使うべき？ 迷いやすい筆ペンのマナー</h3>
-      <p style="font-size: 0.85rem; color: #666; line-height: 1.6;">通夜・告別式から法要まで、シーン別に適切な墨の濃さと、その背景にある意味を解説します。</p>
+    <!-- 連名 -->
+    <a href="/goshugi-fude-/column/renmei/" class="article-card">
+      <div class="article-thumb">👥</div>
+      <div class="article-body">
+        <span class="article-cat">基本のマナー</span>
+        <h3 class="article-title">【図解】夫婦連名・3名以上の連名でのご祝儀袋の書き方</h3>
+        <p class="article-desc">「夫と妻、どっちが右？」「4人以上の場合はどうするの？」連名で贈る際の正しい配置を分かりやすく解説します。</p>
+      </div>
     </a>
 
   </div>
+
+  <!-- ============================================ -->
+  <!-- ⚱️ 葬儀・法要の作法 -->
+  <!-- ============================================ -->
+  <h2 class="section-title" id="funeral">⚱️ 葬儀・法要の作法</h2>
+  <div class="article-grid">
+
+    <!-- 御霊前と御仏前 -->
+    <a href="/goshugi-fude-/column/soushiki/" class="article-card">
+      <div class="article-thumb">🙏</div>
+      <div class="article-body">
+        <span class="article-cat">葬儀・法要</span>
+        <h3 class="article-title">「御霊前」と「御仏前」の違いは？迷った時の選び方</h3>
+        <p class="article-desc">四十九日を境に変わる表書きのルール。宗派が分からない時に一番安全に使える表書きをご紹介します。</p>
+      </div>
+    </a>
+
+    <!-- 薄墨 -->
+    <a href="/goshugi-fude-/column/usuzumi/" class="article-card">
+      <div class="article-thumb">🖋️</div>
+      <div class="article-body">
+        <span class="article-cat">葬儀・法要</span>
+        <h3 class="article-title">なぜ香典は「薄墨」で書くの？いつまで薄墨を使うべきか</h3>
+        <p class="article-desc">「涙で墨が薄まった」という日本ならではの美しい心遣い。薄墨を使うべき期間と、ボールペンがNGな理由を解説します。</p>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 💬 ぶっちゃけ話 -->
+  <!-- ============================================ -->
+  <h2 class="section-title" id="honne">💬 ぶっちゃけ話</h2>
+  <div class="article-grid">
+
+    <!-- 本音暴露お札 -->
+    <a href="/goshugi-fude-/column/honne/" class="article-card">
+      <div class="article-thumb">🗣️</div>
+      <div class="article-body">
+        <span class="article-cat">ぶっちゃけ話</span>
+        <h3 class="article-title">【本音暴露】お札の向き、ぶっちゃけ見てる？既婚者20人に聞いたリアル</h3>
+        <p class="article-desc">「新札じゃなかったらガッカリする？」もらう側の心理を調査し、マナーの取捨選択を考えます。</p>
+      </div>
+    </a>
+
+    <!-- 結婚式黒字化P/L管理術 -->
+    <a href="/goshugi-fude-/column/wedding-cost/" class="article-card">
+      <div class="article-thumb">📊</div>
+      <div class="article-body">
+        <span class="article-cat">ぶっちゃけ話</span>
+        <h3 class="article-title">【禁断】結婚式を「黒字化」するP/L管理術。現役コンサルが教える式場・ハイブランド攻略</h3>
+        <p class="article-desc">BIG4シニアコンサルが実践した、結婚式場と5大ジュエラーを完全攻略する交渉術。持ち込み料無料、ドレス資産運用、KPI逆手取り。</p>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- ご意見箱(フィードバックフォーム) -->
+  <section class="feedback-section">
+    <h2>📮 サイトへのご意見箱</h2>
+    <p>
+      「こんな機能が欲しい」「ここが使いにくかった」「こんな記事を書いてほしい」など、<br>
+      ツールを使ってみたご感想をぜひお聞かせください。<br>
+      いただいた声は、より良いサイト作りのために必ず目を通させていただきます。
+    </p>
+    
+    <!-- ▼ action="" の中にFormspreeのURLを入れます ▼ -->
+    <form class="feedback-form" action="https://formspree.io/f/YOUR_ENDPOINT_HERE" method="POST">
+      <textarea name="message" rows="5" placeholder="例：入学祝い用のページも作ってほしいです！ / 連名の時に文字の大きさが少し変でした。" required></textarea>
+      
+      <!-- 隠しフィールド(どのページから送られたか記録) -->
+      <input type="hidden" name="_subject" value="【祝儀袋 筆耕】ご意見箱からの新着メッセージ">
+      
+      <button type="submit" class="feedback-btn">開発者にメッセージを送る</button>
+      <p class="form-note">※返信は行っておりませんのでご了承ください。※お名前やメールアドレスの入力は不要です(匿名で送信されます)。</p>
+    </form>
+  </section>
 
 </div>
+
+<footer>
+  <p>© ご祝儀・香典 お手本メーカー — <a href="/goshugi-fude-/">トップへ戻る</a></p>
+</footer>
+
+<script>
+  // ハンバーガーメニュー
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('navMenu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navMenu.classList.toggle('open');
+    hamburger.setAttribute('aria-label', navMenu.classList.contains('open') ? 'メニューを閉じる' : 'メニューを開く');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.site-nav') && navMenu.classList.contains('open')) {
+      hamburger.classList.remove('open');
+      navMenu.classList.remove('open');
+      hamburger.setAttribute('aria-label', 'メニューを開く');
+    }
+  });
+</script>
+
+</body>
+</html>
