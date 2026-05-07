@@ -719,7 +719,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="uchibukuro-ura font-yuji" id="uchibukuroUra" style="display:none;">
       <span class="uchibukuro-label">― 内袋（裏）―</span>
       <div class="ura-content">
-        <div class="postal-area" id="postalDisplay">〒100-0001</div>
+        <div class="postal-area" id="postalDisplay">〒一〇〇-〇〇〇一</div>
         <div class="address-area" id="addressDisplay">東京都千代田区千代田一丁目一番地</div>
         <div class="ura-name-area" id="uraNameDisplay">山田 太郎</div>
       </div>
@@ -830,6 +830,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   function numToKanji(str) { return str.replace(/[0-9]/g, d => kanjiMap[d]); }
   function formatAddress(addr) { if (!addr) return ''; return numToKanji(addr); }
 
+  /**
+   * 郵便番号を縦書き表示用にフォーマットする
+   * - 全角数字を半角に正規化
+   * - 各種ハイフン類を半角ハイフンに統一
+   * - ハイフンが無く7桁の数字なら、3桁目と4桁目の間に自動でハイフンを補う
+   * - 数字を漢数字に変換
+   */
+  function formatPostal(raw) {
+    if (!raw) return '';
+    // 全角数字 → 半角数字
+    let s = raw.replace(/[０-９]/g, ch => String.fromCharCode(ch.charCodeAt(0) - 0xFEE0));
+    // 各種ハイフン類 → 半角ハイフン
+    s = s.replace(/[‐ー－—–−ｰ]/g, '-');
+    // 余分な空白除去
+    s = s.replace(/\s+/g, '');
+
+    // ハイフンを除いた数字部分が7桁ならハイフンが無くても 3-4 形式に整形
+    const digitsOnly = s.replace(/-/g, '');
+    if (!s.includes('-') && /^\d{7}$/.test(digitsOnly)) {
+      s = digitsOnly.slice(0, 3) + '-' + digitsOnly.slice(3);
+    }
+
+    // 数字 → 漢数字
+    return '〒' + s.replace(/[0-9]/g, d => kanjiMap[d]);
+  }
+
   function toKyuji(num) {
     if (!num || num <= 0) return '';
     const n = parseInt(num);
@@ -908,7 +934,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     amountDisplay.textContent = kyuji || '金額';
 
     addressDisplay.textContent = formatAddress(address);
-    postalDisplay.textContent = '〒' + postal.replace(/[0-9]/g, d => kanjiMap[d]);
+    postalDisplay.textContent = formatPostal(postal);
   }
 
   [titleSelect, nameInput, amountInput, addressInput, postalInput].forEach(el => {
